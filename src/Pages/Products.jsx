@@ -1,14 +1,20 @@
+
 import Header from "../components/Header"
 import Navbar from "../components/Navbar"
 import Footer from "../components/footer"
 import ProductCategory from "../components/ProductCategory"
 import ProductList from "../components/ProductList"
+import { Helmet } from 'react-helmet'
 
 export function Products() {
   return (
-    <div>
+    <> 
+    <Helmet>
+                <meta charSet="utf-8" />
+                <title>Productos</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
       <Header />
-      <Navbar />
       <div className="container">
         <div className="row mx-auto">
 
@@ -27,7 +33,7 @@ export function Products() {
 
       <Footer />
 
-    </div>
+    </>
 
   )
 }
