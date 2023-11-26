@@ -14,7 +14,6 @@ import Navbar from './components/Navbar/Navbar.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
        
     <CartProvider>
       <UserProvider>
@@ -22,5 +21,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <RouterProvider router={router} />
       </UserProvider>
     </CartProvider>
-  </React.StrictMode>
 )
