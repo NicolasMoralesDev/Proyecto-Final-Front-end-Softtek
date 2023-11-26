@@ -1,0 +1,33 @@
+.loginButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fd611a;
+    border: none;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.8rem;
+    cursor: pointer;
+    outline: none;
+    height: 1.8rem;
+    min-width: 10rem;
+    padding: 0 1rem;
+}
+
+.loginButton:hover{
+    background-color: #ff7a32;
+}
+
+.loginButton:active{
+    background-color: #e65a0f;
+}
+
+.loginText{
+    margin-left: 5px;
+}
+
+.userLogo{
+    font-size: 1.1rem;
+}
