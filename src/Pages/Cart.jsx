@@ -1,18 +1,18 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Register = () => {
+const Cart = () => {
     return (
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>registro</title>
+                <title>carrito</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div>Register</div>
+            <div>Cart</div>
         </>
 
     )
 }
 
-export default Register
+export default Cart
