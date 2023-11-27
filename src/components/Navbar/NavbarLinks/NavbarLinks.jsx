@@ -18,23 +18,23 @@ const NavbarLinks = () => {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
           <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='/'>
+              <Link className='nav-link mx-5' to='/'>
                 Home
-              </a>
+              </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='/productos'>
+              <Link className='nav-link mx-5' to='/productos'>
                 Productos
-              </a>
-            </li>
-            <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='#'>
-                Arma tu PC
-              </a>
+              </Link>
             </li>
             <li className='nav-item text-center mx-2'>
               <Link className='nav-link mx-5' to='#'>
-                Help
+                Arma tu PC
+              </Link>
+            </li>
+            <li className='nav-item text-center mx-2'>
+              <Link className='nav-link mx-5' to='#'>
+                Ayuda
               </Link>
             </li>
           </ul>
