@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavbarLinks = () => {
   return (
     <nav className='navbar navbar-expand-lg' style={{backgroundColor: "gray"}}>
@@ -16,19 +18,19 @@ const NavbarLinks = () => {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='products'>
+              <Link to="productos" className='nav-link mx-5'>
                 Products
-              </a>
+              </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='#'>
+              <Link className='nav-link mx-5' to='#'>
                 Build your PC
-              </a>
+              </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='#'>
+              <Link className='nav-link mx-5' to='#'>
                 Help
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
