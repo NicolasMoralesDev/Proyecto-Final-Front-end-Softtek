@@ -21,7 +21,7 @@ const ProductList = () => {
     return (
         <>
         { products.map( i => 
-         <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }}>
+         <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.id}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={i.imgUrl} className="img-fluid rounded-start" alt={i.name}></img>
