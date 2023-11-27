@@ -7,12 +7,20 @@ import Modal from "../../Modal/Modal";
 import LoginForm from "../../LoginForm/LoginForm";
 import RegisterForm from "../../RegisterForm/RegisterForm";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const UserWidget = () => {
 
   // Get the user and the functions from the custom hook
   const { user, isAdmin, isLogged, logout } = useUser()
   
+  // Navigate to the user panel
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
+
   return (
     <>
 
@@ -30,7 +38,7 @@ const UserWidget = () => {
           <Dropdown.Menu>
             <Dropdown.Item><Link to="user_panel">Mi cuenta</Link></Dropdown.Item>
             { isAdmin() && <Dropdown.Item>Dashboard</Dropdown.Item> }  {/* If the user is admin, show the dashboard option */}
-            <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         :  
