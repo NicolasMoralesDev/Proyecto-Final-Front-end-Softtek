@@ -1,8 +1,7 @@
 import { useUser } from "../../context/Hooks"
 import Dropdown from 'react-bootstrap/Dropdown';
-import styles from './UserWidget.module.css'
 import { FaUserCircle } from "react-icons/fa";
-
+import { Button } from "react-bootstrap";
 
 const UserWidget = () => {
 
@@ -39,12 +38,12 @@ const LoginButton = () => {
   const { login } = useUser();
 
   return (
-    <div className={styles.loginButton} onClick={login}>
-      <FaUserCircle className={styles.userLogo}/>
-      <p className={styles.loginText}>  INICIAR SESIÓN</p>
-    </div>
+    <Button onClick={login} className="d-flex align-items-center gap-2">
+      <FaUserCircle />
+      <p>Iniciar Sesión</p>
+    </Button>
   )
-}
+} 
 
 export default UserWidget
 

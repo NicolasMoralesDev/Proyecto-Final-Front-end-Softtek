@@ -2,10 +2,11 @@ import { Col, Row } from "react-bootstrap"
 import CartWidget from "../CartWidget/CartWidget"
 import SearchBar from "../SearchBar/SearchBar"
 import UserWidget from "../UserWidget/UserWidget"
+import NavbarLinks from "../NavbarLinks"
 
 const Navbar = () => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Row className="d-flex align-items-center justify-content-around gap-3 pt-2">
         <Col xs={7} sm={4} md={2} className="d-flex justify-content-center">
           <h1>Logo</h1>
@@ -17,6 +18,9 @@ const Navbar = () => {
           <UserWidget />
           <CartWidget />
         </Col>
+      </Row>
+      <Row>
+        <NavbarLinks />
       </Row>
     </div>
   );
