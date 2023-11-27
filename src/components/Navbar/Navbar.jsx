@@ -1,8 +1,8 @@
 import { Col, Row } from "react-bootstrap"
-import CartWidget from "../CartWidget/CartWidget"
-import SearchBar from "../SearchBar/SearchBar"
-import UserWidget from "../UserWidget/UserWidget"
-import NavbarLinks from "../NavbarLinks"
+import CartWidget from "./CartWidget/CartWidget"
+import SearchBar from "./SearchBar/SearchBar"
+import UserWidget from "./UserWidget/UserWidget"
+import NavbarLinks from "./NavbarLinks/NavbarLinks"
 
 const Navbar = () => {
   return (

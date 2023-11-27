@@ -1,6 +1,6 @@
 const NavbarLinks = () => {
   return (
-    <nav className='navbar navbar-expand-lg bg-body-tertiary' style={{backgroundColor: "gray"}}>
+    <nav className='navbar navbar-expand-lg' style={{backgroundColor: "gray"}}>
         <button
           className='navbar-toggler'
           type='button'
@@ -15,19 +15,14 @@ const NavbarLinks = () => {
 
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
-          <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='/'>
-                Home
-              </a>
-            </li>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='/productos'>
-                Productos
+              <a className='nav-link mx-5' href='products'>
+                Products
               </a>
             </li>
             <li className='nav-item text-center mx-2'>
               <a className='nav-link mx-5' href='#'>
-                Arma tu PC
+                Build your PC
               </a>
             </li>
             <li className='nav-item text-center mx-2'>

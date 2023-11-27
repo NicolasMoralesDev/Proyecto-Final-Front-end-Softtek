@@ -1,5 +1,5 @@
 import { BsCart4 } from 'react-icons/bs';
-import { useCart } from '../../context/Hooks.js'; 
+import { useCart } from '../../../context/Hooks.js'; 
 import styles from './CartWidget.module.css'; // Importar archivo CSS
 
 const CartWidget = () => {
