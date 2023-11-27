@@ -14,8 +14,6 @@ export default function Home(){
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
         <ProductsCarousel/>
-        <Footer/>
-  
       </>
     
     )
