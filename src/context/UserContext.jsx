@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { loginRequest, registerRequest, modifyUserRequest } from "../utils/fetchUser";
 
 export const UserContext = createContext(); // Create a context object
 
@@ -9,11 +10,14 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   
   // Mock login function. To test the 'user' role, you can change the role to 'admin'
-  const login = () => {
-    setUser({
-      fullName: 'John Doe',
-      role: 'user'
-    })
+  const login = (email, password) => {
+    loginRequest(email, password)
+      .then((res) => {
+        setUser(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // Mock logout function
@@ -25,12 +29,40 @@ export const UserProvider = ({ children }) => {
   // Check if the user is admin
   const isAdmin = () => user && user.role === 'admin' ? true : false;
   
+  const register = (user) => {
+    registerRequest(user)
+      .then((res) => {
+        setUser(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const modify = (user) => {
+    modifyUserRequest(user)
+      .then((res) => {
+        setUser(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const userOrders = () => {
+    console.log(user)
+    return user.orders;
+  }
+
   const values = {
     user,
     login,
     logout,
     isLogged,
-    isAdmin
+    isAdmin,
+    register,
+    userOrders,
+    modify
   };
   
   return (

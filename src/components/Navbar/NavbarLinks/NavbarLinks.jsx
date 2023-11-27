@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavbarLinks = () => {
   return (
     <nav className='navbar navbar-expand-lg' style={{backgroundColor: "gray"}}>
@@ -31,9 +33,9 @@ const NavbarLinks = () => {
               </a>
             </li>
             <li className='nav-item text-center mx-2'>
-              <a className='nav-link mx-5' href='#'>
+              <Link className='nav-link mx-5' to='#'>
                 Help
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
