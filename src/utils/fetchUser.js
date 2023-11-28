@@ -17,7 +17,9 @@ const mockOrders = [
       }
     ],
     total: 500,
-    createdAt: '2020-01-01T00:00:00.000Z'
+    createdAt: '2020-01-01T00:00:00.000Z',
+    address: '123 Main St',
+    phone: '1234567890'
   },
   {
     id: 2,
@@ -37,7 +39,9 @@ const mockOrders = [
       }
     ],
     total: 500,
-    createdAt: '2021-01-01T00:00:00.000Z'
+    createdAt: '2021-01-01T00:00:00.000Z',
+    address: '123 Main St',
+    phone: '1234567890'
   },
   {
     id: 3,
@@ -57,7 +61,9 @@ const mockOrders = [
       }
     ],
     total: 500,
-    createdAt: '2022-01-01T00:00:00.000Z'
+    createdAt: '2022-01-01T00:00:00.000Z',
+    address: '123 Main St',
+    phone: '1234567890'
   },
 ]
 
@@ -67,8 +73,6 @@ const mockUsers = [
     fullName: 'John Doe',
     email: 'user@mail.com',
     password: 'password',
-    phone: '1234567890',
-    address: '123 Main St',
     role: 'user',
     orders: mockOrders
   },{
@@ -76,8 +80,6 @@ const mockUsers = [
     fullName: 'Jane Smith',
     email: 'admin@mail.com',
     password: 'password',
-    phone: '1234567890',
-    address: '123 Main St',
     role: 'admin'
   }
 ]
