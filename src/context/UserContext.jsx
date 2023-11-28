@@ -50,7 +50,6 @@ export const UserProvider = ({ children }) => {
   };
 
   const userOrders = () => {
-    console.log(user)
     return user.orders;
   }
 

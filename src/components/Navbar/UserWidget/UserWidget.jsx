@@ -6,7 +6,6 @@ import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import LoginForm from "../../LoginForm/LoginForm";
 import RegisterForm from "../../RegisterForm/RegisterForm";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const UserWidget = () => {
 
@@ -36,7 +35,7 @@ const UserWidget = () => {
           </Dropdown.Toggle>
     
           <Dropdown.Menu>
-            <Dropdown.Item><Link to="user_panel">Mi cuenta</Link></Dropdown.Item>
+            <Dropdown.Item onClick={() => navigate('/user_panel')}>Mi cuenta</Dropdown.Item>
             { isAdmin() && <Dropdown.Item>Dashboard</Dropdown.Item> }  {/* If the user is admin, show the dashboard option */}
             <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
           </Dropdown.Menu>

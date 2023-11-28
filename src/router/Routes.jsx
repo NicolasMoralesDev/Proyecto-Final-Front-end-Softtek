@@ -5,7 +5,7 @@ import Products from '../Pages/Products';
 import Register from '../Pages/Register';
 import Cart from '../Pages/Cart';
 import Error from '../Pages/Error';
-import UserPanel from '../Pages/UserPanel';
+import UserPanel from '../Pages/UserPanel/UserPanel';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/footer';
