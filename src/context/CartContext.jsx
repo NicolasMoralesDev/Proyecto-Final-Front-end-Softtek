@@ -8,6 +8,7 @@ export const CartProvider = ({ children }) => {
 
   // Add a product to the cart
   const addToCart = (product) => {
+    localStorage.setItem( "cart", JSON.stringify([...cart, product])); 
     setCart([...cart, product]);
   };
   
@@ -19,7 +20,6 @@ export const CartProvider = ({ children }) => {
   // Get the total number of products in the cart. Its used in the CartWidget component
   const totalProducts = cart.reduce((acc, item) => acc + item.quantity, 4);
 
-  
   const values = {
     cart,
     addToCart,

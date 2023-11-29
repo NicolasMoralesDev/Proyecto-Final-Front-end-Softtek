@@ -8,7 +8,7 @@ const Error = () => {
 
     return (
         <>
-        <div id="error-page">
+        <div id="error-page" className='mb-3'>
              <Helmet>
                 <meta charSet="utf-8" />
                 <title>Error</title>
@@ -20,7 +20,7 @@ const Error = () => {
                     <h3 className='text-center'>
                    404 - page not found
                     </h3>
-                    <a title='volver' href={"/"} className='btn text-light  btn-orange-custom w-25'>volver</a>
+                    <a title='volver' href={"/"} className='btn text-light fw-bold  btn-orange-custom w-25'>volver</a>
                 </div>
 
             </div>

@@ -1,3 +1,10 @@
+
+
+:root{
+  --dropdown-min-width:2rem !important;
+}
+
+
 .cartWrapper {
   position: relative;
   width: 30px;
@@ -34,4 +41,8 @@
   color: #fff;
   background-color: #f00;
   border-radius: 50%;
+}
+
+.dropdown {
+  width: 50em !important;
 }

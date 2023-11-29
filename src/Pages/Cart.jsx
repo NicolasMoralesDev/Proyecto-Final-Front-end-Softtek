@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import TableCheckout from '../components/CartPage/TableCheckout'
 
 const Cart = () => {
     return (
@@ -10,7 +11,7 @@ const Cart = () => {
                 <title>carrito</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div>Cart</div>
+            <TableCheckout />
         </>
 
     )
