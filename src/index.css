@@ -8,6 +8,6 @@ p {
   margin: 0;
 }
 
-.btn-orange-custom, .btn-orange-custom:hover , .btn-orange-custom:active{
+.btn-orange-custom{
   background-color: rgb(239, 156, 2);
 }
