@@ -1,8 +1,9 @@
-import { useContext } from 'react'
+import  { useContext } from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { CartContext } from '../../../../context/CartContext';
 import styles from "./cardCart.module.css"
+
 const CardCart = () => {
 
     const [data, setdata] = useState([{}]);
@@ -19,6 +20,7 @@ const CardCart = () => {
 
     return (
         data ?
+
             <div className={`container_items_dropdown ${styles.container}` } style={{ maxHeight: '200px' }}>
 
                 {
@@ -31,6 +33,7 @@ const CardCart = () => {
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">{i.name}</h5>
+                                        <h6>{i.brand}</h6>
                                         <p className="card-text fw-bold">$ {i.price}</p>
                                     </div>
                                 </div>

@@ -36,7 +36,8 @@ const ProductList = () => {
                         <div className="col-md-8">
                             <div className="card-body">
                                 <h5 className="card-title">{i.name}</h5>
-                                <p className="card-text">Precio $ {i.price}</p>
+                                <p>{i.brand}</p>
+                                <p className="card-text fw-bold">Precio $ {i.price}</p>
                                 <Toaster
                                     position="bottom-right"
                                     reverseOrder={false}
