@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { getAllProducts } from "../utils/fetchProductsList"
-import { CartContext } from "../context/CartContext";
-
+import { getAllProducts } from "../../utils/fetchProductsList"
+import { CartContext } from "../../context/CartContext";
+import "./productList.scss"
 const ProductList = () => {
 
   const { addToCart } = useContext(CartContext);
@@ -36,7 +36,8 @@ const ProductList = () => {
                     <div className="card-body">
                         <h5 className="card-title">{i.name}</h5>
                         <p className="card-text">Precio $ {i.price}</p>
-                        <a href="#" className="btn text-light btn-orange-custom mt-2 fw-bold" onClick={()=> moveToCart(i)}>agregar al carrito</a>
+                        
+                        <a href="#" className="btn text-light btn-orange-custom mt-2" onClick={()=> moveToCart(i)}>agregar al carrito</a>
                     </div>
                 </div>
             </div>

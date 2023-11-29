@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import "./cardCart.scss"
 
 const CardCart = () => {
 
@@ -16,7 +17,7 @@ const CardCart = () => {
 
     return (
         data ?
-        <div>
+        <div className='container_items_dropdown' style={{ maxHeight: '200px' }}>
 
        {
         data.map(i => (
@@ -28,7 +29,7 @@ const CardCart = () => {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title">{i.name}</h5>
-                            <p className="card-text">Precio $ {i.price }</p>
+                            <p className="card-text fw-bold">$ {i.price }</p>
                         </div>
                     </div>
                 </div>
