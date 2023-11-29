@@ -16,7 +16,7 @@ const CartWidget = () => {
         
          <CardCart/>
         
-         <a className='btn btn-success m-2 fw-bold' href='/carrito'>terminar compra</a>
+         <a className='btn btn-success m-2 fw-bold text-center' href='/carrito'>terminar compra</a>
 
       </div>
       {totalProducts > 0 && ( // Mostrar el contador solo si hay productos en el carrito

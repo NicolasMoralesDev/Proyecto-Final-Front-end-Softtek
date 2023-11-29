@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import toast from 'react-hot-toast';
 
 export const CartContext = createContext(); // Create a context object
 
@@ -8,8 +9,19 @@ export const CartProvider = ({ children }) => {
 
   // Add a product to the cart
   const addToCart = (product) => {
-    localStorage.setItem( "cart", JSON.stringify([...cart, product])); 
-    setCart([...cart, product]);
+
+      
+    if (cart.filter((item) => item.id === product.id).length === 0) {
+      
+      setCart([...cart, product]);
+      localStorage.setItem( "cart", JSON.stringify([...cart, product]));     
+
+      toast.success('Producto Agregado!');
+    } else {
+      toast.error('Este Producto ya EXISTE!');
+    }
+    
+
   };
   
   // Remove a product from the cart

@@ -34,12 +34,12 @@ const TableCheckout = () => {
                             total = total + i.price
                             return (
                                    <tr key={Date.now()*i.id}>
-                                    <td > 
+                                    <td className='w-25'> 
                                         <img src={i.imgUrl} alt={i.name} height={"120px"} />
                                     </td>
                                     <td>{i.name}</td>
                                     <td>$ {i.price}</td>
-                                    <td><button className="btn btn-danger">Quitar</button></td>
+                                    <td className='w-25'><button className="btn btn-danger">Quitar</button></td>
                                 </tr>
                                 
 
@@ -49,16 +49,17 @@ const TableCheckout = () => {
                         )
                     }
 
-                    <tr className='d-flex w-100 '>
-
-                        <td className='d-flex w-25'>
-                            <a href="" className="btn btn-primary fw-bold">Pagar con Mercado Pago</a>
-                        </td>
-                        <td className='d-flex w-25'> <span>TOTAL = $ {total}</span></td>
-
-                    </tr>
+                    
                 </tbody>
             </Table>
+            <div className='d-flex w-100 gap-3 flex-wrap justify-content-end'>
+
+                        <div className='d-flex w-25'>
+                            <a href="" className="btn btn-primary fw-bold">Pagar con Mercado Pago</a>
+                        </div>
+                        <div className='d-flex w-25 fw-bold fs-4'> <span>TOTAL = $ {total}</span></div>
+
+                    </div>
         </div>
     )
 }
