@@ -1,17 +1,12 @@
 import React from 'react'
-import { CartContext } from '../../../../context/CartContext';
-import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 const CardCart = () => {
 
-    /* const { cart } = useContext(CartContext); */
-
     const [data, setdata] = useState([{}]);
-console.log(data);
-
     useEffect(() => {
+
           setdata(JSON.parse(localStorage.getItem("cart")));
     
      
@@ -41,7 +36,6 @@ console.log(data);
         )
 
         )} 
-        <button className='btn btn-success'>terminar compra</button>
         </div>
 : <></>
     ) 
