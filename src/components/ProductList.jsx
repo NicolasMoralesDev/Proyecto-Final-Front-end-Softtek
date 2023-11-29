@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getAllProducts } from "../utils/fetchProductsList"
+import { CartContext } from "../context/CartContext";
 
 const ProductList = () => {
 
+  const { addToCart } = useContext(CartContext);
     const [products, setproducts] = useState([{}]);
 
+    const moveToCart = (product) => {
+       addToCart(product);
+    }
+    
     const getData = async () => {
 
     const data =  await getAllProducts();
@@ -30,7 +36,7 @@ const ProductList = () => {
                     <div className="card-body">
                         <h5 className="card-title">{i.name}</h5>
                         <p className="card-text">Precio $ {i.price}</p>
-                        <a href="#" className="btn text-light btn-orange-custom mt-2 ">agregar al carrito</a>
+                        <a href="#" className="btn text-light btn-orange-custom mt-2 " onClick={()=> moveToCart(i)}>agregar al carrito</a>
                     </div>
                 </div>
             </div>

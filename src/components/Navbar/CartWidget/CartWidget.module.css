@@ -35,3 +35,7 @@
   background-color: #f00;
   border-radius: 50%;
 }
+
+.dropdown-menu {
+  width: 5em !important;
+}

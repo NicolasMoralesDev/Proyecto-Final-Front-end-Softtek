@@ -19,7 +19,7 @@ export const CartProvider = ({ children }) => {
   // Get the total number of products in the cart. Its used in the CartWidget component
   const totalProducts = cart.reduce((acc, item) => acc + item.quantity, 4);
 
-  
+console.log(cart);
   const values = {
     cart,
     addToCart,
