@@ -26,6 +26,7 @@ const TableCheckout = () => {
                     <tr>
                         <th>Imagen</th>
                         <th>Nombre</th>
+                        <th>Marca</th>
                         <th>Precio</th>
                     </tr>
                 </thead>
@@ -39,6 +40,7 @@ const TableCheckout = () => {
                                         <img src={i.imgUrl} alt={i.name} height={"120px"} />
                                     </td>
                                     <td>{i.name}</td>
+                                    <td>{i.brand}</td>
                                     <td>$ {i.price}</td>
                                     <td >
                                         <button className='btn btn-danger'>
