@@ -33,15 +33,15 @@ const TableCheckout = () => {
                         data.map((i) => {
                             total = total + i.price
                             return (
-                                <>   <tr>
-                                    <td>
+                                   <tr key={Date.now()*i.id}>
+                                    <td > 
                                         <img src={i.imgUrl} alt={i.name} height={"120px"} />
                                     </td>
                                     <td>{i.name}</td>
-                                    <td>$ {i.price}{ }</td>
+                                    <td>$ {i.price}</td>
                                     <td><button className="btn btn-danger">Quitar</button></td>
                                 </tr>
-                                </>
+                                
 
                             )
                         }
