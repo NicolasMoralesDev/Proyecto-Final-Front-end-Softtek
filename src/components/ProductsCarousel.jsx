@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/ProductsCarousel.css";
 import alienware from "../assets/alienware.jpg";
 import monitoraoc from "../assets/monitoraoc.jpg";

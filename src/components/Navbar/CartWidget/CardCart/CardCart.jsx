@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import "./cardCart.scss"
 import { CartContext } from '../../../../context/CartContext';
 
 const CardCart = () => {
