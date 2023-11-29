@@ -2,6 +2,7 @@ import  { useContext } from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { CartContext } from '../../../../context/CartContext';
+import styles from "./cardCart.module.css"
 
 const CardCart = () => {
 
@@ -19,7 +20,8 @@ const CardCart = () => {
 
     return (
         data ?
-            <div className='container_items_dropdown' style={{ maxHeight: '190px' }}>
+
+            <div className={`container_items_dropdown ${styles.container}` } style={{ maxHeight: '200px' }}>
 
                 {
                     data.map(i => (

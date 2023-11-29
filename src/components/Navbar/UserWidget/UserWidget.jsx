@@ -6,12 +6,20 @@ import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import LoginForm from "../../LoginForm/LoginForm";
 import RegisterForm from "../../RegisterForm/RegisterForm";
-
+import { useNavigate } from "react-router-dom";
 const UserWidget = () => {
 
   // Get the user and the functions from the custom hook
   const { user, isAdmin, isLogged, logout } = useUser()
   
+  // Navigate to the user panel
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
+
   return (
     <>
 
@@ -27,9 +35,9 @@ const UserWidget = () => {
           </Dropdown.Toggle>
     
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Mi cuenta</Dropdown.Item>
-            { isAdmin() && <Dropdown.Item href="#/action-2">Dashboard</Dropdown.Item> }  {/* If the user is admin, show the dashboard option */}
-            <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+            <Dropdown.Item onClick={() => navigate('/user_panel')}>Mi cuenta</Dropdown.Item>
+            { isAdmin() && <Dropdown.Item>Dashboard</Dropdown.Item> }  {/* If the user is admin, show the dashboard option */}
+            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         :  
@@ -39,6 +47,7 @@ const UserWidget = () => {
 }
 
 const LoginButton = () => {
+  const { login, register } = useUser();
   const [showModal, setShowModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
@@ -51,14 +60,12 @@ const LoginButton = () => {
   const handleCloseRegisterModal = () => setShowRegisterModal(false);
 
   const handleLoginSubmit = (values) => {
-    // Aquí puedes manejar la lógica de inicio de sesión
-    console.log('Login submitted with:', values);
+    login(values.email, values.password);
     handleCloseModal();
   };
 
   const handleRegisterSubmit = (values) => {
-    // Aquí puedes manejar la lógica de registro
-    console.log('Register submitted with:', values);
+    register(values);
     handleCloseRegisterModal();
     handleCloseModal();
   };
