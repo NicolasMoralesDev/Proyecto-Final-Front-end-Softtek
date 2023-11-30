@@ -9,6 +9,7 @@ import UserPanel from '../Pages/UserPanel/UserPanel';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/footer';
+import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 
 function Layout() {
   return (
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
       {
         path: '/user_panel',
         element: <UserPanel />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/armatupc',
+        element: <BuildYourPc />,
         errorElement: <Error />,
       },
     ],
