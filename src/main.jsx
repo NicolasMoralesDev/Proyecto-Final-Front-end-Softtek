@@ -5,12 +5,15 @@ import './index.css'
 import { UserProvider } from './context/UserContext.jsx'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router/Routes.jsx'
+import { PaginationProvider } from './context/PaginationContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
        
     <CartProvider>
       <UserProvider>
+        <PaginationProvider>
         <RouterProvider router={router} />
+        </PaginationProvider>
       </UserProvider>
     </CartProvider>
 )
