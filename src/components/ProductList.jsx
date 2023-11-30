@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 
 const ProductList = () => {
 
-  const { addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
     const [products, setproducts] = useState([{}]);
 
     const moveToCart = (product) => {
