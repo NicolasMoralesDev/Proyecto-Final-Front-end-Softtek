@@ -1,0 +1,6 @@
+.container{
+  min-width: 20em !important;
+  max-height: 30em !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

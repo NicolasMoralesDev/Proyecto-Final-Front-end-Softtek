@@ -1,7 +1,6 @@
 
-import Footer from "../components/footer"
 import ProductCategory from "../components/ProductCategory"
-import ProductList from "../components/ProductList"
+import ProductList from "../components/ProductList/ProductList"
 import { Helmet } from 'react-helmet'
 
 export default function Products() {

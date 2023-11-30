@@ -12,11 +12,13 @@ const CartWidget = () => {
       <div className={styles.cartIcon} data-bs-toggle="dropdown" aria-expanded="false">
         <BsCart4 />
       </div>
-      <div className="dropdown-menu " style={{maxHeight: "300px"}}>
-        
-         <CardCart/>
-        
-         <a className='btn btn-success' href='/carrito'>terminar compra</a>
+      <div className="dropdown-menu mt-2">
+        <div className="d-flex flex-column">
+          <CardCart />
+
+          <a className='btn btn-success m-2 fw-bold' href='/carrito'>terminar compra</a>
+        </div>
+
 
       </div>
       {totalProducts > 0 && ( // Mostrar el contador solo si hay productos en el carrito
