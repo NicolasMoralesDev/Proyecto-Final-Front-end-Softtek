@@ -3,10 +3,15 @@ import { getAllProducts } from "../../utils/fetchProductsList"
 import { CartContext } from "../../context/CartContext";
 import "./productList.css"
 import { Toaster } from "react-hot-toast";
+import PaginationProduts from "./PaginationProduts/PaginationProduts";
+import { PaginationContext } from "../../context/PaginationContext";
+
 const ProductList = () => {
 
     const { addToCart } = useContext(CartContext);
-    const [products, setproducts] = useState([{}]);
+    const { page } = useContext(PaginationContext);
+
+    const [ products, setproducts] = useState([{}]);
 
     const moveToCart = (product) => {
         addToCart(product);
@@ -14,7 +19,7 @@ const ProductList = () => {
 
     const getData = async () => {
 
-        const data = await getAllProducts();
+        const data = await getAllProducts(page);
         setproducts(data);
     }
 
@@ -22,7 +27,7 @@ const ProductList = () => {
 
         getData();
 
-    }, [])
+    }, [page])
 
 
     return (
@@ -49,6 +54,8 @@ const ProductList = () => {
                 </div>)
             )
             }
+            <PaginationProduts/>
+            
         </>
 
     )

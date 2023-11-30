@@ -6,7 +6,7 @@ export const getAllProducts = async (page = 1) => {
 
     try {
 
-        const response = await axios.get(`${url}productos?completed=false&page=${page}&limit=20`);
+        const response = await axios.get(`${url}productos?complete=false&page=${page}&limit=10`);
         return response.data;
 
     } catch (error) {
