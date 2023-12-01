@@ -7,41 +7,48 @@ import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 
 
 const UserPanel = () => {
-  const { userOrders, user } = useUser();
-  const orders = userOrders();
+  const { userOrders, user, loading } = useUser();
 
   return (
     <div className={styles.main}>
       <div className={`container ${styles.container}`}>
-        <Row className='justify-content-center align-items-center'>
-          <Col xs={12} lg={10} xl={8} className={styles.box}>
-            <div className={styles.header}>
-              <h1 className={styles.title}>Historial</h1>
-            </div>
-            {orders && orders.length > 0 ? (
-              <OrderTable orders={orders} />
-            ) : (
-              <p>Todavía no ha realizado compras</p>
-            )}
-          </Col>
-        </Row>
-        <Row className='justify-content-center align-items-center'>
-          <Col xs={12} lg={10} xl={8} className={styles.box}>
-            <div className={styles.header}>
-              <h1 className={styles.title}>Datos de usuario</h1>
-            </div>
-            <div className={styles.box}>
-              <div>
-                <h6 style={{display: "inline-block", paddingRight: "10px"}}>Nombre: </h6>
-                <p  style={{display: "inline-block"}}>{user.fullName}</p>
+        { loading ? <p>Cargando...</p> : 
+        <>
+          <Row className='justify-content-center align-items-center'>
+            <Col xs={12} lg={10} xl={8} className={styles.box}>
+              <div className={styles.header}>
+                <h1 className={styles.title}>Historial</h1>
               </div>
-              <div>
-                <h6 style={{display: "inline-block", paddingRight: "10px"}}>Email: </h6>
-                <p  style={{display: "inline-block"}}>{user.email}</p>
+              {userOrders && userOrders.length > 0 ? (
+                <OrderTable orders={userOrders} />
+              ) : (
+                <p>Todavía no ha realizado compras</p>
+              )}
+            </Col>
+          </Row>
+          <Row className='justify-content-center align-items-center'>
+            <Col xs={12} lg={10} xl={8} className={styles.box}>
+              <div className={styles.header}>
+                <h1 className={styles.title}>Datos de usuario</h1>
               </div>
-            </div>
-          </Col>
-        </Row>
+              <div className={styles.box}>
+                <div>
+                  <h6 style={{display: "inline-block", paddingRight: "10px"}}>Nombre: </h6>
+                  <p  style={{display: "inline-block"}}>{user.firstName}</p>
+                </div>
+                <div>
+                  <h6 style={{display: "inline-block", paddingRight: "10px"}}>Apellido: </h6>
+                  <p  style={{display: "inline-block"}}>{user.lastName}</p>
+                </div>
+                <div>
+                  <h6 style={{display: "inline-block", paddingRight: "10px"}}>Email: </h6>
+                  <p  style={{display: "inline-block"}}>{user.email}</p>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </>
+        }
       </div>
     </div>
   );

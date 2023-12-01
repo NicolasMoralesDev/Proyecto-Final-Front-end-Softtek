@@ -8,9 +8,8 @@ const validationSchema = object().shape({
   confirmPassword: string()
     .oneOf([ref('password'), null], 'Passwords must match')
     .required('Required'),
-  fullName: string().required('Required'),
-  phone: string().required('Required'),
-  address: string().required('Required'),
+  firstName: string().required('Required'),
+  lastName: string().required('Required'),
 });
 
 // eslint-disable-next-line react/prop-types
@@ -21,9 +20,8 @@ const RegisterForm = ({ handleSubmit, handleCloseRegisterModal }) => {
         email: '',
         password: '',
         confirmPassword: '',
-        fullName: '',
-        phone: '',
-        address: '',
+        firstName: '',
+        lastName: ''
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
@@ -65,34 +63,24 @@ const RegisterForm = ({ handleSubmit, handleCloseRegisterModal }) => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="fullName">Nombre completo:</label>
+          <label htmlFor="firstName">Nombre:</label>
           <Field
             type="text"
-            name="fullName"
+            name="firstName"
             className="form-control"
-            id="fullName"
+            id="firstName"
           />
-          <ErrorMessage name="fullName" component={Alert} variant="danger" />
+          <ErrorMessage name="firstName" component={Alert} variant="danger" />
         </div>
         <div className="mb-3">
-          <label htmlFor="phone">Teléfono:</label>
+          <label htmlFor="lastName">Apellido:</label>
           <Field
             type="text"
-            name="phone"
+            name="lastName"
             className="form-control"
-            id="phone"
+            id="lastName"
           />
-          <ErrorMessage name="phone" component={Alert} variant="danger" />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="address">Dirección donde se entregará el producto:</label>
-          <Field
-            type="text"
-            name="address"
-            className="form-control"
-            id="address"
-          />
-          <ErrorMessage name="address" component={Alert} variant="danger" />
+          <ErrorMessage name="lastName" component={Alert} variant="danger" />
         </div>
         <Button type="submit" className="me-2">
           Enviar
