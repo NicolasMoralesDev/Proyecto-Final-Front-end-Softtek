@@ -7,41 +7,23 @@ import Modal from "../../Modal/Modal";
 import LoginForm from "../../LoginForm/LoginForm";
 import RegisterForm from "../../RegisterForm/RegisterForm";
 import { useNavigate } from "react-router-dom";
+
+
 const UserWidget = () => {
 
   // Get the user and the functions from the custom hook
-  const { user, isAdmin, isLogged, logout } = useUser()
-  
-  // Navigate to the user panel
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  }
+  const { loading, isAuthenticated } = useUser()
 
   return (
     <>
-
-      {isLogged() ?  // If the user is logged in, show the dropdown menu
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic" style={{
-            backgroundColor: "white", 
-            border: "none",
-            boxShadow: "none",
-            color: "black",
-          }}>
-            {user.fullName}
-          </Dropdown.Toggle>
-    
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => navigate('/user_panel')}>Mi cuenta</Dropdown.Item>
-            { isAdmin() && <Dropdown.Item>Dashboard</Dropdown.Item> }  {/* If the user is admin, show the dashboard option */}
-            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        :  
-        <LoginButton /> } {/* If the user is not logged in, show the login button */}
+      { loading ?
+        <p>Loading...</p>
+        :
+        isAuthenticated ?
+          <UserDropdown />
+          :
+          <LoginButton />
+      }
     </>
   )
 }
@@ -89,5 +71,33 @@ const LoginButton = () => {
   )
 } 
 
+const UserDropdown = () => {
+  const { user, logout, isAdmin } = useUser()
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  }
+
+  return (
+    <Dropdown>
+      <Dropdown.Toggle id="dropdown-basic" style={{
+        backgroundColor: "white", 
+        border: "none",
+        boxShadow: "none",
+        color: "black",
+      }}>
+        {(user.firstName + " " + user.lastName)}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={() => navigate('/user_panel')}>Mi cuenta</Dropdown.Item>
+        { isAdmin && <Dropdown.Item onClick={() => navigate('/user_panel')} >Dashboard</Dropdown.Item> }
+        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  )
+}
 export default UserWidget
 

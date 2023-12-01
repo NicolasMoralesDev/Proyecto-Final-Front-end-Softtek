@@ -1,5 +1,6 @@
-import { createContext, useState } from "react";
-import { loginRequest, registerRequest, modifyUserRequest } from "../utils/fetchUser";
+import { createContext, useEffect, useState } from "react";
+import { loginRequest, registerRequest  } from "../utils/fetchUser";
+import { jwtDecode } from "jwt-decode";
 
 export const UserContext = createContext(); // Create a context object
 
@@ -8,60 +9,87 @@ export const UserProvider = ({ children }) => {
 
   // state for the user
   const [user, setUser] = useState(null);
+  const [userOrders, setUserOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const setUserFromToken = () => {
+
+    let token = localStorage.getItem('token');
+    if (token) {
+      try {
+        let decoded = jwtDecode(token);
+        setUser({
+          firstName: decoded.firstName,
+          lastName: decoded.lastName,
+          email: decoded.sub,
+          role: decoded.role,
+        });
+        setIsAuthenticated(true);
+        setIsAdmin(decoded.role === "ROLE_ADMIN");
+      } catch (error) {
+        localStorage.removeItem('token');
+      }
+    }
+  }
+
+  useEffect(() => {
+    setLoading(true);
+    setUserFromToken();
+    setLoading(false);
+  }, []);
+
   
   // Mock login function. To test the 'user' role, you can change the role to 'admin'
   const login = (email, password) => {
-    loginRequest(email, password)
+    setLoading(true)
+    loginRequest({email, password})
       .then((res) => {
-        setUser(res);
+        const jwtToken = res.token;
+        localStorage.setItem("token", jwtToken);
+        setUserFromToken();
+        
       })
       .catch((err) => {
         console.log(err);
       });
+      setLoading(false);
   };
 
   // Mock logout function
-  const logout = () => setUser(null);
+  const logout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    setIsAdmin(false);
+    setUser(null);
+  }
 
-  // Check if the user is logged in
-  const isLogged = () => user ? true : false;
 
-  // Check if the user is admin
-  const isAdmin = () => user && user.role === 'admin' ? true : false;
   
   const register = (user) => {
+    setLoading(true);
     registerRequest(user)
-      .then((res) => {
-        setUser(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((res) => {
+      const jwtToken = res.token;
+      localStorage.setItem("token", jwtToken);
+      setUserFromToken();
+    })
+    .catch((err) => {
+      console.log(err);
+    });    
+    setLoading(false);
   };
-
-  const modify = (user) => {
-    modifyUserRequest(user)
-      .then((res) => {
-        setUser(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const userOrders = () => {
-    return user.orders;
-  }
 
   const values = {
     user,
     login,
     logout,
-    isLogged,
+    isAuthenticated,
     isAdmin,
     register,
-    userOrders,
-    modify
+    loading,
+    userOrders
   };
   
   return (

@@ -21,11 +21,13 @@ const CartWidget = () => {
 
 
       </div>
-      {totalProducts > 0 && ( // Mostrar el contador solo si hay productos en el carrito
+
+      {(totalProducts > 0) && ( // Mostrar el contador solo si hay productos en el carrito
         <div className={styles.productCount}>
           {totalProducts}
         </div>
       )}
+
     </div>
   );
 };
