@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { CartContext } from '../../../../context/CartContext';
 import styles from "./cardCart.module.css"
+import { v4 as uuidv4 } from "uuid";
+
 
 const CardCart = () => {
 
@@ -16,7 +18,7 @@ const CardCart = () => {
 
     }, [cart])
 
-
+    console.log(data);
 
     return (
         data ?
@@ -25,7 +27,7 @@ const CardCart = () => {
 
                 {
                     data.map(i => (
-                        <div className="card mb-3 mt-3 dropdown-item" style={{ maxWidth: '700px' }} key={i.name}>
+                        <div className="card mb-3 mt-3 dropdown-item" style={{ maxWidth: '700px' }} key={uuidv4()}>
                             <div className="row g-0">
                                 <div className="col-md-4">
                                     <img src={i.imgUrl} className="img-fluid  h-100 w-100 rounded-start" alt={i.name}></img>
