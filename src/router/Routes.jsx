@@ -9,8 +9,10 @@ import UserPanel from '../Pages/UserPanel/UserPanel';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/footer';
+import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 import RequireAuth from './RequireAuth';
 import RequireAdminRole from './RequireAdminRole';
+
 
 function Layout() {
   return (
@@ -68,6 +70,11 @@ export const router = createBrowserRouter([
       {
         path: '/admin/dashboard',
         element: <RequireAdminRole> <UserPanel /> </RequireAdminRole>,
+        errorElement: <Error />,
+      },
+      {
+        path: '/armatupc',
+        element: <BuildYourPc />,
         errorElement: <Error />,
       },
     ],
