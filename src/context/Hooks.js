@@ -15,14 +15,9 @@ export const useUser = () => {
 
 // Hook for CartContext, returns the context value
 export const useCart = () => {
-
-  if (localStorage.getItem("cart")) {
-      const totalProducts = JSON.parse(localStorage.getItem("cart")).length;
-      return totalProducts;
-  }
-
-/*   if (!totalProducts) {
+  const context = useContext(CartContext);
+  if (!context) {
     throw new Error("useCart must be used within a CartProvider");
-  } */
- /*  return totalProducts; */
+  }
+  return context;
 }
