@@ -7,8 +7,10 @@ import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 
 
 const UserPanel = () => {
-  const { userOrders, user, loading } = useUser();
+  const [ userOrders] = useState(null);
+  const { user, loading } = useUser();
 
+  
   return (
     <div className={styles.main}>
       <div className={`container ${styles.container}`}>

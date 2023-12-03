@@ -37,8 +37,7 @@ const CardCart = () => {
                             </div>
                         </div>
                     )
-
-                    )}
+                )}
             </div>
             : <h6 className='text-center'>Sin Productos</h6>
     )

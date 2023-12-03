@@ -3,17 +3,20 @@ import { useUser } from "../context/Hooks";
 import { useEffect } from "react";
 
 const RequireAuth = ({ children }) => {
+
   const { loading, isAuthenticated } = useUser();
   const navigate = useNavigate();
 
+
+
   useEffect(() => {
+
     if (!loading && !isAuthenticated) {
-      console.log(isAuthenticated)
       navigate("/login");
     }
   }, [loading, isAuthenticated, navigate]);
 
-  return children;
+  return (isAuthenticated && children);
 };
 
 export default RequireAuth;
