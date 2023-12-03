@@ -6,7 +6,7 @@ import NavbarLinks from "./NavbarLinks/NavbarLinks"
 
 const Navbar = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid ">
 
       <Row className="d-flex align-items-center justify-content-around gap-3 pt-2">
         <Col xs={7} sm={4} md={2} className="d-flex justify-content-center">
