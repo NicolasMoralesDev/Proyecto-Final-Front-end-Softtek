@@ -28,7 +28,7 @@ const NavbarLinks = () => {
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5' to='#'>
+              <Link className='nav-link mx-5' to='armatupc'>
                 Arma tu PC
               </Link>
             </li>
