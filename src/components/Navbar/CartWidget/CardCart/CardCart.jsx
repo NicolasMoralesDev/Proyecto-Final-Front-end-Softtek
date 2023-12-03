@@ -18,7 +18,6 @@ const CardCart = () => {
 
     }, [cart])
 
-    console.log(data);
 
     return (
         data ?
