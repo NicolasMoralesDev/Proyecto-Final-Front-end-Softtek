@@ -3,14 +3,9 @@ import { useEffect, useState } from "react"
 import { getAllComponentsPc } from "../../utils/fetchComponentPc"
 import "../../styles/buildYourPC.css";
 import { Helmet } from 'react-helmet'
-
-
-
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft'
 import  BuildYourPcRight  from './BuildYourPcComp/BuildYourPcRight'
 import  BuildYourPcTotal  from './BuildYourPcComp/BuildYourPcTotal'
-
-
 import cooler2 from "../../assets/pcComponents/cooler2.png";
 import cpu2 from '../../assets/pcComponents/cpu2.png'
 import gabo2 from '../../assets/pcComponents/gabo2.png'
@@ -77,7 +72,7 @@ export default function BuildYourPc() {
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
 
-            <div className="container mb-3">
+            <div className="container mb-3 mt-3">
                 <div className="row mx-auto">
                     <div className="col-12 col-md-4 ">
                         <BuildYourPcLeft cimages={cimages}
