@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavbarLinks = () => {
   return (
@@ -18,22 +18,22 @@ const NavbarLinks = () => {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
           <li className='nav-item  text-center mx-2'>
-              <Link className='nav-link mx-5 link-light' to='/'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='/'>
                 Home
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5 link-light' to='/productos'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='/productos'>
                 Productos
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5 link-light' to='#'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='#'>
                 Arma tu PC
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5 link-light' to='#'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='#'>
                 Ayuda
               </Link>
             </li>

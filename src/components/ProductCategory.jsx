@@ -3,7 +3,7 @@ const ProductCategory = () => {
     return (
         <div className="accordion accordion-flush" id="accordionFlushExample">
             <div>
-                <h2>Categories</h2>
+                <h2>Categorias</h2>
             </div>
             <div className="accordion-item">
                 <h2 className="accordion-header">
