@@ -2,10 +2,22 @@ import { BsCart4 } from 'react-icons/bs';
 import { useCart } from '../../../context/Hooks.js';
 import styles from './CartWidget.module.css'; // Importar archivo CSS
 import CardCart from './CardCart/CardCart.jsx';
+import { CartContext } from '../../../context/CartContext.jsx';
+import { useContext, useEffect, useState } from 'react';
 
 const CartWidget = () => {
-  const { totalProducts } = useCart();
 
+  const [totalProducts, settotalProducts] = useState(0);
+
+  const {addToCart} = useContext(CartContext);
+
+  useEffect(() => {
+
+    settotalProducts(useCart);
+  
+
+  }, [addToCart])
+  
   return (
 
     <div className={styles.cartWrapper}>
@@ -25,6 +37,7 @@ const CartWidget = () => {
       {(totalProducts > 0) && ( // Mostrar el contador solo si hay productos en el carrito
         <div className={styles.productCount}>
           {totalProducts}
+          
         </div>
       )}
 
