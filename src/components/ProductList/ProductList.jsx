@@ -34,16 +34,16 @@ const ProductList = () => {
     return (
         <>
              {products.map((i) => (
-                <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.id*i.id}>
+                <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.product.id*i.product.id}>
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img src={i.imageUrl} style={{maxWidth: "200px", maxHeight: "200px", aspectRatio: "auto"}}  className="h-100 img-fluid rounded-start" alt={i.name}></img>
+                            <img src={i.product.imageUrl} style={{maxWidth: "200px", maxHeight: "200px", aspectRatio: "auto"}}  className="h-100 img-fluid rounded-start" alt={i.product.name}></img>
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
-                                <h5 className="card-title">{i.name}</h5>
-                                <p>{i.brand}</p>
-                                <p className="card-text fw-bold">Precio $ {i.price}</p>
+                                <h5 className="card-title">{i.product.name}</h5>
+                                <p>{i.product.brand}</p>
+                                <p className="card-text fw-bold">Precio $ {i.product.price}</p>
                                 <Toaster
                                     position="bottom-right"
                                     reverseOrder={false}
