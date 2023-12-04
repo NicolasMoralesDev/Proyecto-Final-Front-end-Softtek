@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
    *        imageUrl: "https://www.example.com/image.png"
    *     },
    *     amount: 1
-   *   }
+   *   },
    * }
    */
   const [cart, setCart] = useState([]);
@@ -93,6 +93,11 @@ export const CartProvider = ({ children }) => {
     updateCartStorage();
   };
 
+  const getProductQuantity = (id) => { 
+    const item = cart.find((i) => i.product.id === id);
+    return item ? item.amount : 1;
+  }
+
 
   // Delete all the products from the cart
   const clearCart = () => {
@@ -101,11 +106,12 @@ export const CartProvider = ({ children }) => {
   };
 
   const values = {
-    cart,
-    addToCart,
-    removeFromCart,
-    updateAmount,
-    clearCart,
+    cart, // representa el estado del carrito
+    addToCart, // función para agregar un producto al carrito
+    removeFromCart, // función para eliminar un producto del carrito
+    updateAmount, // función para actualizar la cantidad de un producto en el carrito
+    clearCart, // función para eliminar todos los productos del carrito
+    getProductQuantity, // función para obtener la cantidad de un producto en el carrito
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
