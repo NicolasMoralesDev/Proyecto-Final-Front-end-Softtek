@@ -6,12 +6,10 @@ const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 8081;
 const url = `http://${BACKEND_HOST}:${BACKEND_PORT}/api/`;
 
 
-export const getAllProducts = async (page = 1) => {
-    console.log(url);
+export const getAllProducts = async (page = 1) => { // 
     try {
 
         const response = await axios.get(`${url}public/products?complete=false&page=${page}&limit=10`);
-        console.log(response.data);
         return response.data;
 
     } catch (error) {
@@ -20,8 +18,8 @@ export const getAllProducts = async (page = 1) => {
     
 }
 
-export const getProduct = async (id) => {
-
+export const getProduct = async (id) => { 
+ 
     try {
 
         const response = await axios.get(`${url}public/products/${id}`);
@@ -37,7 +35,7 @@ export const getProductByCategory = async (category) => {
 
     try {
 
-        const response = await axios.get(`${url}public/products/categories/${category}`);
+        const response = await axios.get(`${url}public/products/categories/${category}`); 
         return response.data;
 
     } catch (error) {

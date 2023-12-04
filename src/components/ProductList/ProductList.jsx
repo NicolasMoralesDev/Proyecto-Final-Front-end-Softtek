@@ -1,26 +1,32 @@
 import { useContext, useEffect, useState } from "react"
 import { getAllProducts } from "../../utils/fetchProductsList"
-import { CartContext } from "../../context/CartContext";
 import "./productList.css"
 import { Toaster } from "react-hot-toast";
 import PaginationProduts from "./PaginationProduts/PaginationProduts";
 import { PaginationContext } from "../../context/PaginationContext";
+import { useCart } from "../../context/Hooks";
 
 const ProductList = () => {
 
-    const { addToCart } = useContext(CartContext);
+    const { cart, addToCart } = useCart();
     const { page } = useContext(PaginationContext);
 
     const [ products, setProducts] = useState([{}]);
 
     const moveToCart = (product) => {
-        addToCart(product);
+        product = { ...product, imageUrl: product.imgUrl }; //a
+        addToCart(product, 1);
     }
 
     const getData = async () => {
 
         const data = await getAllProducts(page);
         setProducts(data.productos);
+    }
+
+    const getProductTotal = (id) => {
+        const item = cart.find((i) => i.product.id === id);
+        return item ? item.amount * item.product.price : 0;
     }
 
     useEffect(() => {

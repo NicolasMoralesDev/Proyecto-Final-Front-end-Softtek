@@ -2,22 +2,20 @@ import { BsCart4 } from 'react-icons/bs';
 import { useCart } from '../../../context/Hooks.js';
 import styles from './CartWidget.module.css'; // Importar archivo CSS
 import CardCart from './CardCart/CardCart.jsx';
-import { CartContext } from '../../../context/CartContext.jsx';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CartWidget = () => {
 
-  const [totalProducts, settotalProducts] = useState(0);
-
-  const {addToCart} = useContext(CartContext);
+  const [totalProducts, setTotalProducts] = useState(0);
+  
+  const { cart } = useCart();
 
   useEffect(() => {
+    if (cart.length > 0) {
+      setTotalProducts(cart.length);
+    }
+  }, [cart])
 
-    settotalProducts(useCart);
-  
-
-  }, [addToCart])
-  
   return (
 
     <div className={styles.cartWrapper}>
