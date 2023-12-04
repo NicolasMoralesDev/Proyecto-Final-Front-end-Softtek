@@ -1,12 +1,10 @@
-import React from "react";
-import { CartContext } from "../../../context/CartContext";
+import { useCart } from "../../../context/Hooks";
 
+const BuildYourPcTotal = () => {
 
+    const { cart } = useCart();
 
-
-const BuildYourPcTotal = ({ selectedProducts }) => {
-
-    const total = selectedProducts.reduce((acc, product) => acc + product.price, 0);
+    const total = cart.reduce((acc, item) => acc + item.amount * item.product.price, 0);
     return (
         <>
             <div className="row">
@@ -19,12 +17,11 @@ const BuildYourPcTotal = ({ selectedProducts }) => {
                 <div className="collapse collapse-horizontal" id="collapseWidthExample">
                     <div className="card card-body" style={{ width: "300px" }}>
                     <ul>
-                        {selectedProducts.map((product, index) => (
-                        <li key={index}>{product.name} {product.price}</li>
+                        {cart.map((item, index) => (
+                        <li key={index}>{item.product.name}, ${item.product.price}, x{item.amount}</li>
                          ))}
                     </ul>
                     </div>
-                    <a href="#" className="btn text-light btn-orange-custom mt-2 ">agregar al carrito</a>
                 </div>
             </div>
         </>

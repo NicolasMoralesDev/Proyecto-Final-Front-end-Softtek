@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const url = "https://6274471f3d2b5100742a5877.mockapi.io/";
+const url = "http://localhost:8081/api/";
 
-export const getAllProducts = async (page = 1) => {
+export const getAllProducts = async (page = 0) => {
 
     try {
 
-        const response = await axios.get(`${url}productos?complete=false&page=${page}&limit=10`);
+        const response = await axios.get(`${url}public/products?page=${page}`);
         return response.data;
 
     } catch (error) {
@@ -15,11 +15,24 @@ export const getAllProducts = async (page = 1) => {
     
 }
 
-export const getProduct = async (id) => {
+export const getProduct = async (id) => { 
+ 
+    try {
+
+        const response = await axios.get(`${url}public/products/${id}`);
+        return response.data;
+
+    } catch (error) {
+        return error;
+    }
+    
+}
+
+export const getProductByCategory = async (category) => {
 
     try {
 
-        const response = await axios.get(`${url}productos/${id}`);
+        const response = await axios.get(`${url}public/products/categories/${category}`); 
         return response.data;
 
     } catch (error) {
@@ -32,7 +45,7 @@ export const deleteProduct = async (id) => {
 
     try {
 
-        const response = await axios.get(`${url}productos/${id}`);
+        const response = await axios.get(`${url}admin/products/${id}`);
         return response.data;
 
     } catch (error) {
@@ -41,11 +54,11 @@ export const deleteProduct = async (id) => {
     
 }
 
-export const putProduct = async (data) => {
+export const addProduct = async (product) => {
 
     try {
 
-        const response = await axios.get(`${url}productos`);
+        const response = await axios.post(`${url}admin/products`, product);
         return response.data;
 
     } catch (error) {

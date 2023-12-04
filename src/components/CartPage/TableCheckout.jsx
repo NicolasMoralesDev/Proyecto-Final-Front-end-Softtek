@@ -8,6 +8,10 @@ const TableCheckout = () => {
     const [data, setdata] = useState([{}]);
     let total = 0;
 
+    const removeItemOrder = (id) => {
+ 
+        /* localStorage.removeItem("cart", id) */
+    }
     useEffect(() => {
 
         setdata(JSON.parse(localStorage.getItem("cart")));
@@ -26,23 +30,26 @@ const TableCheckout = () => {
                         <th>Imagen</th>
                         <th>Nombre</th>
                         <th>Marca</th>
+                        <th>Cantidad</th>
                         <th>Precio</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    { data[0].product ?
                         data.map((i) => {
-                            total = total + i.price
+                            total = total + i.product.price*i.amount
                             return (
-                                <tr key={Date.now() * i.id}>
+
+                                <tr key={Date.now() * i.product.id}>
                                     <td className='w-25'>
-                                        <img src={i.imgUrl} alt={i.name} height={"120px"} />
+                                        <img src={i.product.imgUrl} alt={i.product.name} height={"120px"} />
                                     </td>
-                                    <td>{i.name}</td>
-                                    <td>{i.brand}</td>
-                                    <td>$ {i.price}</td>
+                                    <td>{i.product.name}</td>
+                                    <td>{i.product.brand}</td>
+                                    <td>{i.amount}</td>
+                                    <td>$ {i.product.price}</td>
                                     <td >
-                                        <button className='btn btn-danger'>
+                                        <button onClick={()=> removeItemOrder(i.product.id)} className='btn btn-danger'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
                                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
@@ -53,7 +60,7 @@ const TableCheckout = () => {
                             )
                         }
 
-                        )
+                        ) : <></>
                     }
 
 

@@ -41,6 +41,16 @@ const LoginButton = () => {
   const handleOpenRegisterModal = () => setShowRegisterModal(true);
   const handleCloseRegisterModal = () => setShowRegisterModal(false);
 
+  const loginSecondaryButton = {
+    text: "Registrarse",
+    onClick: handleOpenRegisterModal,
+  }
+
+  const registerSecondaryButton = {
+    text: "Iniciar Sesión",
+    onClick: handleCloseRegisterModal,
+  }
+
   const handleLoginSubmit = (values) => {
     login(values.email, values.password);
     handleCloseModal();
@@ -60,11 +70,11 @@ const LoginButton = () => {
       </Button>
       { showRegisterModal ? 
         <Modal show={showModal} handleClose={handleCloseModal} title="Registrarse">
-          <RegisterForm handleSubmit={handleRegisterSubmit} handleCloseRegisterModal={handleCloseRegisterModal}/>
+          <RegisterForm handleSubmit={handleRegisterSubmit} secondaryButton={registerSecondaryButton}/>
         </Modal>
         :
         <Modal show={showModal} handleClose={handleCloseModal} title="Iniciar Sesión">
-          <LoginForm handleSubmit={handleLoginSubmit} handleOpenRegisterModal={handleOpenRegisterModal}/>
+          <LoginForm handleSubmit={handleLoginSubmit} secondaryButton={loginSecondaryButton}/>
         </Modal>
       }
     </>
@@ -99,5 +109,6 @@ const UserDropdown = () => {
     </Dropdown>
   )
 }
+
 export default UserWidget
 

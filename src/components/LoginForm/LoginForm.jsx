@@ -8,7 +8,7 @@ const validationSchema = object().shape({
 });
 
 // eslint-disable-next-line react/prop-types
-const LoginForm = ({ handleSubmit, handleOpenRegisterModal }) => {
+const LoginForm = ({ handleSubmit, secondaryButton = null }) => {
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -38,11 +38,11 @@ const LoginForm = ({ handleSubmit, handleOpenRegisterModal }) => {
           <ErrorMessage name="password" component={Alert} variant="danger" />
         </div>
         <Button type="submit" className="me-2">
-          Enviar
+          Iniciar sesión
         </Button>
-        <Button variant="secondary" onClick={handleOpenRegisterModal}>
-          Registrarse
-        </Button>
+       { secondaryButton && <Button variant="success" onClick={secondaryButton.onClick}>
+          {secondaryButton.text}
+        </Button>}
       </Form>
     </Formik>
   );

@@ -11,7 +11,7 @@ export default function Products() {
                 <title>Productos</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-      <div className="container">
+      <div className="container mt-3">
         <div className="row mx-auto">
 
           <div className="col-12 col-md-4 ">

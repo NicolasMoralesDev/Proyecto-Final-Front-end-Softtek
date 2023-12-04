@@ -4,7 +4,7 @@ const url = "http://localhost:8081/api/public/auth";
 
 export const loginRequest = async (data) => {
   try {
-    const response = await axios.post(`${url}/login`, data);
+    const response = await axios.post(`${url}/login`, data);  
     return response.data
   } catch (error) {
     return error

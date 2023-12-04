@@ -1,0 +1,434 @@
+[
+  {
+    "name": "UX 200 ARGB LIGHT CPU COOLER",
+    "description": "El disipador de CPU UX200 ARGB Lighting viene con las aspas de alto flujo de aire, y los tubos de calor de cobre en forma de “U”. Los LEDs ARGB incorporados ofrecen un efecto de iluminación vibrante que permite la sincronización con las placas base. Compatible con el conector universal de Intel y AMD.",
+    "price": 21.1,
+    "category": "Cooler",
+    "brand": "Thermaltake",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Q10b2FtBL._SL1500_.jpg"
+  },
+  {
+    "name": "Hyper 212 RGB Black Edition",
+    "description": "El Hyper 212 RGB Black Edition ofrece una mejor instalación y un gran rendimiento, fácilmente uno de los mejores disipadores de aire que se pueden comprar por menos de 50€.",
+    "price": 39.99,
+    "category": "Cooler",
+    "brand": "Cooler Master",
+    "imageUrl": "https://m.media-amazon.com/images/I/81nu-dwkAeS._SL1500_.jpg"
+  },
+  {
+    "name": "NH-D15",
+    "description": "El NH-D15 es el mejor disipador de aire que puedes comprar en 2020, y es el rey indiscutible de los disipadores de aire. No es barato, pero si quieres lo mejor de lo mejor, este es el disipador de aire que debes comprar.",
+    "price": 89.9,
+    "category": "Cooler",
+    "brand": "Noctua",
+    "imageUrl": "https://m.media-amazon.com/images/I/91t48GBv8TL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "MasterLiquid ML240L RGB V2",
+    "description": "El MasterLiquid ML240L RGB V2 es un disipador de líquido de 240 mm que ofrece un rendimiento de refrigeración superior a un precio muy asequible. Es un disipador de líquido de nivel básico, pero es una gran opción para los usuarios que quieren probar la refrigeración líquida por primera vez.",
+    "price": 69.99,
+    "category": "Cooler",
+    "brand": "Cooler Master",
+    "imageUrl": "https://m.media-amazon.com/images/I/61g3UkYPnmL._SL1500_.jpg"
+  },
+  {
+    "name": "H100i RGB PLATINUM SE",
+    "description": "El H100i RGB PLATINUM SE es un disipador de líquido de 240 mm que ofrece un rendimiento de refrigeración superior a un precio muy asequible. Es un disipador de líquido de nivel básico, pero es una gran opción para los usuarios que quieren probar la refrigeración líquida por primera vez.",
+    "price": 169.99,
+    "category": "Cooler",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Iogep6zTL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Ryzen 5 3600",
+    "description": "El procesador Ryzen 5 3600 cuenta con 6 núcleos y 12 hilos, brindando un rendimiento excepcional a un precio atractivo. Ideal para jugadores que buscan construir un potente PC.",
+    "price": 199.99,
+    "category": "Cpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Ryzen 7 3700X",
+    "description": "El Ryzen 7 3700X es un procesador de 8 núcleos y 16 hilos que ofrece un rendimiento excepcional a un precio competitivo. Perfecto para entusiastas de los juegos que buscan potencia sin compromisos.",
+    "price": 329.99,
+    "category": "Cpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Ryzen 9 3900X",
+    "description": "Con 12 núcleos y 24 hilos, el Ryzen 9 3900X ofrece un rendimiento excepcional para usuarios exigentes. Una opción perfecta para construir un PC de alto rendimiento y versatilidad.",
+    "price": 499.99,
+    "category": "Cpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Core i5-9600K",
+    "description": "El Core i5-9600K, con 6 núcleos y 6 hilos, proporciona un rendimiento excepcional a un precio atractivo. Diseñado para jugadores que buscan potencia sin comprometer su presupuesto.",
+    "price": 199.99,
+    "category": "Cpu",
+    "brand": "Intel",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Core i7-9700K",
+    "description": "Equipado con 8 núcleos y 8 hilos, el Core i7-9700K ofrece un rendimiento excepcional para entusiastas de los juegos. Una elección ideal para construir un PC potente y versátil.",
+    "price": 329.99,
+    "category": "Cpu",
+    "brand": "Intel",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Core i9-9900K",
+    "description": "El Core i9-9900K, con 8 núcleos y 16 hilos, ofrece un rendimiento excepcional para usuarios exigentes. La elección perfecta para construir un PC de alto rendimiento sin compromisos.",
+    "price": 499.99,
+    "category": "Cpu",
+    "brand": "Intel",
+    "imageUrl": "https://m.media-amazon.com/images/I/71i7VRKNwpL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "WD Blue 3D NAND 1TB",
+    "description": "El WD Blue 3D NAND 1TB es un SSD de 1TB que ofrece un rendimiento increíble por el precio. Es el SSD perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 99.99,
+    "category": "Discos",
+    "brand": "Western Digital",
+    "imageUrl": "https://m.media-amazon.com/images/I/718eEaTmJVL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Samsung 970 EVO Plus 1TB",
+    "description": "El Samsung 970 EVO Plus 1TB es un SSD de 1TB que ofrece un rendimiento increíble por el precio. Es el SSD perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 199.99,
+    "category": "Discos",
+    "brand": "Samsung",
+    "imageUrl": "https://m.media-amazon.com/images/I/71OYNmVRFhL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Seagate BarraCuda 2TB",
+    "description": "El Seagate BarraCuda 2TB es un HDD de 2TB que ofrece un rendimiento increíble por el precio. Es el HDD perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 54.99,
+    "category": "Discos",
+    "brand": "Seagate",
+    "imageUrl": "https://m.media-amazon.com/images/I/71W881GN6-L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "WD Blue 4TB",
+    "description": "El WD Blue 4TB es un HDD de 4TB que ofrece un rendimiento increíble por el precio. Es el HDD perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 89.99,
+    "category": "Discos",
+    "brand": "Western Digital",
+    "imageUrl": "https://m.media-amazon.com/images/I/81tOxqlAM+L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "WD Blue SN550 1TB",
+    "description": "El WD Blue SN550 1TB es un SSD de 1TB que ofrece un rendimiento increíble por el precio. Es el SSD perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 104.99,
+    "category": "Discos",
+    "brand": "Western Digital",
+    "imageUrl": "https://m.media-amazon.com/images/I/71b9pV5aZDS._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer SB220Q bi",
+    "description": "El Acer SB220Q bi es un monitor de 21.5 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 89.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/81QpkIctqPL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator XB271HU",
+    "description": "El Acer Predator XB271HU es un monitor de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 499.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Xl3-y0K5L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator X27",
+    "description": "El Acer Predator X27 es un monitor de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 1999.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/81eUaj5y1wL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator X35",
+    "description": "El Acer Predator X35 es un monitor de 35 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 2499.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/81mHL0psH-L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator CG437K",
+    "description": "El Acer Predator CG437K es un monitor de 43 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 1499.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Xl3-y0K5L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator X38",
+    "description": "El Acer Predator X38 es un monitor de 38 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 2499.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Xl3-y0K5L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator XB273K",
+    "description": "El Acer Predator XB273K es un monitor de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 1299.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/81V1MOVrA3L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Acer Predator XB323U",
+    "description": "El Acer Predator XB323U es un monitor de 32 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 799.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/51juMJRoVUL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "Acer Predator XB273K",
+    "description": "El Acer Predator XB273K es un monitor de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el monitor perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 1299.99,
+    "category": "Monitor",
+    "brand": "Acer",
+    "imageUrl": "https://m.media-amazon.com/images/I/51juMJRoVUL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "Corsair Carbide Series 175R RGB",
+    "description": "El Corsair Carbide Series 175R RGB es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 59.99,
+    "category": "Gabinete",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/61GimPkvgTL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "Corsair Crystal 680X RGB",
+    "description": "El Corsair Crystal 680X RGB es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 249.99,
+    "category": "Gabinete",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Tax9-LMQL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Corsair Obsidian 1000D",
+    "description": "El Corsair Obsidian 1000D es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 499.99,
+    "category": "Gabinete",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/71Tax9-LMQL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Corsair Crystal 280X RGB",
+    "description": "El Corsair Crystal 280X RGB es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 159.99,
+    "category": "Gabinete",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/61e4fEX6KgL._AC_SL1200_.jpg"
+  }, 
+  {
+    "name": "NZXT H510",
+    "description": "El NZXT H510 es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 69.99,
+    "category": "Gabinete",
+    "brand": "NZXT",
+    "imageUrl": "https://m.media-amazon.com/images/I/61e4fEX6KgL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "NZXT H710i",
+    "description": "El NZXT H710i es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 169.99,
+    "category": "Gabinete",
+    "brand": "NZXT",
+    "imageUrl": "https://m.media-amazon.com/images/I/61e4fEX6KgL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "NZXT H510 Elite",
+    "description": "El NZXT H510 Elite es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 149.99,
+    "category": "Gabinete",
+    "brand": "NZXT",
+    "imageUrl": "https://m.media-amazon.com/images/I/61e4fEX6KgL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "NZXT H710",
+    "description": "El NZXT H710 es un gabinete de 27 pulgadas que ofrece un rendimiento increíble por el precio. Es el gabinete perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 139.99,
+    "category": "Gabinete",
+    "brand": "NZXT",
+    "imageUrl": "https://m.media-amazon.com/images/I/710POypV8KL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Gigabyte GeForce RTX 2060 OC",
+    "description": "La Gigabyte GeForce RTX 2060 OC es una GPU de 6GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 349.99,
+    "category": "Gpu",
+    "brand": "Gigabyte",
+    "imageUrl": "https://m.media-amazon.com/images/I/71XcVOdHX+S._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Gigabyte GeForce RTX 2070 OC",
+    "description": "La Gigabyte GeForce RTX 2070 OC es una GPU de 8GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 499.99,
+    "category": "Gpu",
+    "brand": "Gigabyte",
+    "imageUrl": "https://m.media-amazon.com/images/I/71XcVOdHX+S._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Gigabyte GeForce RTX 2080 OC",
+    "description": "La Gigabyte GeForce RTX 2080 OC es una GPU de 8GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 699.99,
+    "category": "Gpu",
+    "brand": "Gigabyte",
+    "imageUrl": "https://m.media-amazon.com/images/I/71dX+AHMX1L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Gigabyte GeForce RTX 2080 Ti OC",
+    "description": "La Gigabyte GeForce RTX 2080 Ti OC es una GPU de 11GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 1199.99,
+    "category": "Gpu",
+    "brand": "Gigabyte",
+    "imageUrl": "https://m.media-amazon.com/images/I/8188NNMGDOL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "AMD Radeon RX 6600 XT",
+    "description": "La AMD Radeon RX 6600 XT es una GPU de 8GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 399.99,
+    "category": "Gpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/81Vtsr0wIVL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "AMD Radeon RX 6700 XT",
+    "description": "La AMD Radeon RX 5700 es una GPU de 8GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 349.99,
+    "category": "Gpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/81PEqT21o3L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "AMD Radeon RX 5600 XT",
+    "description": "La AMD Radeon RX 5600 XT es una GPU de 6GB que ofrece un rendimiento increíble por el precio. Es la GPU perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 279.99,
+    "category": "Gpu",
+    "brand": "AMD",
+    "imageUrl": "https://m.media-amazon.com/images/I/816ezUqZsKL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Corsair Vengeance LPX 16GB",
+    "description": "La Corsair Vengeance LPX 16GB es una memoria RAM de 16GB que ofrece un rendimiento increíble por el precio. Es la memoria RAM perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 79.99,
+    "category": "Memoria",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/41a2jzudKtL._AC_SL1006_.jpg"
+  },
+  {
+    "name": "G.Skill Trident Z RGB 16GB",
+    "description": "La G.Skill Trident Z RGB 16GB es una memoria RAM de 16GB que ofrece un rendimiento increíble por el precio. Es la memoria RAM perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 99.99,
+    "category": "Memoria",
+    "brand": "G.Skill",
+    "imageUrl": "https://m.media-amazon.com/images/I/61l4EStxhnL._AC_SL1274_.jpg"
+  },
+  {
+    "name": "HyperX Fury 16GB",
+    "description": "La HyperX Fury 16GB es una memoria RAM de 16GB que ofrece un rendimiento increíble por el precio. Es la memoria RAM perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 79.99,
+    "category": "Memoria",
+    "brand": "HyperX",
+    "imageUrl": "https://m.media-amazon.com/images/I/71nQp70NhYL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Asus ROG Strix B450-F Gaming",
+    "description": "La Asus ROG Strix B450-F Gaming es una placa madre que ofrece un rendimiento increíble por el precio. Es la placa madre perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 129.99,
+    "category": "Motherboard",
+    "brand": "Asus",
+    "imageUrl": "https://m.media-amazon.com/images/I/61GM4VX3NzL._AC_SL1000_.jpg"
+  },
+  {
+    "name": "Asus ROG Strix X570-E Gaming",
+    "description": "La Asus ROG Strix X570-E Gaming es una placa madre que ofrece un rendimiento increíble por el precio. Es la placa madre perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 329.99,
+    "category": "Motherboard",
+    "brand": "Asus",
+    "imageUrl": "https://m.media-amazon.com/images/I/91nSHOFzwoL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Asus ROG Strix Z390-E Gaming",
+    "description": "La Asus ROG Strix Z390-E Gaming es una placa madre que ofrece un rendimiento increíble por el precio. Es la placa madre perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 239.99,
+    "category": "Motherboard",
+    "brand": "Asus",
+    "imageUrl": "https://m.media-amazon.com/images/I/61gmuQ+qb5L._AC_SL1000_.jpg"
+  },
+  {
+    "name": "Logitech G502 Hero",
+    "description": "El Logitech G502 Hero es un mouse que ofrece un rendimiento increíble por el precio. Es el mouse perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 49.99,
+    "category": "Periferico",
+    "brand": "Logitech",
+    "imageUrl": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Logitech G Pro Wireless",
+    "description": "El Logitech G Pro Wireless es un mouse que ofrece un rendimiento increíble por el precio. Es el mouse perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 149.99,
+    "category": "Periferico",
+    "brand": "Logitech",
+    "imageUrl": "https://m.media-amazon.com/images/I/51iRyfBZtfS._AC_SL1204_.jpg"
+  },
+  {
+    "name": "Logitech G203 Prodigy",
+    "description": "El Logitech G203 Prodigy es un mouse que ofrece un rendimiento increíble por el precio. Es el mouse perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 29.99,
+    "category": "Periferico",
+    "brand": "Logitech",
+    "imageUrl": "https://m.media-amazon.com/images/I/51pgoq0OalL._AC_SL1019_.jpg"
+  },
+  {
+    "name": "Logitech G305 Lightspeed",
+    "description": "El Logitech G305 Lightspeed es un mouse que ofrece un rendimiento increíble por el precio. Es el mouse perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 49.99,
+    "category": "Periferico",
+    "brand": "Logitech",
+    "imageUrl": "https://m.media-amazon.com/images/I/51VpABY-b6L._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Logitech G903 Lightspeed",
+    "description": "El Logitech G903 Lightspeed es un mouse que ofrece un rendimiento increíble por el precio. Es el mouse perfecto para los jugadores que quieren construir un PC de gama media.",
+    "price": 149.99,
+    "category": "Periferico",
+    "brand": "Logitech",
+    "imageUrl": "https://m.media-amazon.com/images/I/81N9TeedXaL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Corsair RM750x",
+    "description": "La Corsair RM750x es una fuente de poder que ofrece un rendimiento increíble por el precio. Es la fuente de poder perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 129.99,
+    "category": "Psu",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/816hgUgi5xL._AC_SL1500_.jpg"
+  },
+  {
+    "name": "Corsair RM850x",
+    "description": "La Corsair RM850x es una fuente de poder que ofrece un rendimiento increíble por el precio. Es la fuente de poder perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 149.99,
+    "category": "Psu",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/81J3hY4ZgJL._AC_SL1200_.jpg"
+  },
+  {
+    "name": "Corsair RM1000x",
+    "description": "La Corsair RM1000x es una fuente de poder que ofrece un rendimiento increíble por el precio. Es la fuente de poder perfecta para los jugadores que quieren construir un PC de gama media.",
+    "price": 179.99,
+    "category": "Psu",
+    "brand": "Corsair",
+    "imageUrl": "https://m.media-amazon.com/images/I/710giQRHyQS._AC_SL1500_.jpg"
+  }
+]
