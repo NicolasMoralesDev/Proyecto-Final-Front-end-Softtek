@@ -8,13 +8,13 @@ import { useCart } from "../../context/Hooks";
 
 const ProductList = () => {
 
-    const { addToCart } = useCart();
+    const { cart, addToCart } = useCart();
     const { page } = useContext(PaginationContext);
 
     const [ products, setProducts] = useState([{}]);
 
     const moveToCart = (product) => {
-        product = { ...product, imageUrl: product.imgUrl };
+        product = { ...product, imageUrl: product.imgUrl }; //a
         addToCart(product, 1);
     }
 
@@ -22,6 +22,11 @@ const ProductList = () => {
 
         const data = await getAllProducts(page);
         setProducts(data.productos);
+    }
+
+    const getProductTotal = (id) => {
+        const item = cart.find((i) => i.product.id === id);
+        return item ? item.amount * item.product.price : 0;
     }
 
     useEffect(() => {
