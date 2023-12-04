@@ -6,7 +6,7 @@ import { useCart } from '../../../../context/Hooks.js';
 
 
 const CardCart = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([{}]);
 
     const { cart } = useCart();
 
@@ -24,13 +24,13 @@ const CardCart = () => {
                         <div className="card mb-3 mt-3 dropdown-item" style={{ maxWidth: '700px' }} key={uuidv4()}>
                             <div className="row g-0 d-flex">
                                 <div className="col col-md-4">
-                                    <img src={i.product.imageUrl} alt={i.product.name} style={{maxWidth: "100px"}} / >
+                                    <img src={i.imageUrl} alt={i.name} style={{maxWidth: "100px"}} / >
                                 </div>
                                 <div className="col col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">{i.product.name}</h5>
+                                        <h5 className="card-title">{i.name}</h5>
                                         <h6>Cantidad: {i.amount}</h6>
-                                        <p className="card-text fw-bold">Total: $ {i.product.price * i.amount}</p>
+                                        <p className="card-text fw-bold">Total: $ {i.price * i.amount}</p>
                                     </div>
                                 </div>
                             </div>

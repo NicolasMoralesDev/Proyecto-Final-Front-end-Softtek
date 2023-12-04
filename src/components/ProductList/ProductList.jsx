@@ -21,7 +21,7 @@ const ProductList = () => {
     const getData = async () => {
 
         const data = await getAllProducts(page);
-        setproducts(data);
+        setproducts(data.productos);
     }
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const ProductList = () => {
 
     return (
         <>
-            {products.map((i) => (
+             {products.map((i) => (
                 <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.id*i.id}>
                     <div className="row g-0">
                         <div className="col-md-4">
@@ -55,7 +55,7 @@ const ProductList = () => {
                     </div>
                 </div>)
             )
-            }
+            } 
             <div className="container-fluid d-flex justify-content-center align-items-center mt-5 mb-5">
                <PaginationProduts/> 
             </div>

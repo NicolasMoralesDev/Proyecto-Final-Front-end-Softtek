@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const url = "https://6274471f3d2b5100742a5877.mockapi.io/";
+const url = "http://localhost:8081/api/";
 
-export const getAllProducts = async (page = 1) => {
+export const getAllProducts = async (page = 0) => {
 
     try {
 
-        const response = await axios.get(`${url}productos?complete=false&page=${page}&limit=10`);
+        const response = await axios.get(`${url}public/products?page=${page}`);
+        console.log(response.data);
         return response.data;
 
     } catch (error) {
