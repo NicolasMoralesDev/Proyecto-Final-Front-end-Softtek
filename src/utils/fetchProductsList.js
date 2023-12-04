@@ -1,12 +1,17 @@
 import axios from "axios";
 
-const url = "https://6274471f3d2b5100742a5877.mockapi.io/";
+const BACKEND_HOST = import.meta.env.VITE_BACKEND_HOST || "localhost";
+const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 8081;
+
+const url = `http://${BACKEND_HOST}:${BACKEND_PORT}/api/`;
+
 
 export const getAllProducts = async (page = 1) => {
-
+    console.log(url);
     try {
 
-        const response = await axios.get(`${url}productos?complete=false&page=${page}&limit=10`);
+        const response = await axios.get(`${url}public/products?complete=false&page=${page}&limit=10`);
+        console.log(response.data);
         return response.data;
 
     } catch (error) {
@@ -19,7 +24,20 @@ export const getProduct = async (id) => {
 
     try {
 
-        const response = await axios.get(`${url}productos/${id}`);
+        const response = await axios.get(`${url}public/products/${id}`);
+        return response.data;
+
+    } catch (error) {
+        return error;
+    }
+    
+}
+
+export const getProductByCategory = async (category) => {
+
+    try {
+
+        const response = await axios.get(`${url}public/products/categories/${category}`);
         return response.data;
 
     } catch (error) {
@@ -32,7 +50,7 @@ export const deleteProduct = async (id) => {
 
     try {
 
-        const response = await axios.get(`${url}productos/${id}`);
+        const response = await axios.get(`${url}admin/products/${id}`);
         return response.data;
 
     } catch (error) {
@@ -41,11 +59,11 @@ export const deleteProduct = async (id) => {
     
 }
 
-export const putProduct = async (data) => {
+export const addProduct = async (product) => {
 
     try {
 
-        const response = await axios.get(`${url}productos`);
+        const response = await axios.post(`${url}admin/products`, product);
         return response.data;
 
     } catch (error) {
