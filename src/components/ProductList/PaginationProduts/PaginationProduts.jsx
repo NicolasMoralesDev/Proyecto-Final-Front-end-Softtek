@@ -4,21 +4,26 @@ import { PaginationContext } from '../../../context/PaginationContext';
 
 const PaginationProduts = () => {
 
-    const { setPage, page } = useContext(PaginationContext);
+    const { setPage, page, total } = useContext(PaginationContext);
 
+    let item = []
+    for (let i = 0; i <= total; i++) {
+      item.push(
+        <Pagination.Item key={i} active={i === page}>
+          {i}
+        </Pagination.Item>
+      );
+    }
   return (
-    <Pagination className='w-100 mt-4'>
-    <Pagination.First onClick={()=> setPage(1)}/>
-    <Pagination.Prev onClick={()=> setPage(page-1)}/>
+    <Pagination>
+    <Pagination.First disabled={page==0} onClick={()=> setPage(0)}/>
+    
+    <Pagination.Prev disabled={page==0} onClick={()=> setPage(page-1)}/>
 
-    <Pagination.Item active onClick={()=> setPage(1)}>{1}</Pagination.Item>
-    <Pagination.Item active onClick={()=> setPage(2)}>{2}</Pagination.Item>
-    <Pagination.Item active onClick={()=> setPage(3)}>{3}</Pagination.Item>
-    <Pagination.Item active onClick={()=> setPage(4)}>{4}</Pagination.Item>
+    {item}
 
-
-    <Pagination.Next onClick={()=> setPage(page+1)}/>
-    <Pagination.Last />
+    <Pagination.Next disabled={page==total}  onClick={()=> setPage(page+1)}/>
+    <Pagination.Last onClick={()=> setPage(total)}/>
   </Pagination>
   )
 }

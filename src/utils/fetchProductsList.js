@@ -1,15 +1,12 @@
 import axios from "axios";
 
-const BACKEND_HOST = import.meta.env.VITE_BACKEND_HOST || "localhost";
-const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 8081;
+const url = "http://localhost:8081/api/";
 
-const url = `http://${BACKEND_HOST}:${BACKEND_PORT}/api/`;
+export const getAllProducts = async (page = 0) => {
 
-
-export const getAllProducts = async (page = 1) => { // 
     try {
 
-        const response = await axios.get(`${url}public/products?complete=false&page=${page}&limit=10`);
+        const response = await axios.get(`${url}public/products?page=${page}`);
         return response.data;
 
     } catch (error) {

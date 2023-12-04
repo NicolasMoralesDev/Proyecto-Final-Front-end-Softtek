@@ -60,6 +60,7 @@ export const CartProvider = ({ children }) => {
    * @param {*} amount Amount of products to add to the cart (1, 2, 3, etc)
    */
   const addToCart = (productToAdd, amount) => {
+
     const itemInCart = cart.find((item) => item.product.id === productToAdd.id);
     if (itemInCart) {
       // If the product is already in the cart, update the amount
