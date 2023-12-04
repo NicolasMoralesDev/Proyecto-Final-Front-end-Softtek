@@ -9,52 +9,53 @@ export const UserProvider = ({ children }) => {
 
   // state for the user
   const [user, setUser] = useState(null);
-  const [userOrders, setUserOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const setUserFromToken = () => {
+  const saveTokenLocally = (token) => localStorage.setItem("token", token);
 
-    let token = localStorage.getItem('token');
-    if (token) {
-      try {
-        let decoded = jwtDecode(token);
-        setUser({
-          firstName: decoded.firstName,
-          lastName: decoded.lastName,
-          email: decoded.sub,
-          role: decoded.role,
-        });
-        setIsAuthenticated(true);
-        setIsAdmin(decoded.role === "ROLE_ADMIN");
-      } catch (error) {
-        localStorage.removeItem('token');
-      }
-    }
+  const setUserStatesFromToken = (token) => {
+    const decodedToken = jwtDecode(token);
+    setUser({
+      firstName: decodedToken.firstName,
+      lastName: decodedToken.lastName,
+      email: decodedToken.sub,
+      role: decodedToken.role,
+    });
+    setIsAuthenticated(true);
+    setIsAdmin(decodedToken.role === "ROLE_ADMIN");
   }
 
   useEffect(() => {
     setLoading(true);
-    setUserFromToken();
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      if (decodedToken.exp < Date.now()) {
+        setUserStatesFromToken(token);
+      } else {
+        setUser(null);
+        setIsAuthenticated(false);
+        setIsAdmin(false);
+        localStorage.removeItem("token");
+      }
+    }
     setLoading(false);
   }, []);
 
-  
-  // Mock login function. To test the 'user' role, you can change the role to 'admin'
   const login = (email, password) => {
     setLoading(true)
     loginRequest({email, password})
       .then((res) => {
-        const jwtToken = res.token;
-        localStorage.setItem("token", jwtToken);
-        setUserFromToken();
-        
+        const token = res.token;
+        saveTokenLocally(token);
+        setUserStatesFromToken(token);
       })
       .catch((err) => {
         console.log(err);
       });
-      setLoading(false);
+    setLoading(false);
   };
 
   // Mock logout function
@@ -65,19 +66,17 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   }
 
-
-  
   const register = (user) => {
     setLoading(true);
     registerRequest(user)
-    .then((res) => {
-      const jwtToken = res.token;
-      localStorage.setItem("token", jwtToken);
-      setUserFromToken();
-    })
-    .catch((err) => {
-      console.log(err);
-    });    
+      .then((res) => {
+        const token = res.token;
+        saveTokenLocally(token);
+        setUserStatesFromToken(token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });    
     setLoading(false);
   };
 
@@ -88,8 +87,7 @@ export const UserProvider = ({ children }) => {
     isAuthenticated,
     isAdmin,
     register,
-    loading,
-    userOrders
+    loading
   };
   
   return (
