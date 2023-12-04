@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft'
 import  BuildYourPcRight  from './BuildYourPcComp/BuildYourPcRight'
 import  BuildYourPcTotal  from './BuildYourPcComp/BuildYourPcTotal'
+
 import cooler2 from "../../assets/pcComponents/cooler2.png";
 import cpu2 from '../../assets/pcComponents/cpu2.png'
 import gabo2 from '../../assets/pcComponents/gabo2.png'
@@ -18,11 +19,12 @@ import periferico2 from '../../assets/pcComponents/periferico2.png'
 import poder2 from '../../assets/pcComponents/poder2.png'
 
 export default function BuildYourPc() {
+
  
     const cimages = [
         { category: 'Cooler', url: cooler2 },
         { category: 'Cpu', url: cpu2 },
-        { category: 'Hhd', url: hhd2 },
+        { category: 'Discos', url: hhd2 },
         { category: 'Monitor', url: moni4 },
         { category: 'Gabinete', url: gabo2 },
         { category: 'Gpu', url: gpu2 },
@@ -48,7 +50,7 @@ export default function BuildYourPc() {
 
         getData();
 
-    }, [])
+    }, []);
 
     const handleImageClick = (category) => {
         setSelectedCategory(category);
@@ -57,10 +59,6 @@ export default function BuildYourPc() {
     const handleProductClick = (product) => {
         setSelectedProducts((prevSelectedProducts) => [...prevSelectedProducts, product]);
       };
-
-
-    console.log(selectedCategory+"categoria seleccionada");
-    console.log(selectedProducts+"producto seleccionado");
 
 
     return (

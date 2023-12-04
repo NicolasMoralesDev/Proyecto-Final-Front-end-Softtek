@@ -11,7 +11,7 @@ const ProductList = () => {
     const { addToCart } = useCart();
     const { page } = useContext(PaginationContext);
 
-    const [ products, setproducts] = useState([{}]);
+    const [ products, setProducts] = useState([{}]);
 
     const moveToCart = (product) => {
         product = { ...product, imageUrl: product.imgUrl };
@@ -21,7 +21,7 @@ const ProductList = () => {
     const getData = async () => {
 
         const data = await getAllProducts(page);
-        setproducts(data);
+        setProducts(data.productos);
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const ProductList = () => {
                 <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.id*i.id}>
                     <div className="row g-0">
                         <div className="col-md-4">
-                            <img src={i.imgUrl}   className="h-100 img-fluid rounded-start" alt={i.name}></img>
+                            <img src={i.imageUrl} style={{maxWidth: "200px", maxHeight: "200px", aspectRatio: "auto"}}  className="h-100 img-fluid rounded-start" alt={i.name}></img>
                         </div>
                         <div className="col-md-8">
                             <div className="card-body">
