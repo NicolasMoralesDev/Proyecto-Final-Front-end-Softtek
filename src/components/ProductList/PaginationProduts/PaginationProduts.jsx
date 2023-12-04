@@ -7,7 +7,7 @@ const PaginationProduts = () => {
     const { setPage, page } = useContext(PaginationContext);
 
   return (
-    <Pagination className='w-100 mt-4'>
+    <Pagination>
     <Pagination.First onClick={()=> setPage(1)}/>
     <Pagination.Prev onClick={()=> setPage(page-1)}/>
 

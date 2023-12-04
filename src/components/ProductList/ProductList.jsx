@@ -47,14 +47,18 @@ const ProductList = () => {
                                     position="bottom-right"
                                     reverseOrder={false}
                                 />
-                                <a href="#" className="btn text-light btn-orange-custom mt-2" onClick={() => moveToCart(i)}>agregar al carrito</a>
+                                <button  className="btn text-light btn-orange-custom mt-2 fw-bold" onClick={() => moveToCart(i)}>agregar al carrito</button>
+                                <button className="btn text-light mt-2 bg-success fw-bold">ver</button>
                             </div>
                         </div>
                     </div>
                 </div>)
             )
             }
-            <PaginationProduts/>
+            <div className="container-fluid d-flex justify-content-center align-items-center mt-5 mb-5">
+               <PaginationProduts/> 
+            </div>
+            
             
         </>
 
