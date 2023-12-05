@@ -22,7 +22,6 @@ const ProductList = () => {
         const data = await getAllProducts(page);
         setProducts(data.productos);
         setTotal(data.total)
-        console.log(data);
     }
 
     const getProductTotal = (id) => {
