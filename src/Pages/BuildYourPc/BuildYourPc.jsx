@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../../styles/buildYourPC.css';
 import { Helmet } from 'react-helmet';
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft';
@@ -17,6 +17,7 @@ import periferico2 from '../../assets/pcComponents/periferico2.png';
 import poder2 from '../../assets/pcComponents/poder2.png';
 
 import { getAllProducts, getProductByCategory } from '../../utils/fetchProductsList';
+import { PaginationContext } from '../../context/PaginationContext';
 export default function BuildYourPc() {
 
   const cimages = [
@@ -32,30 +33,33 @@ export default function BuildYourPc() {
     { category: 'Psu', url: poder2, name: 'Fuentes' },
   ];
 
+  const { page, setTotal } = useContext(PaginationContext);
+
   const [products, setProducts] = useState([{}]);
-  const [loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCategoryName, setSelectedCategoryName] = useState(null); // [1
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const getProducts = async () => {
-    setLoading(true)
+    setLoading(true);
     let data = await getAllProducts();
     setProducts(data.productos);
-    setLoading(false)
+    setLoading(false);
   }
 
   const getProductsCat = async (category) => {
-    setLoading(true)
-    let data = await getProductByCategory(category);
-    setProducts(data);
-    setLoading(false)
+    setLoading(true);
+    const data = await getProductByCategory(category, page);
+    setTotal(data.total);
+    setProducts(data.productos);
+    setLoading(false);
   };
 
   useEffect(() => {
-    
+
     getProducts();
-    
+
   }, []);
 
   useEffect(() => {
