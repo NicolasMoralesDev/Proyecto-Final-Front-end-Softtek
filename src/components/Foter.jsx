@@ -1,5 +1,5 @@
 
-const Footer = () => {
+const Foter = () => {
   return (
     <footer className="footer bg-dark position-relative bottom-0 container-fluid">
       <div className="container-fluid">
@@ -26,4 +26,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Foter
