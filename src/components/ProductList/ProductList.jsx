@@ -13,7 +13,7 @@ const ProductList = () => {
 
     const [products, setProducts] = useState([{}]);
     const moveToCart = (product) => {
-        product = { ...product, imageUrl: product.imgUrl }; //a
+        product = { ...product}; //a
         addToCart(product, 1);
     }
 
