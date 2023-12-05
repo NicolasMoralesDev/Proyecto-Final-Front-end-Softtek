@@ -9,7 +9,7 @@ import { useCart } from "../../context/Hooks";
 const ProductList = () => {
 
     const { cart, addToCart } = useCart();
-    const { page } = useContext(PaginationContext);
+    const { page, setTotal } = useContext(PaginationContext);
 
     const [products, setProducts] = useState([{}]);
     const moveToCart = (product) => {
@@ -21,6 +21,8 @@ const ProductList = () => {
 
         const data = await getAllProducts(page);
         setProducts(data.productos);
+        setTotal(data.total)
+        console.log(data);
     }
 
     const getProductTotal = (id) => {

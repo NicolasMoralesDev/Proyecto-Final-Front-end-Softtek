@@ -1,3 +1,4 @@
+import { NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavbarLinks = () => {
@@ -18,9 +19,9 @@ const NavbarLinks = () => {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
           <li className='nav-item  text-center mx-2'>
-              <Link className='nav-link mx-5 link-light fw-bold' to='/'>
+              <NavLink className='nav-link mx-5 link-light fw-bold' to='/'>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className='nav-item text-center mx-2'>
               <Link className='nav-link mx-5 link-light fw-bold' to='/productos'>
