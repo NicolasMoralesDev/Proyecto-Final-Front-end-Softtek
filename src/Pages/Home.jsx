@@ -1,7 +1,6 @@
 
 import React from 'react';
 import ProductsCarousel from '../components/ProductsCarousel';
-import Footer from '../components/footer';
 import { Helmet } from 'react-helmet'
 
 

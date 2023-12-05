@@ -11,7 +11,7 @@ import Navbar from '../components/Navbar/Navbar';
 import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 import RequireAuth from './RequireAuth';
 import RequireAdminRole from './RequireAdminRole';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 
 function Layout() {
