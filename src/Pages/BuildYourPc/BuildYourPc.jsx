@@ -36,30 +36,30 @@ export default function BuildYourPc() {
   const { page, setTotal } = useContext(PaginationContext);
 
   const [products, setProducts] = useState([{}]);
-  const [loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCategoryName, setSelectedCategoryName] = useState(null); // [1
   const [selectedProducts, setSelectedProducts] = useState([]);
 
   const getProducts = async () => {
-    setLoading(true)
+    setLoading(true);
     let data = await getAllProducts();
     setProducts(data.productos);
-    setLoading(false)
+    setLoading(false);
   }
 
   const getProductsCat = async (category) => {
     setLoading(true);
     const data = await getProductByCategory(category, page);
     setTotal(data.total);
-    setProducts(data);
+    setProducts(data.productos);
     setLoading(false);
   };
 
   useEffect(() => {
-    
+
     getProducts();
-    
+
   }, []);
 
   useEffect(() => {
