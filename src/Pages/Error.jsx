@@ -6,6 +6,13 @@ const Error = () => {
 
     const error = useRouteError();
 
+let errorMessage = '';
+
+if (error) {
+  errorMessage = error.message || error.statusText;
+  console.error(error);
+}
+
     return (
         <>
         <div id="error-page" className='mb-3'>
@@ -16,9 +23,10 @@ const Error = () => {
             </Helmet>
             <div className='d-flex justify-content-center align-items-center container flex-column ' >
                 <div className='mt-5 gap-3 d-flex justify-content-center flex-column align-items-center gap-5'>
-                    <h1> Parece que a ocurrido un error!!</h1>
+                <h1 className='text-4xl font-bold'>Oops!</h1>
+                    <h3> Parece que a ocurrido un error!!</h3>
                     <h3 className='text-center'>
-                   404 - page not found
+                     {errorMessage}
                     </h3>
                     <a title='volver' href={"/"} className='btn text-light fw-bold  btn-orange-custom w-25'>volver</a>
                 </div>
