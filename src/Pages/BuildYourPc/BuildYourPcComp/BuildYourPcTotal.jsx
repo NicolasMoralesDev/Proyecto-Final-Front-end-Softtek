@@ -8,10 +8,10 @@ const BuildYourPcTotal = () => {
     return (
         <>
             <div className="row">
-                <button className="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                <button className="btn btn-primary fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                     Listado Seleccionado
                 </button>
-                <h3>Total: ${total.toFixed(2)}</h3>
+                <h3 className="mt-3 text-center">Total: ${total.toFixed(2)}</h3>
             </div>
             <div style={{ minHeight: "120px" }}>
                 <div className="collapse collapse-horizontal" id="collapseWidthExample">
