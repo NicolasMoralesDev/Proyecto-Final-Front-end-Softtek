@@ -4,6 +4,7 @@ import Modal  from "../../../components/Modal/Modal";
 import { useCart } from "../../../context/Hooks";
 import ItemCount from "./ItemCount";
 import { v4 as uuidv4 } from 'uuid';
+import PaginationProduts from "../../../components/ProductList/PaginationProduts/PaginationProduts";
 
 const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
 
@@ -22,7 +23,9 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
     return (
       <div className="row">
         <h1>{selectedCategoryName ? selectedCategoryName : "Productos"}</h1>
-        {componentspc.map((product) => (
+        {
+        componentspc.length > 0 ?
+        componentspc.map((product) => (
           <div key={uuidv4()} className="col-md-6 mb-3" onClick={() => {handleProductClick(product)}}>
             <div className="card" style={{ maxWidth: '540px' }}>
               <div className="row g-0">
@@ -32,17 +35,23 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
+                    <h6>{product.brand}</h6>
                     <p className="card-text"><small className="text-body-secondary">Precio $ {product.price}</small></p>                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+        ))  : <h2 className="text-center">Sin Productos</h2>
+      
+      }
         {selectedProduct && <Modal show={showModal} handleClose={handleCloseModal} title={selectedProduct.name}>
           <ModalBody product={selectedProduct} handleCloseModal={handleCloseModal}/>
         </Modal>}
-
+        <div className="w-100 mt-5 mb-5">
+         <PaginationProduts/> 
+        </div>
+      
       </div>
     );
   };

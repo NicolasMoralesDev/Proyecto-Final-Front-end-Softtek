@@ -7,7 +7,7 @@ const PaginationProduts = () => {
     const { setPage, page, total } = useContext(PaginationContext);
 
     let item = []
-    for (let i = 0; i <= total; i++) {
+    for (let i = 1; i <= total; i++) {
       item.push(
         <Pagination.Item key={i} active={i === page}>
           {i}

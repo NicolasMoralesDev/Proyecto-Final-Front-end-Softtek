@@ -7,6 +7,7 @@ export const getAllProducts = async (page = 0) => {
     try {
 
         const response = await axios.get(`${url}public/products?page=${page}`);
+        console.log(response.data);
         return response.data;
 
     } catch (error) {
@@ -28,11 +29,11 @@ export const getProduct = async (id) => {
     
 }
 
-export const getProductByCategory = async (category) => {
+export const getProductByCategory = async (category, page=0) => {
 
     try {
 
-        const response = await axios.get(`${url}public/products/categories/${category}`); 
+        const response = await axios.get(`${url}public/products/categories/${category}?page=${page}`); 
         return response.data;
 
     } catch (error) {
