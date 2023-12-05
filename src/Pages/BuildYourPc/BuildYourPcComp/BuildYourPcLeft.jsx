@@ -2,6 +2,7 @@
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 const BuildYourPcLeft = ({cimages, selectedCategory, handleImageClick}) => {
+   
     return (
         <div className="container mb-4">
             <div className="row">
