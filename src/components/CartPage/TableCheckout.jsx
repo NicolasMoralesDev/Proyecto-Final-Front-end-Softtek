@@ -16,7 +16,6 @@ const TableCheckout = () => {
 
         setdata(JSON.parse(localStorage.getItem("cart")));
 
-
     }, [])
 
     return (
