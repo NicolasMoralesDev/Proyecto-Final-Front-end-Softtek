@@ -8,10 +8,10 @@ import Error from '../Pages/Error';
 import UserPanel from '../Pages/UserPanel/UserPanel';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/footer';
 import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 import RequireAuth from './RequireAuth';
 import RequireAdminRole from './RequireAdminRole';
+import Footer from '../components/footer';
 
 
 function Layout() {
