@@ -11,7 +11,8 @@ import Navbar from '../components/Navbar/Navbar';
 import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 import RequireAuth from './RequireAuth';
 import RequireAdminRole from './RequireAdminRole';
-import Footer from '../components/Footer';
+import Foter from '../components/Foter';
+
 
 
 function Layout() {
@@ -19,7 +20,7 @@ function Layout() {
     <>
       <Navbar />
       <Outlet />
-      <Footer />
+      <Foter />
     </>
   );
 }

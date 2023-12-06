@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Modal  from "../../../components/Modal/Modal"; 
 import { useCart } from "../../../context/Hooks";
 import ItemCount from "./ItemCount";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProduts from "../../../components/ProductList/PaginationProduts/PaginationProduts";
+import PaginationCategory from "../../../components/PaginationCategory/PaginationCategory";
 
 const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
 
@@ -49,7 +49,11 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
           <ModalBody product={selectedProduct} handleCloseModal={handleCloseModal}/>
         </Modal>}
         <div className="w-100 mt-5 mb-5">
-         <PaginationProduts/> 
+          {  selectedCategoryName == undefined?
+          <PaginationProduts/>
+           :  <PaginationCategory/>
+          }
+         
         </div>
       
       </div>
