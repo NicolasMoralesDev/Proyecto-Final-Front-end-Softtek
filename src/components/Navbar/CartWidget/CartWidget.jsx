@@ -13,6 +13,8 @@ const CartWidget = () => {
   useEffect(() => {
     if (cart.length > 0) {
       setTotalProducts(cart.length);
+    } else {
+      setTotalProducts(0);
     }
   }, [cart])
 

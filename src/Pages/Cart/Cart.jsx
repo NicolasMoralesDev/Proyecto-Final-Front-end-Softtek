@@ -1,7 +1,5 @@
-
-import React from 'react'
 import { Helmet } from 'react-helmet'
-import TableCheckout from '../components/CartPage/TableCheckout'
+import TableCheckout from '../../components/CartPage/TableCheckout'
 
 const Cart = () => {
     return (
