@@ -5,6 +5,7 @@ import { useCart } from "../../../context/Hooks";
 import ItemCount from "./ItemCount";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProduts from "../../../components/ProductList/PaginationProduts/PaginationProduts";
+import styles from './BuildYourPc.module.css';
 
 const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
 
@@ -30,7 +31,7 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
             <div className="card" style={{ maxWidth: '540px' }}>
               <div className="row g-0">
                 <div className="col-md-4">
-                  <img src={product.imageUrl} className="img-thumbnail rounded-start fixed-size-image" alt={product.name}></img>
+                  <img src={product.imageUrl} className={`img-thumbnail rounded-start fixed-size-image ${styles.fixedImages}`} alt={product.name}></img>
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">

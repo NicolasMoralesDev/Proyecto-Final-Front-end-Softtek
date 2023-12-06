@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import '../../styles/buildYourPC.css';
 import { Helmet } from 'react-helmet';
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft';
 import BuildYourPcRight from './BuildYourPcComp/BuildYourPcRight';
