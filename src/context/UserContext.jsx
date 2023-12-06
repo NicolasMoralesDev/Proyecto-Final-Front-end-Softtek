@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
       lastName: decodedToken.lastName,
       email: decodedToken.sub,
       role: decodedToken.role,
+      id: decodedToken.id,
     });
     setIsAuthenticated(true);
     setIsAdmin(decodedToken.role === "ROLE_ADMIN");

@@ -13,6 +13,8 @@ const CardCart = () => {
     useEffect(() => {
         if (cart.length > 0) {
             setData(cart);
+        } else {
+            setData(null);
         }
     } , [cart])
 

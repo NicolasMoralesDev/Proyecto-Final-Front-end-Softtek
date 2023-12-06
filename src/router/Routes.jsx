@@ -3,7 +3,7 @@ import App from '../App';
 import Login from '../Pages/Login/Login';
 import Products from '../Pages/Products';
 import Register from '../Pages/Register';
-import Cart from '../Pages/Cart';
+import Cart from '../Pages/Cart/Cart';
 import Error from '../Pages/Error';
 import UserPanel from '../Pages/UserPanel/UserPanel';
 import { Outlet } from 'react-router-dom';
