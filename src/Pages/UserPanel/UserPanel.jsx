@@ -1,4 +1,4 @@
-import { Col, Row, Table } from 'react-bootstrap';
+import { Button, Col, Row, Table } from 'react-bootstrap';
 import styles from './UserPanel.module.css';
 import { useUser } from '../../context/Hooks';
 import { useState } from 'react';
@@ -6,6 +6,7 @@ import Modal from '../../components/Modal/Modal';
 import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 import { getUserSales } from '../../utils/fetchSales';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserPanel = () => {
   
@@ -13,20 +14,25 @@ const UserPanel = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useUser();
 
+  const navigate = useNavigate();
+
   const getUserOrders = async () => {
-    getUserSales(user.id)
-    .then(res => {
-      if (res.data) {
-        setSaleList(res.data.saleList);
+    try {
+      const response = await getUserSales(user.id);
+      
+      if (response.data) {
+        setSaleList(response.data.saleList);
         setLoading(false);
       }
-    
-  })}
-
+    } catch (error) {
+      console.error("Error fetching user orders:", error);
+      // Puedes agregar lógica adicional para manejar el error, como mostrar un mensaje al usuario.
+    }
+  };
+  
   useEffect(() => {
     getUserOrders();
-  }, [user])
-  
+  }, [user]);
   
   return (
     <div className={styles.main}>
@@ -41,7 +47,10 @@ const UserPanel = () => {
               {saleList && saleList.length > 0 ? (
                 <OrderTable saleList={saleList} />
               ) : (
-                <p>Todavía no ha realizado compras</p>
+                <>
+                  <p>Todavía no ha realizado compras</p>
+                  <Button variant="primary" onClick={() => navigate("/")}> Ir a comprar </Button>
+                </>
               )}
             </Col>
           </Row>
