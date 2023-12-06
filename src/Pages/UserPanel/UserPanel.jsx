@@ -4,25 +4,42 @@ import { useUser } from '../../context/Hooks';
 import { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
-
+import { getUserSales } from '../../utils/fetchSales';
+import { useEffect } from 'react';
 
 const UserPanel = () => {
-  const [ userOrders] = useState(null);
-  const { user, loading } = useUser();
+  
+  const [saleList, setSaleList] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { user } = useUser();
 
+  const getUserOrders = async () => {
+    getUserSales(user.id)
+    .then(res => {
+      if (res.data) {
+        setSaleList(res.data.saleList);
+        setLoading(false);
+      }
+    
+  })}
+
+  useEffect(() => {
+    getUserOrders();
+  }, [user])
+  
   
   return (
     <div className={styles.main}>
       <div className={`container ${styles.container}`}>
-        { loading ? <p>Cargando...</p> : 
+        {loading ? <p>Cargando...</p> : 
         <>
           <Row className='justify-content-center align-items-center'>
             <Col xs={12} lg={10} xl={8} className={styles.box}>
               <div className={styles.header}>
                 <h1 className={styles.title}>Historial</h1>
               </div>
-              {userOrders && userOrders.length > 0 ? (
-                <OrderTable orders={userOrders} />
+              {saleList && saleList.length > 0 ? (
+                <OrderTable saleList={saleList} />
               ) : (
                 <p>Todavía no ha realizado compras</p>
               )}
@@ -57,19 +74,22 @@ const UserPanel = () => {
 };
 
 // eslint-disable-next-line react/prop-types
-const OrderTable = ({ orders }) => {
+const OrderTable = ({ saleList }) => {
   
   const [showModal, setShowModal] = useState(false);
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedSale, setSelectedSale] = useState(null);
 
   const handleCloseModal = () => setShowModal(false);
   const handleOpenModal = () => setShowModal(true);
 
-  const handleSelectOrder = (order) => {
-    setSelectedOrder(order);
+  const handleSelectSale= (sale) => {
+    setSelectedSale(sale);
     handleOpenModal();
   }
 
+  const calcTotal = (sale) => {
+    return sale.itemList.reduce((acc, item) => acc + item.amount * item.product.price, 0);
+  }
 
   return (
     <div>
@@ -87,19 +107,19 @@ const OrderTable = ({ orders }) => {
             
             {
             // eslint-disable-next-line react/prop-types
-            orders.map((order) => (
-              <tr key={order.id} onClick={() => handleSelectOrder(order)}>
+            saleList.map((sale) => (
+              <tr key={sale.id} onClick={() => handleSelectSale(sale)}>
                 <td>
-                  <span>{order.id}</span>
+                  <span>{sale.id}</span>
                 </td>
                 <td>
-                  <span>{order.createdAt}</span>
+                  <span>{sale.date}</span>
                 </td>
                 <td>
-                  <span>{order.products.length}</span>
+                  <span>{sale.itemList.length}</span>
                 </td>
                 <td>
-                  <span>{order.total}</span>
+                  <span>{calcTotal(sale)}</span>
                 </td>
               </tr>
             ))}
@@ -107,7 +127,7 @@ const OrderTable = ({ orders }) => {
         </Table>
       </div>
       <Modal show={showModal} handleClose={handleCloseModal} title="Detalle de la compra">
-        <OrderDetail order={selectedOrder} />
+        <OrderDetail sale={selectedSale} />
       </Modal>
     </div>
   );

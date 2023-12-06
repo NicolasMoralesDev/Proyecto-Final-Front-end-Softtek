@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 
 const url = 'http://localhost:8081/';
@@ -10,9 +11,23 @@ export const sendSale = async (sale) => {
               Authorization: `Bearer ${token}`
           }
       });
-      console.log(response.data)
-      return response.data;
+
+      return response;
   } catch (error) {
-      return error;
+      return error
   }
+}
+
+export const getUserSales = async (idUser) => {
+    try {
+        const response = await axios.post(`${url}api/user/sale/all`, {idUser},{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        return response;
+    } catch (error) {
+        return error
+    }
 }

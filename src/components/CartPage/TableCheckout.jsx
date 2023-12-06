@@ -9,6 +9,7 @@ import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, Form as BootstrapForm, Alert } from 'react-bootstrap';
 import { sendSale } from '../../utils/fetchSales';
+import Swal from 'sweetalert2';
 
 const TableCheckout = () => {
   const [showModal, setShowModal] = useState(false);
@@ -116,8 +117,9 @@ export default TableCheckout;
 
 const CheckoutModal = () => {
 
-    const { cart } = useCart();
+    const { cart, clearCart } = useCart();
     const { user } = useUser();
+    const navigate = useNavigate();
     const total = cart.reduce(
       (acc, item) => acc + item.amount * item.product.price,
       0
@@ -138,9 +140,17 @@ const CheckoutModal = () => {
             phone: values.phone,
             idUser: user.id,
         };
-        console.log(user);
-        console.log(shippingData);
-        sendSale(shippingData);
+        sendSale(shippingData)
+        .then((res) => {
+            Swal.fire({
+                title: 'Compra realizada con éxito',
+                text: `El id de tu compra es ${res.data.id}`,
+                icon: 'success',
+                confirmButtonText: 'Ok',
+            });
+            clearCart();
+            navigate('/');
+        })
     }
 
     return ( 
