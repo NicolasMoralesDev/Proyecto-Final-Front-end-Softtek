@@ -10,7 +10,6 @@ export const PaginationProvider = ({children}) => {
     const [total, setTotal] = useState(1);
 
 
-
   return (
     <PaginationContext.Provider value={{page, setPage, total, setTotal}}>
     {children}
