@@ -7,6 +7,7 @@ import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 import { getUserSales } from '../../utils/fetchSales';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
 
 const UserPanel = () => {
   
@@ -37,7 +38,7 @@ const UserPanel = () => {
   return (
     <div className={styles.main}>
       <div className={`container ${styles.container}`}>
-        {loading ? <p>Cargando...</p> : 
+        {loading ? <Loading /> : 
         <>
           <Row className='justify-content-center align-items-center'>
             <Col xs={12} lg={10} xl={8} className={styles.box}>

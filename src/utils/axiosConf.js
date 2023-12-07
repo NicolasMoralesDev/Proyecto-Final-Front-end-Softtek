@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // VITE_BACKEND_HOST || "localhost"
-const baseUrl = import.meta.env.VITE_BACKEND_HOST || "http://localhost:8081/api/";
+const baseUrl = import.meta.env.VITE_BACKEND_HOST || "http://35.199.85.239:80/api/";
 
 const axiosConf = axios.create({
   baseURL: baseUrl,

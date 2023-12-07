@@ -6,11 +6,13 @@ import PaginationProduts from "./PaginationProduts/PaginationProduts";
 import { PaginationContext } from "../../context/PaginationContext";
 import { useCart } from "../../context/Hooks";
 import { Col, Row } from "react-bootstrap";
+import Loading from "../Loading/Loading";
 
 const ProductList = () => {
 
     const { addToCart } = useCart();
     const { page, setTotal } = useContext(PaginationContext);
+    const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([{}]);
     const moveToCart = (product) => {
@@ -23,6 +25,7 @@ const ProductList = () => {
         const data = await getAllProducts(page);
         setProducts(data.productos);
         setTotal(data.total)
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -31,6 +34,7 @@ const ProductList = () => {
 
     }, [page])
 
+    if (loading) return <Loading />
 
     return (
         <div className="container">
