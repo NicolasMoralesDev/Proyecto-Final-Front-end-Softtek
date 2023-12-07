@@ -1,13 +1,11 @@
 import styles from './ProductsCarousel.module.css';
-import prueba from "../assets/titulo.png";
 import procesador from "../assets/Promo-diciembre.png";
-
-
+import placamadre from "../assets/asus-placa.png";
 
 
 const ProductsCarousel = () => {
 
-  const images = [ prueba, procesador];
+  const images = [  procesador, placamadre];
 
   return (
     
