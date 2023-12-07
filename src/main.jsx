@@ -12,7 +12,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <CartProvider>
       <UserProvider>
         <PaginationProvider>
-          <App  />
+          <PaginationCategoryProvider>
+            <App  />
+          </PaginationCategoryProvider>
         </PaginationProvider>
       </UserProvider>
     </CartProvider>
