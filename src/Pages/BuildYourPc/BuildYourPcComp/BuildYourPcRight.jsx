@@ -4,8 +4,9 @@ import { useCart } from "../../../context/Hooks";
 import ItemCount from "./ItemCount";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProduts from "../../../components/ProductList/PaginationProduts/PaginationProduts";
-import PaginationCategory from "../../../components/PaginationCategory/PaginationCategory";
 import styles from './BuildYourPc.module.css';
+import PaginationCategory from "../../../components/PaginationCategory/PaginationCategory";
+
 
 const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
 
