@@ -11,7 +11,7 @@ export const sendSale = async (sale) => {
 
 export const getUserSales = async (idUser) => {
     try {
-        const response = await axiosConf.get(`user/sale/${idUser}`);
+        const response = await axiosConf.post(`user/sale/all`, idUser);
         return response;
     } catch (error) {
         return error;

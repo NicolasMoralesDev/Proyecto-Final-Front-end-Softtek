@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft';
 import BuildYourPcRight from './BuildYourPcComp/BuildYourPcRight';
 import BuildYourPcTotal from './BuildYourPcComp/BuildYourPcTotal';
-
+import { PacmanLoader } from "react-spinners"
 import cooler2 from '../../assets/pcComponents/cooler2.png';
 import cpu2 from '../../assets/pcComponents/cpu2.png';
 import gabo2 from '../../assets/pcComponents/gabo2.png';
@@ -14,7 +14,7 @@ import mother2 from '../../assets/pcComponents/mother2.png';
 import moni4 from '../../assets/pcComponents/moni4.png';
 import periferico2 from '../../assets/pcComponents/periferico2.png';
 import poder2 from '../../assets/pcComponents/poder2.png';
-
+import styles from './BuildYourPc.module.css';
 import { getAllProducts, getProductByCategory } from '../../utils/fetchProductsList';
 import { PaginationContext } from '../../context/PaginationContext';
 import { PaginationCategoryContext } from '../../context/PaginationCategoryContext';
@@ -93,7 +93,7 @@ export default function BuildYourPc() {
         <link rel='canonical' href='http://mysite.com/example' />
       </Helmet>
 
-      <div className='container mb-3 mt-3'>
+      <div className={`container mb-3 mt-3 ${styles.main}`}>
         <div className='row mx-auto'>
           <div className='col-12 col-md-4 '>
             <BuildYourPcLeft
@@ -105,13 +105,15 @@ export default function BuildYourPc() {
 
             <BuildYourPcTotal selectedProducts={selectedProducts} />
           </div>
-          <div className='col-12 col-md-8'>
-            {!loading && <BuildYourPcRight
+          <div className='col-12 col-md-8 d-flex align-items-center justify-content-center'>
+            {loading ? <PacmanLoader color='#000000' />
+            : 
+            (<BuildYourPcRight
               componentspc={products}
               selectedCategory={selectedCategory}
               handleProductClick={handleProductClick}
               selectedCategoryName={selectedCategoryName}
-            />}
+            />)}
           </div>
         </div>
       </div>

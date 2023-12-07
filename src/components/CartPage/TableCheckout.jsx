@@ -10,6 +10,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, Form as BootstrapForm, Alert } from 'react-bootstrap';
 import { sendSale } from '../../utils/fetchSales';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
+import styles from './TableCheckout.module.css';
+import { PacmanLoader } from "react-spinners"
 
 const TableCheckout = () => {
   const [showModal, setShowModal] = useState(false);
@@ -36,8 +39,12 @@ const TableCheckout = () => {
   };
   const handleCloseModal = () => setShowModal(false);
 
+  if (!cart.length) {
+    return <EmptyCart />;
+  }
+
   return (
-    <div className='container mb-5 mt-5'>
+    <div className={`container mb-5 mt-5 ${styles.main}`}>
       <h2 className='text-center'>Checkout </h2>
       <Table striped responsive className='fw-bold'>
         <thead>
@@ -120,6 +127,7 @@ const CheckoutModal = () => {
     const { cart, clearCart } = useCart();
     const { user } = useUser();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const total = cart.reduce(
       (acc, item) => acc + item.amount * item.product.price,
       0
@@ -130,7 +138,13 @@ const CheckoutModal = () => {
         phone: string().required('Required'),
     });
 
-    const handleSubmit = (values) => {
+    const  sendSaleRequest = async (shippingData) => {
+        setLoading(true);
+        const res = await sendSale(shippingData);
+        return res;
+    }
+
+    const prepareShippingData = (values) => {
         const shippingData = {
             itemList: cart.map((item) => ({
                 product: {id: item.product.id},
@@ -140,17 +154,42 @@ const CheckoutModal = () => {
             phone: values.phone,
             idUser: user.id,
         };
-        sendSale(shippingData)
-        .then((res) => {
+        return shippingData;
+    }
+     
+    const handleResponse = (response) => {
+        setLoading(false);
+        if (response.status === 201) {
             Swal.fire({
                 title: 'Compra realizada con éxito',
-                text: `El id de tu compra es ${res.data.id}`,
+                text: `El id de tu compra es ${response.data.id}`,
                 icon: 'success',
                 confirmButtonText: 'Ok',
             });
+            
             clearCart();
             navigate('/');
-        })
+        } else {
+            Swal.fire({
+                title: 'Error',
+                text: 'Hubo un error al procesar la compra',
+                icon: 'error',
+                confirmButtonText: 'Ok',
+            });
+        }
+    }
+
+    const handleSubmit = (values) => {
+        setLoading(true);
+        const shippingData = prepareShippingData(values);
+        sendSaleRequest(shippingData)
+          .then((res) => handleResponse(res))
+    }
+
+    if (loading) {
+        return <div className="d-flex justify-content-center align-items-center" style={{minHeight: "400px"}}>
+                <PacmanLoader color="#000000" />
+        </div>
     }
 
     return ( 
@@ -223,4 +262,18 @@ const CheckoutModal = () => {
     </Formik>
      </>
     );
+}
+
+const EmptyCart = () => {
+  return (
+    <div className={`container mb-5 mt-5 ${styles.main}`}>
+      <h2 className='text-center'>Checkout </h2>
+      <div className='alert alert-warning' role='alert'>
+        No hay productos en el carrito
+      </div>
+      <Link to='/'>
+        <button className='btn btn-primary'>Ir a comprar</button>
+      </Link>
+    </div>
+  );
 }

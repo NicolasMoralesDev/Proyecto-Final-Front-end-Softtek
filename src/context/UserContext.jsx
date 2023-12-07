@@ -15,49 +15,61 @@ export const UserProvider = ({ children }) => {
 
   const saveTokenLocally = (token) => localStorage.setItem("token", token);
 
-  const setUserStatesFromToken = (token) => {
-    const decodedToken = jwtDecode(token);
-    setUser({
-      firstName: decodedToken.firstName,
-      lastName: decodedToken.lastName,
-      email: decodedToken.sub,
-      role: decodedToken.role,
-      id: decodedToken.id,
-    });
-    setIsAuthenticated(true);
-    setIsAdmin(decodedToken.role === "ROLE_ADMIN");
+  const handleTokenError = () => {
+    setUser(null);
+    setIsAuthenticated(false);
+    setIsAdmin(false);
+    localStorage.removeItem("token");
   }
 
-  useEffect(() => {
-    setLoading(true);
-    const token = localStorage.getItem("token");
-    if (token) {
+  const setUserStatesFromToken = (token) => {
+    try {
+      const decodedToken = jwtDecode(token);
+      setUser({
+        firstName: decodedToken.firstName,
+        lastName: decodedToken.lastName,
+        email: decodedToken.sub,
+        role: decodedToken.role,
+        id: decodedToken.id,
+      });
+      setIsAuthenticated(true);
+      setIsAdmin(decodedToken.role === "ROLE_ADMIN");
+    } catch (err) {
+      handleTokenError();
+    }
+  }
+
+useEffect(() => {
+  setLoading(true);
+  const token = localStorage.getItem("token");
+  if (token) {
+    try {
       const decodedToken = jwtDecode(token);
       if (decodedToken.exp < Date.now()) {
         setUserStatesFromToken(token);
       } else {
-        setUser(null);
-        setIsAuthenticated(false);
-        setIsAdmin(false);
-        localStorage.removeItem("token");
+        handleTokenError("Token expired");
       }
+    } catch (err) {
+      handleTokenError();
     }
-    setLoading(false);
-  }, []);
+  }
+  setLoading(false);
+}, []);
 
-  const login = (email, password) => {
-    setLoading(true)
-    loginRequest({email, password})
-      .then((res) => {
-        const token = res.token;
-        saveTokenLocally(token);
-        setUserStatesFromToken(token);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    setLoading(false);
-  };
+const login = (email, password) => {
+  setLoading(true)
+  loginRequest({email, password})
+    .then((res) => {
+      const token = res.token;
+      saveTokenLocally(token);
+      setUserStatesFromToken(token);
+    })
+    .catch((err) => {
+      handleTokenError(err);
+    });
+  setLoading(false);
+};
 
   // Mock logout function
   const logout = () => {
@@ -76,7 +88,7 @@ export const UserProvider = ({ children }) => {
         setUserStatesFromToken(token);
       })
       .catch((err) => {
-        console.log(err);
+        handleTokenError(err);
       });    
     setLoading(false);
   };
