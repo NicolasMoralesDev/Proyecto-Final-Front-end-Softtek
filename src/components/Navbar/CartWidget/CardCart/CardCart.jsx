@@ -1,6 +1,6 @@
 import {  useState } from 'react';
 import { useEffect } from 'react';
-import styles from "./cardCart.module.css"
+import styles from "./CardCart.module.css"
 import { v4 as uuidv4 } from "uuid";
 import { useCart } from '../../../../context/Hooks.js';
 
@@ -13,6 +13,8 @@ const CardCart = () => {
     useEffect(() => {
         if (cart.length > 0) {
             setData(cart);
+        } else {
+            setData(null);
         }
     } , [cart])
 

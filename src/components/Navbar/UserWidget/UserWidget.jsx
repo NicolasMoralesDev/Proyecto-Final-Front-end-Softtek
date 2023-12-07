@@ -103,7 +103,7 @@ const UserDropdown = () => {
 
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => navigate('/user_panel')}>Mi cuenta</Dropdown.Item>
-        { isAdmin && <Dropdown.Item onClick={() => navigate('/user_panel')} >Dashboard</Dropdown.Item> }
+        { isAdmin && <Dropdown.Item onClick={() => navigate('/admin_panel')} >Dashboard</Dropdown.Item> }
         <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

@@ -1,12 +1,10 @@
-import axios from "axios";
-
-const url = "http://localhost:8081/api/";
+import axiosConf from "./axiosConf";
 
 export const getAllProducts = async (page = 0) => {
 
     try {
 
-        const response = await axios.get(`${url}public/products?page=${page}`);
+        const response = await axiosConf.get(`public/products?page=${page}`);
         return response.data;
 
     } catch (error) {
@@ -19,7 +17,20 @@ export const getProduct = async (id) => {
  
     try {
 
-        const response = await axios.get(`${url}public/products/${id}`);
+        const response = await axiosConf.get(`public/products/${id}`);
+        return response.data;
+
+    } catch (error) {
+        return error;
+    }
+    
+}
+
+export const getProductByQuery = async (page = 0, query) => { 
+ 
+    try {
+
+        const response = await axiosConf.get(`public/product?page=${page}&q=${query}`);
         return response.data;
 
     } catch (error) {
@@ -32,7 +43,7 @@ export const getProductByCategory = async (category, page=0) => {
 
     try {
 
-        const response = await axios.get(`${url}public/products/categories/${category}?page=${page}`); 
+        const response = await axiosConf.get(`public/products/categories/${category}?page=${page}`); 
         return response.data;
 
     } catch (error) {
@@ -45,7 +56,7 @@ export const deleteProduct = async (id) => {
 
     try {
 
-        const response = await axios.get(`${url}admin/products/${id}`);
+        const response = await axiosConf.get(`admin/products/${id}`);
         return response.data;
 
     } catch (error) {
@@ -58,7 +69,7 @@ export const addProduct = async (product) => {
 
     try {
 
-        const response = await axios.delete(`${url}admin/products`, product);
+        const response = await axios.post(`${url}admin/products`, product);
         return response.data;
 
     } catch (error) {

@@ -1,28 +1,31 @@
 /* eslint-disable react/prop-types */
-export const OrderDetail = ({order}) => {
+export const OrderDetail = ({sale}) => {
+ 
+  const total = sale.itemList.reduce((acc, item) => acc + item.amount * item.product.price, 0);
+
   return (
     <div>
       <p>
-        <strong>ID de la orden:</strong> {order.id}
+        <strong>ID de la orden:</strong> {sale.id}
       </p>
       <p>
-        <strong>Teléfono de contacto:</strong> {order.phone}
+        <strong>Teléfono de contacto:</strong> {sale.phone}
       </p>
       <p>
-        <strong>Dirección de entrega:</strong> {order.address}
+        <strong>Dirección de entrega:</strong> {sale.address}
       </p>
       <p>
         <strong>Productos:</strong>
       </p>
       <ul>
-        {order.products.map((product) => (
-          <li key={product.id}>
-            {product.name} - ${product.price} - {product.quantity} unidades
+        {sale.itemList.map((item) => (
+          <li key={item.id}>
+            {item.product.name} - ${item.product.price} - {item.amount} unidades
           </li>
         ))}
       </ul>
       <p>
-        <strong>Total:</strong> ${order.total}
+        <strong>Total:</strong> ${total}
       </p>
     </div>
   )
