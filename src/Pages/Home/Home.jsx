@@ -1,5 +1,6 @@
 import ProductList from '../../components/ProductList/ProductList';
 import { Helmet } from 'react-helmet';
+import ProductsCarousel from '../../components/ProductsCarousel';
 
 export default function Home() {
   return (
@@ -10,9 +11,10 @@ export default function Home() {
         <link rel='canonical' href='http://mysite.com/example' />
       </Helmet>
 
-        <div>
+        <main>
+          <ProductsCarousel/>
           <ProductList />
-        </div>
+        </main>
 
     </>
   );

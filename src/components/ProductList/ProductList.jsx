@@ -12,8 +12,6 @@ import { useSearchParams } from "react-router-dom";
 const ProductList = () => {
 
     const [searchParams] = useSearchParams();
-  console.log(searchParams.get("q")); // ▶ URLSearchParams {}
-
 
     const { addToCart } = useCart();
     const { page, setTotal } = useContext(PaginationContext);
@@ -21,7 +19,7 @@ const ProductList = () => {
 
     const [products, setProducts] = useState([{}]);
     const moveToCart = (product) => {
-        product = { ...product}; //a
+        product = { ...product}; 
         addToCart(product, 1);
     }
 
@@ -51,6 +49,7 @@ const ProductList = () => {
 
     return (
         <div className="container">
+            <h1 className="text-center m-5">Nuestros Productos:</h1>
           <Row className="d-flex align-items-center justify-content-center">
             {products.length > 0 ?
                 products.map((i) => (
