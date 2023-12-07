@@ -23,12 +23,8 @@ function App() {
           <Route path='/login' element={<Login />} errorElement={<Error />} />
           <Route path='/productos' element={<Products />} errorElement={<Error />} />
           <Route path='/armatupc' element={<BuildYourPc />} errorElement={<Error />} />
-          <Route element={<RequireAuth />}>
-            <Route path='/user_panel' element={<UserPanel />} errorElement={<Error />} />
-          </Route>
-          <Route element={<RequireAdminRole />}>
-            <Route path='/dashboard' element={<UserPanel />} errorElement={<Error />} />
-          </Route>
+          <Route path='/user_panel' element={<RequireAuth ><UserPanel /> </RequireAuth>} errorElement={<Error />} />
+          <Route path='/dashboard' element={<RequireAdminRole ><UserPanel /></RequireAdminRole >} errorElement={<Error />} />
         </Routes>
       <Foter />
     </BrowserRouter>
