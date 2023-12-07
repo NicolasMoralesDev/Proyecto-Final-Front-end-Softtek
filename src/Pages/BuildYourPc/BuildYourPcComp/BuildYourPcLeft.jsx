@@ -7,10 +7,10 @@ const BuildYourPcLeft = ({cimages, selectedCategory, handleImageClick}) => {
         <div className="container mb-4">
             <div className="row">
                 {cimages.map((image, index) => (
-                    <OverlayTrigger key={index} placement='left' overlay={ <Tooltip id='tooltip-sin-terminar'>{image.name}</Tooltip> }>
+                    <OverlayTrigger key={index} placement='left' overlay={ <Tooltip id='tooltip'>{image.name}</Tooltip> }>
                         <div
                             
-                            className={`col-6 ${selectedCategory === image.category ? styles.selected : ''}`}
+                            className={`col-6 d-flex align-items-center justify-content-center ${selectedCategory === image.category ? styles.selected : ''}`}
                             onClick={() => handleImageClick(image.category)}
                         >
                             <img src={image.url} alt={`Componente ${index}`} className='img-fluid' />

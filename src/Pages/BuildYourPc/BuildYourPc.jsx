@@ -93,9 +93,9 @@ export default function BuildYourPc() {
         <link rel='canonical' href='http://mysite.com/example' />
       </Helmet>
 
-      <div className={`container mb-3 mt-3 ${styles.main}`}>
-        <div className='row mx-auto'>
-          <div className='col-12 col-md-4 '>
+      <div className={`container mb-3 mt-2 ${styles.main}`}>
+        <div className='row d-flex justify-content-between'>
+          <div className='col-xs-12 col-lg-2 '>
             <BuildYourPcLeft
               cimages={cimages}
               selectedCategory={selectedCategory}
@@ -105,7 +105,7 @@ export default function BuildYourPc() {
 
             <BuildYourPcTotal selectedProducts={selectedProducts} />
           </div>
-          <div className='col-12 col-md-8 d-flex align-items-center justify-content-center'>
+          <div className='col-12 col-lg-9 d-flex align-items-center justify-content-center'>
             {loading ? <PacmanLoader color='#000000' />
             : 
             (<BuildYourPcRight
