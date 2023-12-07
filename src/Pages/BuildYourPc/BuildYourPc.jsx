@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import BuildYourPcLeft from './BuildYourPcComp/BuildYourPcLeft';
 import BuildYourPcRight from './BuildYourPcComp/BuildYourPcRight';
 import BuildYourPcTotal from './BuildYourPcComp/BuildYourPcTotal';
-
+import { PacmanLoader } from "react-spinners"
 import cooler2 from '../../assets/pcComponents/cooler2.png';
 import cpu2 from '../../assets/pcComponents/cpu2.png';
 import gabo2 from '../../assets/pcComponents/gabo2.png';
@@ -105,13 +105,15 @@ export default function BuildYourPc() {
 
             <BuildYourPcTotal selectedProducts={selectedProducts} />
           </div>
-          <div className='col-12 col-md-8'>
-            {!loading && <BuildYourPcRight
+          <div className='col-12 col-md-8 d-flex align-items-center justify-content-center'>
+            {loading ? <PacmanLoader color='#000000' />
+            : 
+            (<BuildYourPcRight
               componentspc={products}
               selectedCategory={selectedCategory}
               handleProductClick={handleProductClick}
               selectedCategoryName={selectedCategoryName}
-            />}
+            />)}
           </div>
         </div>
       </div>
