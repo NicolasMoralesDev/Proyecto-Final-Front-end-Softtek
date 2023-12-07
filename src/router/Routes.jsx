@@ -12,6 +12,8 @@ import BuildYourPc from '../Pages/BuildYourPc/BuildYourPc';
 import RequireAuth from './RequireAuth';
 import RequireAdminRole from './RequireAdminRole';
 import Foter from '../components/Foter';
+import AdminPanel from '../Pages/UserPanel/AdminPanel/AdminPanel';
+
 
 
 
@@ -76,6 +78,11 @@ export const router = createBrowserRouter([
       {
         path: '/armatupc',
         element: <BuildYourPc />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/admin_panel',
+        element:  <RequireAuth><AdminPanel /></RequireAuth>,
         errorElement: <Error />,
       },
     ],
