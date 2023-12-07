@@ -1,15 +1,23 @@
 import { useContext, useEffect, useState } from "react"
-import { getAllProducts } from "../../utils/fetchProductsList"
+import { getAllProducts, getProductByQuery } from "../../utils/fetchProductsList"
 import "./productList.css"
 import { Toaster } from "react-hot-toast";
 import PaginationProduts from "./PaginationProduts/PaginationProduts";
 import { PaginationContext } from "../../context/PaginationContext";
 import { useCart } from "../../context/Hooks";
+import { Col, Row } from "react-bootstrap";
+import Loading from "../Loading/Loading";
+import { useSearchParams } from "react-router-dom";
 
 const ProductList = () => {
 
-    const { cart, addToCart } = useCart();
+    const [searchParams] = useSearchParams();
+  console.log(searchParams.get("q")); // ▶ URLSearchParams {}
+
+
+    const { addToCart } = useCart();
     const { page, setTotal } = useContext(PaginationContext);
+    const [loading, setLoading] = useState(true);
 
     const [products, setProducts] = useState([{}]);
     const moveToCart = (product) => {
@@ -19,29 +27,35 @@ const ProductList = () => {
 
     const getData = async () => {
 
-        const data = await getAllProducts(page);
+        if (location.pathname == "/") {
+            const data = await getAllProducts(page);
+            setProducts(data.productos);
+            setTotal(data.total)
+            setLoading(false);
+        } else {
+        const data = await getProductByQuery(page, searchParams.get("q"));
         setProducts(data.productos);
         setTotal(data.total)
-    }
-
-    const getProductTotal = (id) => {
-        const item = cart.find((i) => i.product.id === id);
-        return item ? item.amount * item.product.price : 0;
+        setLoading(false);
+        }
+     
     }
 
     useEffect(() => {
 
         getData();
 
-    }, [page])
+    }, [page, searchParams])
 
+    if (loading) return <Loading />
 
     return (
-        <>
-            {
-                products.length > 0 ?
-                    products.map((i) => (
-                        <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} key={i.id * i.id}>
+        <div className="container">
+          <Row className="d-flex align-items-center justify-content-center">
+            {products.length > 0 ?
+                products.map((i) => (
+                    <Col xs={8} lg={6} xl={5} key={i.id * i.id}>
+                        <div className="card mb-3 mt-3" style={{ maxWidth: '540px' }} >
                             <div className="row g-0">
                                 <div className="col-md-4">
                                     <img src={i.imageUrl} style={{ maxWidth: "200px", maxHeight: "200px", aspectRatio: "auto" }} className="h-100 img-fluid rounded-start" alt={i.name}></img>
@@ -60,17 +74,19 @@ const ProductList = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>)
+                        </div>
+                    </Col>
                     )
-
-                    : <></>
+                ) :
+                <h1 className="text-center">Sin productos</h1>
             }
+            </Row>
             <div className="container-fluid d-flex justify-content-center align-items-center mt-5 mb-5">
                 <PaginationProduts />
             </div>
 
 
-        </>
+        </div>
 
     )
 }

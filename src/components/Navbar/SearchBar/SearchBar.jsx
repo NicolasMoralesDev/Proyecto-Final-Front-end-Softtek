@@ -5,13 +5,14 @@ import styles from "./SearchBar.module.css";
 const SearchBar = () => {
   const [search, setSearch] = useState('');
 
-  const handleChange = (e) => {
+  
+  const handleChange =  (e) => {
     setSearch(e.target.value);
-    console.log(search);
   }
 
   const handleClick = () => {
-    console.log(search);
+    location.replace(`/productos?q=${search}`);
+
   }
 
   return (
