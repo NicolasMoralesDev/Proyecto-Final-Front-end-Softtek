@@ -7,7 +7,7 @@ const PaginationCategory = () => {
     const { setPageCate, pageCate, totalCate } = useContext(PaginationCategoryContext);
 
     let item = [];
-    for (let i = 0; i <= totalCate; i++) {
+    for (let i = 0; i < totalCate; i++) {
       item.push(
         <Pagination.Item key={i} active={i === pageCate} onClick={()=> setPageCate(i)}>
           {i}
@@ -23,8 +23,8 @@ const PaginationCategory = () => {
 
     {item}
 
-    <Pagination.Next disabled={pageCate == totalCate}  onClick={()=> setPageCate(pageCate+1)}/>
-    <Pagination.Last disabled={pageCate == totalCate} onClick={()=> setPageCate(totalCate)}/>
+    <Pagination.Next disabled={pageCate == totalCate-1}  onClick={()=> setPageCate(pageCate+1)}/>
+    <Pagination.Last disabled={pageCate == totalCate-1} onClick={()=> setPageCate(totalCate)}/>
   </Pagination>
   )
 }
