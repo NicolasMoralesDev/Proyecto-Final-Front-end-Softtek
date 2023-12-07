@@ -17,6 +17,7 @@ import poder2 from '../../assets/pcComponents/poder2.png';
 
 import { getAllProducts, getProductByCategory } from '../../utils/fetchProductsList';
 import { PaginationContext } from '../../context/PaginationContext';
+import { PaginationCategoryContext } from '../../context/PaginationCategoryContext';
 export default function BuildYourPc() {
 
   const cimages = [
@@ -33,6 +34,8 @@ export default function BuildYourPc() {
   ];
 
   const { page, setTotal } = useContext(PaginationContext);
+  const { pageCate, setTotalCate } = useContext(PaginationCategoryContext);
+
 
   const [products, setProducts] = useState([{}]);
   const [loading, setLoading] = useState(false);
@@ -42,15 +45,17 @@ export default function BuildYourPc() {
 
   const getProducts = async () => {
     setLoading(true);
-    let data = await getAllProducts();
+    let data = await getAllProducts(page);
+    setTotal(data.total);
     setProducts(data.productos);
     setLoading(false);
   }
 
+
   const getProductsCat = async (category) => {
     setLoading(true);
-    const data = await getProductByCategory(category, page);
-    setTotal(data.total);
+    const data = await getProductByCategory(category, pageCate);
+    setTotalCate(data.total);
     setProducts(data.productos);
     setLoading(false);
   };
@@ -59,7 +64,7 @@ export default function BuildYourPc() {
 
     getProducts();
 
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     const name = cimages.find((cimage) => cimage.category === selectedCategory)?.name;

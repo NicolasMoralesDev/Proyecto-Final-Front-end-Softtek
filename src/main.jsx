@@ -5,6 +5,7 @@ import './index.css'
 import { UserProvider } from './context/UserContext.jsx'
 import { PaginationProvider } from './context/PaginationContext.jsx'
 import App from './App.jsx'
+import { PaginationCategoryProvider } from './context/PaginationCategoryContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
        
