@@ -1,5 +1,3 @@
-
-import React from 'react';
 import ProductsCarousel from '../components/ProductsCarousel';
 import { Helmet } from 'react-helmet'
 

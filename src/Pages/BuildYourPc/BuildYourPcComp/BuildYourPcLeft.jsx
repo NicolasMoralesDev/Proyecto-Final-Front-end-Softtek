@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-
+import styles from './BuildYourPc.module.css';
 const BuildYourPcLeft = ({cimages, selectedCategory, handleImageClick}) => {
    
     return (
@@ -10,7 +10,7 @@ const BuildYourPcLeft = ({cimages, selectedCategory, handleImageClick}) => {
                     <OverlayTrigger key={index} placement='left' overlay={ <Tooltip id='tooltip-sin-terminar'>{image.name}</Tooltip> }>
                         <div
                             
-                            className={`col-6 ${selectedCategory === image.category ? 'selected' : ''}`}
+                            className={`col-6 ${selectedCategory === image.category ? styles.selected : ''}`}
                             onClick={() => handleImageClick(image.category)}
                         >
                             <img src={image.url} alt={`Componente ${index}`} className='img-fluid' />

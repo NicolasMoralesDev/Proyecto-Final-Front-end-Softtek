@@ -1,4 +1,4 @@
-import "../styles/ProductsCarousel.css";
+import styles from './ProductsCarousel.module.css';
 import alienware from "../assets/alienware.jpg";
 import monitoraoc from "../assets/monitoraoc.jpg";
 import rtx4070 from "../assets/rtx4070.jpg";
@@ -21,7 +21,7 @@ const ProductsCarousel = () => {
           {images.map((image, index) => (
             <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
              
-                <img src={image} className="d-block productCarouselImg" alt={`image-${index}`} />
+                <img src={image} className={`d-block ${styles.productCarouselImg}`} alt={`image-${index}`} />
                 </div>
           ))}
         </div>
