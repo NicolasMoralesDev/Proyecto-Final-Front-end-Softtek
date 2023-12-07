@@ -12,8 +12,6 @@ import { useSearchParams } from "react-router-dom";
 const ProductList = () => {
 
     const [searchParams] = useSearchParams();
-  console.log(searchParams.get("q")); // ▶ URLSearchParams {}
-
 
     const { addToCart } = useCart();
     const { page, setTotal } = useContext(PaginationContext);
