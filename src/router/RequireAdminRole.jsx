@@ -9,12 +9,20 @@ const RequireAdminRole = ({children}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!(loading && isAdmin)) {
-      navigate('/login');
+    if (!loading && !isAdmin) {
+      navigate('/login')
     }
-  }, [loading, isAdmin, navigate]);
+  }, [loading, isAdmin, navigate])
 
-  return children;
+  if (loading) {
+    return <p>Loading...</p>
+  }
+
+  if (!isAdmin) {
+    return <p>Unauthorized</p>
+  }
+
+  return children
 }
 
 export default RequireAdminRole
