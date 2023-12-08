@@ -5,26 +5,33 @@ import styles from "./SearchBar.module.css";
 const SearchBar = () => {
   const [search, setSearch] = useState('');
 
-  const handleChange = (e) => {
+  
+  const handleChange =  (e) => {
     setSearch(e.target.value);
-    console.log(search);
   }
 
-  const handleClick = () => {
-    console.log(search);
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(e.key);
+    location.replace(`/productos?q=${search}`);
+
   }
 
   return (
     <div className={`d-flex align-items-center`}>
-      <input
+      <form action="" onSubmit={handleClick}>
+
+           <input
         type="text"
         className={styles.searchBar}
         placeholder="Buscar..."
         onChange={handleChange}
       />
+  
+      </form>
       <div className={styles.searchButton} onClick={handleClick}>
         <CiSearch />
-      </div>
+      </div> 
     </div>
   );
 };

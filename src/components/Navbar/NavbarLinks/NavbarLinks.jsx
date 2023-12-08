@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NavbarLinks = () => {
   return (
-    <nav className='navbar navbar-expand-lg text-light' style={{backgroundColor: "gray"}}>
+    <nav className='navbar navbar-expand-lg text-light mt-2' style={{backgroundColor: "gray"}}>
         <button
           className='navbar-toggler'
           type='button'

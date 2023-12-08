@@ -19,3 +19,23 @@ export const registerRequest = async (data) => {
     return error
   }
 }
+
+/**
+ * This method is used to provide the "change password" functionality. In order to use it, the user must be logged in.
+ * data: {
+ *  idUser: the id of the user
+ *  currentPassword: the current password of the user
+ *  newPassword: the new password of the user
+ *  confirmPassword: the new password of the user
+ * }
+ * @param {*} data 
+ * @returns 
+ */
+export const changePasswordRequest = async (data) => {
+  try {
+    const response = await axiosConf.put(`user/password`, data);
+    return response
+  } catch (error) {
+    return error
+  }
+}

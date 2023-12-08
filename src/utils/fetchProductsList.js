@@ -26,6 +26,19 @@ export const getProduct = async (id) => {
     
 }
 
+export const getProductByQuery = async (page = 0, query) => { 
+ 
+    try {
+
+        const response = await axiosConf.get(`public/product?page=${page}&q=${query}`);
+        return response.data;
+
+    } catch (error) {
+        return error;
+    }
+    
+}
+
 export const getProductByCategory = async (category, page=0) => {
 
     try {
