@@ -1,4 +1,4 @@
-import { useUser } from '../../../context/Hooks';
+import { useUser } from '../../context/Hooks';
 import { useState } from 'react';
 import AdminProductForm from './AdminAddProduct';
 import AdminProductList from './AdminProductList';

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
-import { getAllProducts, deleteProduct } from "../../../utils/fetchProductsList"
-import { PaginationContext, PaginationProvider } from "../../../context/PaginationContext";
-import PaginationProducts from "../../../components/ProductList/PaginationProduts/PaginationProduts";
+import { getAllProducts, deleteProduct } from "../../utils/fetchProductsList"
+import { PaginationContext, PaginationProvider } from "../../context/PaginationContext";
+import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
 
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
-import Modal from "../../../components/Modal/Modal"
+import Modal from "../../components/Modal/Modal"
 
 const AdminProductList = () => {
 

@@ -69,7 +69,7 @@ export const addProduct = async (product) => {
 
     try {
 
-        const response = await axios.post(`${url}admin/products`, product);
+        const response = await axiosConf.post(`admin/products`, product);
         return response.data;
 
     } catch (error) {

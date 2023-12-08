@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addProduct } from '../../../utils/fetchProductsList';
+import { addProduct } from '../../utils/fetchProductsList';
 
 const AdminAddProduct = ({ onAddProduct }) => {
     const [productData, setProductData] = useState({
@@ -9,7 +9,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
         description: '',
         img_url: '',
         name: '',
-        status: '',
+        stock: '',
     });
 
     const handleInputChange = (e) => {
@@ -41,7 +41,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
                 description: '',
                 img_url: '',
                 name: '',
-                status: '',
+                stock: '',
             });
         }
     };
@@ -76,8 +76,8 @@ const AdminAddProduct = ({ onAddProduct }) => {
                 </div>
 
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Estado" id='floatingStatus' value={productData.status} name='status' onChange={handleInputChange} />
-                    <label htmlFor="floatingStatus">Estado</label>
+                    <input type="number" className="form-control" placeholder="Stock" id='floatingStatus' value={productData.stock} name='status' onChange={handleInputChange} />
+                    <label htmlFor="floatingStatus">Stock</label>
                 </div>
 
                 <div className="mb-3">
