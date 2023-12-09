@@ -16,7 +16,10 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
     };
   
     const handleSave = () => {
-      onSave(editedProduct);
+      console.log("Guardando cambios para el producto con ID:", product.id);
+      console.log("Datos editados:", editedProduct);
+
+      onSave({ ...editedProduct, id: product.id });
       onClose();
     };
   
@@ -44,12 +47,12 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
             <input type="text" className="form-control" id="recipient-price" name="price" value={editedProduct.price} onChange={handleInputChange} />
           </div>
           <div className="mb-3">
-            <label htmlFor="recipient-imagenUrl" className="col-form-label">Url Imagen:</label>
-            <input type="text" className="form-control" id="recipient-imagenUrl" name="imagenUrl" value={editedProduct.imageUrl} onChange={handleInputChange} />
+            <label htmlFor="recipient-img_url" className="col-form-label">Url Imagen:</label>
+            <input type="text" className="form-control" id="recipient-img_url" name="img_url" value={editedProduct.img_url} onChange={handleInputChange} />
           </div>
           <div className="mb-3">
-            <label htmlFor="recipient-status" className="col-form-label">Estado:</label>
-            <input type="text" className="form-control" id="recipient-status" name="status" value={editedProduct.status} onChange={handleInputChange} />
+            <label htmlFor="recipient-stock" className="col-form-label">Stock:</label>
+            <input type="number" className="form-control" id="recipient-stock" name="stock" value={editedProduct.stock} onChange={handleInputChange} />
           </div>
   
           <button type="button" className="btn btn-primary" onClick={handleSave}>Guardar Cambios</button>

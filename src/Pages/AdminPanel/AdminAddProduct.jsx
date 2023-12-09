@@ -76,8 +76,8 @@ const AdminAddProduct = ({ onAddProduct }) => {
                 </div>
 
                 <div className="form-floating mb-3">
-                    <input type="number" className="form-control" placeholder="Stock" id='floatingStatus' value={productData.stock} name='status' onChange={handleInputChange} />
-                    <label htmlFor="floatingStatus">Stock</label>
+                    <input type="number" className="form-control" placeholder="Stock" id='floatingStock' value={productData.stock} name='stock' onChange={handleInputChange} />
+                    <label htmlFor="floatingStock">Stock</label>
                 </div>
 
                 <div className="mb-3">

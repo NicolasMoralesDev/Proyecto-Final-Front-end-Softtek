@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { getAllProducts, deleteProduct } from "../../utils/fetchProductsList"
+import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchProductsList"
 import { PaginationContext, PaginationProvider } from "../../context/PaginationContext";
+import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
 
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
@@ -39,11 +40,22 @@ const AdminProductList = () => {
     setIsModalOpen(false);
   };
 
-  const handleSaveProduct = (productId, editedProduct) => {
+  const handleSaveProduct = async (productId, editedProduct) => {
     // Lógica para guardar el producto editado
     console.log("Guardando cambios para el producto con ID:", productId);
     console.log("Datos editados:", editedProduct);
-    // Aquí puedes hacer una llamada a la API u otra lógica de guardado
+
+    try {
+      // Llama a la función updateProduct con el ID del producto y los datos editados
+      await updateProduct(productId, editedProduct);
+  
+      // Puedes realizar otras acciones después de guardar, si es necesario
+  
+      console.log("Cambios guardados con éxito");
+    } catch (error) {
+      console.error("Error al guardar los cambios", error);
+    }
+  
   };
   const handleDeleteProduct = async (product) => {
     try {
@@ -58,29 +70,30 @@ const AdminProductList = () => {
   return (
     <div>
       <h1>Productos</h1>
-      <table className="table table-striped table-bordered">
+      <table className="table table-striped table-bordered ">
         <thead className="thead-dark mx-2">
           <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>Nombre</th>
             <th>Marca</th>
             <th>Descripción</th>
             <th>Categoría</th>
             <th>Precio</th>
-            <th>Estado</th>
+            <th>Stock</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.id}>
+            
+            <tr key={uuidv4()}>
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>{product.brand}</td>
               <td>{product.description}</td>
               <td>{product.category}</td>
               <td>${product.price}</td>
-              <td>{product.status}</td>
+              <td>{product.stock}</td>
               <td>
 
                 <button
@@ -105,8 +118,10 @@ const AdminProductList = () => {
       </table>
       {selectedProduct && 
       <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
-        <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={(editedProduct) => handleSaveProduct(selectedProduct.id, editedProduct)}/>
+        <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={(editedProduct) => handleSaveProduct(editedProduct,selectedProduct.id)}/>
       </Modal>}
+        <div><PaginationProducts/></div>
+        
     </div>
   );
 }
