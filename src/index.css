@@ -1,7 +1,16 @@
+*{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+
 :root{
   margin: 0;
   padding: 0;
-  min-height: 100vh!important;
+  min-height: 100vh !important;
 }
 
 p {

@@ -63,7 +63,7 @@ const ProductList = () => {
         <div className="container">
             <h1 className="text-center m-5">Nuestros Productos:</h1>
           <Row className="d-flex align-items-center justify-content-center">
-            {products.length > 0 ?
+            {products ?
                 products.map((product) => (
                     <Col xs={8} lg={6} xl={5} key={uuidv4()} >
                         <ProductCard product={product}  moveToCart={moveToCart} handleClick={handleProductClick}/>

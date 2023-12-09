@@ -1,5 +1,7 @@
 .main {
   min-height: calc(100vh - 346px);
+  background-color: rgb(236, 233, 229);
+  border-radius: 2%;
 }
 
 
