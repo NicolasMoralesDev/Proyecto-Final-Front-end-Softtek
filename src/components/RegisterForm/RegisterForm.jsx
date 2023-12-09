@@ -3,13 +3,13 @@ import { Button, Form as BootstrapForm, Alert } from 'react-bootstrap';
 import { object, string, ref } from 'yup';
 
 const validationSchema = object().shape({
-  email: string().email('Invalid email').required('Required'),
-  password: string().required('Required'),
+  email: string().email('Correo invalido').required('Requerido'),
+  password: string().required('Requerido'),
   confirmPassword: string()
-    .oneOf([ref('password'), null], 'Passwords must match')
-    .required('Required'),
-  firstName: string().required('Required'),
-  lastName: string().required('Required'),
+    .oneOf([ref('password'), null], 'Las contraseñas no coinciden')
+    .required('Requerido'),
+  firstName: string().required('Requerido'),
+  lastName: string().required('Requerido'),
 });
 
 // eslint-disable-next-line react/prop-types

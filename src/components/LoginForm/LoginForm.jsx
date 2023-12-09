@@ -3,8 +3,8 @@ import { Button, Form as BootstrapForm, Alert } from 'react-bootstrap';
 import { object, string } from 'yup';
 
 const validationSchema = object().shape({
-  email: string().email('Invalid email').required('Required'),
-  password: string().required('Required'),
+  email: string().email('Correo invalido').required('Requerido'),
+  password: string().required('Requerido'),
 });
 
 // eslint-disable-next-line react/prop-types

@@ -8,8 +8,8 @@ import { v4 as uuidv4 } from 'uuid'
 const ProductCard = ({product, handleClick}) => {
 
   return (
-      <div className={`card mb-3 mt-3 d-flex justify-content-center ${styles.card}`} onClick={() => {handleClick(product)}}>
-          <div className="row g-0 ">
+      <div className={`card d-flex justify-content-center mb-3 mt-3  ${styles.card}`} onClick={() => {handleClick(product)}}>
+          <div className="w-100 d-flex justify-content-center">
               <div className="col-md-4">
                   <img src={product.imageUrl} className={styles.img} alt={product.name}></img>
               </div>
