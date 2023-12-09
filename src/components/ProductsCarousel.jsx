@@ -9,7 +9,7 @@ const ProductsCarousel = () => {
 
   return (
     
-    <div className="container-fluid container-carousel h-100">
+    <div className="container-fluid container-carousel h-100 p-0">
     
       <div id="carouselAutoplaying" className="carousel" data-bs-ride="carousel">
         <div className="carousel-inner">
