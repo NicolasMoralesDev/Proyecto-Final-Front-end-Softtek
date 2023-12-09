@@ -5,6 +5,7 @@ export const getAllProducts = async (page = 0) => {
     try {
 
         const response = await axiosConf.get(`public/products?page=${page}`);
+        console.log("Respuesta de la API:", response.data);
         return response.data;
 
     } catch (error) {
@@ -56,7 +57,7 @@ export const deleteProduct = async (id) => {
 
     try {
 
-        const response = await axiosConf.get(`admin/products/${id}`);
+        const response = await axiosConf.delete(`admin/products/${id}`);
         return response.data;
 
     } catch (error) {
@@ -77,3 +78,11 @@ export const addProduct = async (product) => {
     }
     
 }
+export const updateProduct = async (productId, updatedProductData) => {
+    try {
+      const response = await axiosConf.put(`admin/products/${productId}`, updatedProductData);
+      return response.data;
+    } catch (error) {
+      return error;
+    }
+  };
