@@ -68,7 +68,7 @@ const SalesSection = ({ saleList }) => {
     <Row className='justify-content-center align-items-center'>
       <Col xs={12} lg={10} xl={8} className={styles.box}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Historial</h1>
+          <h1 className={styles.title}>Historial de compras</h1>
         </div>
         {saleList && saleList.length > 0 ? (
           <OrderTable saleList={saleList} />

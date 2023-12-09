@@ -141,8 +141,8 @@ const CheckoutModal = () => {
     );
 
     const validationSchema = object().shape({
-        address: string().required('Required'),
-        phone: string().required('Required'),
+        address: string().required('Requerido'),
+        phone: string().required('Requerido'),
     });
 
     const  sendSaleRequest = async (shippingData) => {
