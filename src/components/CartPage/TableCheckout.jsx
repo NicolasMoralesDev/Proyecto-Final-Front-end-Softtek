@@ -165,7 +165,7 @@ const CheckoutModal = () => {
             })),
             address: values.address,
             phone: values.phone,    
-            status: "PENDING",
+            status: "PENDIENTE",
             idUser: user.id,
         
         };
