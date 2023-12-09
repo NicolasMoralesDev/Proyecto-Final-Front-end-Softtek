@@ -12,7 +12,6 @@ const SearchBar = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(e.key);
     location.replace(`/productos?q=${search}`);
 
   }

@@ -9,6 +9,23 @@ export const sendSale = async (sale) => {
     }
 }
 
+export const payMd = async (sale) => {
+    try {
+
+        let request = {
+            id: "23",
+            price: sale[1],
+            amount: sale[0]
+        }
+
+        const response = await axiosConf.post("user/sales/pay", request);
+        location.replace(response.data);
+
+    } catch (error) {
+        return error;
+    }
+}
+
 export const getUserSales = async (idUser) => {
     try {
         const response = await axiosConf.post(`user/sale/all`, idUser);

@@ -12,7 +12,6 @@ export const loginRequest = async (data) => {
 export const registerRequest = async (data) => {
   try {
     const response = await axiosConf.post(`public/auth/register`, data);
-    console.log(response)
     return response.data
   } catch (error) {
     console.log(error)

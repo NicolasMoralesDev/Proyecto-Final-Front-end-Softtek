@@ -8,6 +8,7 @@ import { useCart } from '../../../../context/Hooks.js';
 const CardCart = () => {
     const [data, setData] = useState(null);
 
+    let total = 0;
     const { cart } = useCart();
 
     useEffect(() => {
@@ -22,7 +23,10 @@ const CardCart = () => {
         data ?
             <div className={`container_items_dropdown ${styles.container}` } style={{ maxHeight: '200px' }}>
                 {
-                    data.map(item => (
+                    data.map(item => {
+
+                        total += item.product.price;
+                        return (
                         <div className="card mb-3 mt-3 dropdown-item" style={{ maxWidth: '700px' }} key={uuidv4()}>
                             <div className="row g-0 d-flex">
                                 <div className="col col-md-4">
@@ -36,9 +40,11 @@ const CardCart = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    )
+                         {/*    <button className='btn btn-danger'>+</button> */}
+                        </div>)
+                }
                 )}
+                <h6 className='text-center'>Total = ${total}</h6>
             </div>
             : <h6 className='text-center'>Sin Productos</h6>
     )
