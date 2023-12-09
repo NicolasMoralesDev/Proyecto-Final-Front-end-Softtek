@@ -47,7 +47,7 @@ const TableCheckout = () => {
 
   return (
     <div className={`container mb-5 mt-5 ${styles.main}`}>
-      <h2 className='text-center'>Checkout </h2>
+      <h2 className='text-center pt-5 mb-5'>CHECKOUT </h2>
       <Table striped responsive className='fw-bold'>
         <thead>
           <tr>
@@ -56,6 +56,7 @@ const TableCheckout = () => {
             <th>Marca</th>
             <th>Cantidad</th>
             <th>Precio</th>
+            <th>Quitar</th>
           </tr>
         </thead>
         <tbody>
@@ -78,6 +79,7 @@ const TableCheckout = () => {
                     <button
                       onClick={() => handleDeleteItem(i.product.id)}
                       className='btn btn-danger'
+                      title='Quitar de la Orden'
                     >
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
@@ -103,11 +105,10 @@ const TableCheckout = () => {
       <div className='d-flex w-100 gap-3  justify-content-end align-items-center'>
         <div className='d-flex w-50'>
           <div
-            href=''
-            className='btn btn-primary fw-bold '
+            className='btn btn-primary fw-bold p-3'
             onClick={handleOpenModal}
           >
-            Pagar Mercado Pago <img src={Mp} alt='mercado pago icon' />
+          crear orden
           </div>
         </div>
         <div className='d-flex w-50 fw-bold fs-4'>
@@ -270,9 +271,11 @@ const CheckoutModal = () => {
             <ErrorMessage name="phone" component={Alert} variant="danger" />
             </div>
         </div>
-        <Button type="submit" className="me-2 success">
-          Enviar
+        <div className="d-flex justify-content-center">
+          <Button type="submit" className="me-2 success fw-bold">
+        Pagar Mercado Pago <img src={Mp} alt='mercado pago icon' />
         </Button>
+        </div>
       </Form>
     </Formik>
      </>
