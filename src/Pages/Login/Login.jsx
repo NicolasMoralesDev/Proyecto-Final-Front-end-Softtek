@@ -3,7 +3,6 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm'
 import { Helmet } from 'react-helmet'
 import { useUser } from '../../context/Hooks';
 import { Col, Row } from 'react-bootstrap';
-import styles from './Login.module.css'
 import { useNavigate } from 'react-router';
 
 const Login = () => {
@@ -26,7 +25,7 @@ const Login = () => {
                 <link rel="canonical" href="http://mysite.com/example" />
                 <meta name="description" content="Inicia session para acceder a tu cuenta." />
             </Helmet>
-            <div className={`container ${styles.container}`}>
+            <div className={`container`}>
                 <Row className="d-flex justify-content-around">
                     <Col xs={7} lg={5} xl={3}>
                         <h1 style={{padding: "30px"}}>Iniciar sesión</h1>

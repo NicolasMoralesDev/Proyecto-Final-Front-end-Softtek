@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import Foter from './components/Foter';
+import Footer from './components/Footer';
 import Error from './Pages/Error';
 import Cart from './Pages/Cart/Cart';
 import Login from './Pages/Login/Login';
@@ -15,6 +15,7 @@ import AdminPanel from './Pages/AdminPanel/AdminPanel';
 
 function App() {
   return (
+    <div className="App">
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -27,8 +28,9 @@ function App() {
         <Route path='/admin_panel' element={<RequireAdminRole><AdminPanel/></RequireAdminRole>}errorElement={<Error />}/>
 
       </Routes>
-      <Foter />
+      <Footer />
     </BrowserRouter>
+    </div>
   );
 }
 
