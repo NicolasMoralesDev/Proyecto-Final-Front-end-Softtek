@@ -65,9 +65,9 @@ const ProductList = () => {
           <Row className="d-flex align-items-center justify-content-center">
             {products ?
                 products.map((product) => (
-                    <Col xs={8} lg={6} xl={5} key={uuidv4()} >
+                    <div key={uuidv4()} >
                         <ProductCard product={product}  moveToCart={moveToCart} handleClick={handleProductClick}/>
-                    </ Col>
+                    </ div>
                     )
                 ) :
                 <h1 className="text-center">Sin productos</h1>
