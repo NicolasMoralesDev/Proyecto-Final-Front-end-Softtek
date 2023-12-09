@@ -171,7 +171,7 @@ const UserButtons = () => {
     <>
       <Row className='d-flex justify-content-center align-items-center'>
         <Col xs={6} sm={6} className="d-flex gap-3">
-          <Button onClick={handleOpenModal}>Cambiar contraseña</Button>
+          <Button onClick={handleOpenModal} className='fw-bold'>Cambiar contraseña</Button>
         </Col>
       </Row>
       <Modal show={showModal} handleClose={handleCloseModal} title="Cambiar contraseña">
@@ -225,10 +225,10 @@ const OrderTable = ({ saleList }) => {
                   <td>
                     <span>{sale.id}</span>
                   </td>
-                  <td>
+                  <td className='text-center'>
                     <span>{sale.date}</span>
                   </td>
-                  <td>
+                  <td className='text-center'>
                     <span>{sale.itemList.length}</span>
                   </td>
                   <td>
@@ -237,7 +237,7 @@ const OrderTable = ({ saleList }) => {
                     </span>
                   </td>
                   <td>
-                    <span>{calcTotal(sale)}</span>
+                    <span>$ {calcTotal(sale)}</span>
                   </td>
                 </tr>
               ))}

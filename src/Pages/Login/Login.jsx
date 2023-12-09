@@ -24,6 +24,7 @@ const Login = () => {
                 <meta charSet="utf-8" />
                 <title>Login</title>
                 <link rel="canonical" href="http://mysite.com/example" />
+                <meta name="description" content="Inicia session para acceder a tu cuenta." />
             </Helmet>
             <div className={`container ${styles.container}`}>
                 <Row className="d-flex justify-content-around">
