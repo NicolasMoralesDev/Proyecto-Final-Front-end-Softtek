@@ -5,7 +5,6 @@ export const getAllProducts = async (page = 0) => {
     try {
 
         const response = await axiosConf.get(`public/products?page=${page}`);
-        console.log("Respuesta de la API:", response.data);
         return response.data;
 
     } catch (error) {
