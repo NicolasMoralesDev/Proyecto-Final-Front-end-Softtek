@@ -9,6 +9,7 @@ export default function Home() {
         <meta charSet='utf-8' />
         <title>Productos</title>
         <link rel='canonical' href='http://mysite.com/example' />
+        <meta name="description" content="Bienvenido a TecnoTienda! Una web con los mejores precios en Hardware del mercado." />
       </Helmet>
 
         <main>
