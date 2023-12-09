@@ -135,8 +135,8 @@ const CheckoutModal = () => {
       0
     );
 
-    const priceSale = cart.reduce(
-      (acc, item) => acc + item.amount
+    const totalItems = cart.reduce(
+      (acc, item) => acc + item.amount + item.amount, 0
     );
 
     const validationSchema = object().shape({
@@ -150,10 +150,10 @@ const CheckoutModal = () => {
         return res;
     }
     const enviarPago = async ()=>{
-      const data = [total, priceSale]
-console.log(data);
-/*       const rest = await payMd(total);
-      console.log(rest); */
+      const data = [totalItems, total]
+
+        await payMd(data); 
+  
     }
 
     const prepareShippingData = (values) => {
@@ -195,6 +195,7 @@ console.log(data);
 
     const handleSubmit = (values) => {
         setLoading(true);
+       enviarPago();
         const shippingData = prepareShippingData(values);
         sendSaleRequest(shippingData)
           .then((res) => handleResponse(res))

@@ -4,7 +4,7 @@ export const getAllProducts = async (page = 0) => {
 
     try {
 
-        const response = await axiosConf.get(`http://localhost:8080/api/public/products?page=${page}`);
+        const response = await axiosConf.get(`public/products?page=${page}`);
         return response.data;
 
     } catch (error) {
