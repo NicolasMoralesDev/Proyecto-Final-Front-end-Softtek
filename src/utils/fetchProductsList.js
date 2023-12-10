@@ -9,13 +9,14 @@ export const getAllProducts = async (page = 0) => {
         return response.data;
 
     } catch (error) {
+        console.error("Error al obtener productos:", error);
         return error;
     }
-    
+
 }
 
-export const getProduct = async (id) => { 
- 
+export const getProduct = async (id) => {
+
     try {
 
         const response = await axiosConf.get(`public/products/${id}`);
@@ -24,11 +25,11 @@ export const getProduct = async (id) => {
     } catch (error) {
         return error;
     }
-    
+
 }
 
-export const getProductByQuery = async (page = 0, query) => { 
- 
+export const getProductByQuery = async (page = 0, query) => {
+
     try {
 
         const response = await axiosConf.get(`public/product?page=${page}&q=${query}`);
@@ -37,20 +38,20 @@ export const getProductByQuery = async (page = 0, query) => {
     } catch (error) {
         return error;
     }
-    
+
 }
 
-export const getProductByCategory = async (category, page=0) => {
+export const getProductByCategory = async (category, page = 0) => {
 
     try {
 
-        const response = await axiosConf.get(`public/products/categories/${category}?page=${page}`); 
+        const response = await axiosConf.get(`public/products/categories/${category}?page=${page}`);
         return response.data;
 
     } catch (error) {
         return error;
     }
-    
+
 }
 
 export const deleteProduct = async (id) => {
@@ -63,7 +64,7 @@ export const deleteProduct = async (id) => {
     } catch (error) {
         return error;
     }
-    
+
 }
 
 export const addProduct = async (product) => {
@@ -76,13 +77,15 @@ export const addProduct = async (product) => {
     } catch (error) {
         return error;
     }
-    
+
 }
 export const updateProduct = async (productId, updatedProductData) => {
     try {
-      const response = await axiosConf.put(`admin/products/${productId}`, updatedProductData);
-      return response.data;
+        const url = `admin/products`;
+        console.log("URL:", url);
+        const response = await axiosConf.put(url, updatedProductData);
+        return response.data;
     } catch (error) {
-      return error;
+        return error;
     }
-  };
+};

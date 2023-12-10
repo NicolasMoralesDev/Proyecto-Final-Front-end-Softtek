@@ -16,10 +16,21 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
     };
   
     const handleSave = () => {
-      console.log("Guardando cambios para el producto con ID:", product.id);
+      const updatedProduct = {
+        id: editedProduct.id,
+        name: editedProduct.name,
+        description: editedProduct.description,
+        price: editedProduct.price,
+        category: editedProduct.category,
+        brand: editedProduct.brand,
+        imageUrl: editedProduct.imageUrl,
+        stock: editedProduct.stock,
+      };
+    
+      console.log("Guardando cambios para el producto con ID:", editedProduct.id);
       console.log("Datos editados:", editedProduct);
-
-      onSave({ ...editedProduct, id: product.id });
+          
+      onSave(updatedProduct, editedProduct.id);
       onClose();
     };
   
@@ -48,7 +59,7 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
           </div>
           <div className="mb-3">
             <label htmlFor="recipient-img_url" className="col-form-label">Url Imagen:</label>
-            <input type="text" className="form-control" id="recipient-img_url" name="img_url" value={editedProduct.img_url} onChange={handleInputChange} />
+            <input type="text" className="form-control" id="recipient-img_url" name="img_url" value={editedProduct.imageUrl} onChange={handleInputChange} />
           </div>
           <div className="mb-3">
             <label htmlFor="recipient-stock" className="col-form-label">Stock:</label>

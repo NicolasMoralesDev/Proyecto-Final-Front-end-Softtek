@@ -26,11 +26,24 @@ export const payMd = async (sale) => {
     }
 }
 
-export const getUserSales = async (idUser) => {
+export const getUserSales = async (idUser, page=0) => {
+    
     try {
-        const response = await axiosConf.post(`user/sale/all`, idUser);
-        return response;
+        console.log("getUserSales -------- id user:"+idUser+"   page: " + page )
+        const response = await axiosConf.post(`user/sale/all?page=${page}`,idUser)
+        return response.data;
     } catch (error) {
-        return error;
+        console.error("Error al obtener las ventas del usuario", error);
+        throw error;
+    }
+};
+
+export const getAllSales = async (page) => {
+    try {
+        const response = await axiosConf.get(`admin/sale/all?page=${page}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener todas las ventas", error);
+        throw error;
     }
 }

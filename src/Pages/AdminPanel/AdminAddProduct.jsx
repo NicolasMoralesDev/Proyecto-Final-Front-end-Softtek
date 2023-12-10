@@ -7,7 +7,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
         brand: '',
         category: '',
         description: '',
-        img_url: '',
+        imageUrl: '',
         name: '',
         stock: '',
     });
@@ -71,7 +71,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
                     <label htmlFor="floatingPrice">Precio</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Url Imagen" id='floatingImage' value={productData.img_url} name='img_url' onChange={handleInputChange} />
+                    <input type="text" className="form-control" placeholder="Url Imagen" id='floatingImage' value={productData.imageUrl} name='imageUrl' onChange={handleInputChange} />
                     <label htmlFor="floatingImage">Url Imagen</label>
                 </div>
 
