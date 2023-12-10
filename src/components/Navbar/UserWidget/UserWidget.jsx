@@ -7,6 +7,7 @@ import Modal from "../../Modal/Modal";
 import LoginForm from "../../LoginForm/LoginForm";
 import RegisterForm from "../../RegisterForm/RegisterForm";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UserWidget = () => {
@@ -51,15 +52,39 @@ const LoginButton = () => {
     onClick: handleCloseRegisterModal,
   }
 
-  const handleLoginSubmit = (values) => {
-    login(values.email, values.password);
-    handleCloseModal();
+  const handleLoginSubmit = async (values) => {
+    const res = await login(values.email, values.password);
+    if (res.status == 200){
+      handleCloseModal();
+    } else {
+      showErrorMessage(res.message);
+    }
   };
 
-  const handleRegisterSubmit = (values) => {
-    register(values);
-    handleCloseRegisterModal();
-    handleCloseModal();
+  const showErrorMessage = (message) => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: message,
+      // cerrar a los 2 segundos
+      timer: 2000,
+    })
+  }
+
+  const handleRegisterSubmit = async (values) => {
+    const res = await register(values);
+    if (res.status == 200){
+      Swal.fire({
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        text: res.message,
+        timer: 1000,
+      })
+      handleCloseRegisterModal();
+      handleCloseModal();
+    } else {
+      showErrorMessage(res.message);
+    }
   };
 
   return (
