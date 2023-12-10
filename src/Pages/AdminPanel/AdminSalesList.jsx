@@ -7,12 +7,12 @@ const AdminSalesList = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Lógica para obtener todas las ventas cuando el componente se monta
+        // Logica para obtener todas las ventas cuando el componente se monta
         const fetchData = async () => {
             try {
                 const salesData = await getAllSales();
                 setSales(salesData.sales);
-                setLoading(false); 
+                setLoading(false);
             } catch (error) {
                 console.error('Error al obtener las ventas', error);
             }
@@ -31,4 +31,4 @@ const AdminSalesList = () => {
         </div>
     );
 };
-  export default AdminSalesList;
+export default AdminSalesList;

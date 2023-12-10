@@ -27,7 +27,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
             // Realiza la llamada a addProduct para enviar los datos del producto al servidor
             const addedProduct = await addProduct(productData);
 
-            
+
             onAddProduct(addedProduct);
 
 
@@ -51,7 +51,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
             <h2>Agregar Producto</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Nombre" id="floatingName" value={productData.name}  name="name" onChange={handleInputChange} />
+                    <input type="text" className="form-control" placeholder="Nombre" id="floatingName" value={productData.name} name="name" onChange={handleInputChange} />
                     <label htmlFor="floatingName">Nombre</label>
                 </div>
                 <div className="form-floating mb-3">
@@ -63,7 +63,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
                     <label htmlFor="floatingDescription">Descripcion</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Categoria" id='floatingCategory' value={productData.category}  name='category' onChange={handleInputChange} />
+                    <input type="text" className="form-control" placeholder="Categoria" id='floatingCategory' value={productData.category} name='category' onChange={handleInputChange} />
                     <label htmlFor="floatingCategory">Categoria</label>
                 </div>
                 <div className="form-floating mb-3">

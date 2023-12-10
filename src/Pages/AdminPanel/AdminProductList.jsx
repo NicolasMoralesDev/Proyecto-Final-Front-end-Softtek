@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchProductsList"
-import { PaginationContext} from "../../context/PaginationContext";
+import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
 
@@ -10,7 +10,7 @@ import Modal from "../../components/Modal/Modal"
 
 const AdminProductList = () => {
 
-  const {page, setTotal } = useContext(PaginationContext);
+  const { page, setTotal } = useContext(PaginationContext);
   const [products, setProducts] = useState([]);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -55,7 +55,7 @@ const AdminProductList = () => {
     } catch (error) {
       console.error("Error al guardar los cambios", error);
     }
-  
+
   };
   const handleDeleteProduct = async (product) => {
     try {
@@ -86,7 +86,7 @@ const AdminProductList = () => {
         </thead>
         <tbody>
           {products.map((product) => (
-            
+
             <tr key={uuidv4()}>
               <td>{product.id}</td>
               <td>{product.name}</td>
@@ -118,12 +118,12 @@ const AdminProductList = () => {
           ))}
         </tbody>
       </table>
-      {selectedProduct && 
-      <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
-        <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={handleSaveProduct}/>
-      </Modal>}
-        <div><PaginationProducts/></div>
-        
+      {selectedProduct &&
+        <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
+          <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={handleSaveProduct} />
+        </Modal>}
+      <div><PaginationProducts /></div>
+
     </div>
   );
 }
