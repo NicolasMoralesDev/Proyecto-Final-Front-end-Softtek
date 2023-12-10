@@ -6,11 +6,11 @@ CREATE TABLE products (
     price DECIMAL(10, 2),
     category VARCHAR(50),
     brand VARCHAR(50),
-    imageUrl VARCHAR(255)
+    imgUrl VARCHAR(255)
 );
 
 -- Insert data into the 'products' table
-INSERT INTO product (name, description, price, category, brand, img_url) VALUES
+INSERT INTO product (name, description, price, category, brand, imgUrl) VALUES
 ('UX 200 ARGB LIGHT CPU COOLER', 'El disipador de CPU UX200 ARGB Lighting viene con las aspas de alto flujo de aire, y los tubos de calor de cobre en forma de “U”. Los LEDs ARGB incorporados ofrecen un efecto de iluminación vibrante que permite la sincronización con las placas base. Compatible con el conector universal de Intel y AMD.', 21.1, 'Cooler', 'Thermaltake', 'https://m.media-amazon.com/images/I/71Q10b2FtBL._SL1500_.jpg'),
 ('Hyper 212 RGB Black Edition', 'El Hyper 212 RGB Black Edition ofrece una mejor instalación y un gran rendimiento, fácilmente uno de los mejores disipadores de aire que se pueden comprar por menos de 50€.', 39.99, 'Cooler', 'Cooler Master', 'https://m.media-amazon.com/images/I/81nu-dwkAeS._SL1500_.jpg'),
 ('NH-D15', 'El NH-D15 es el mejor disipador de aire que puedes comprar en 2020, y es el rey indiscutible de los disipadores de aire. No es barato, pero si quieres lo mejor de lo mejor, este es el disipador de aire que debes comprar.', 89.9, 'Cooler', 'Noctua', 'https://m.media-amazon.com/images/I/91t48GBv8TL._AC_SL1500_.jpg'),

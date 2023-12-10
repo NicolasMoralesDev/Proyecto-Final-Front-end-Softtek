@@ -1,16 +1,16 @@
+.productCarouselImg {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+  margin: 0 auto;
+}
 
-  .productCarouselImg {
-    height: 100% !important;
-    width: 100% !important;
-    object-fit: cover;
-    margin: 0 auto;
-  }
+.container-carousel {
+  max-height: 50vh !important;
 
-  .container-carousel{
-    max-height: 50vh !important;
-  }
+}
 
-.carousel,  .slide{
+.carousel,
+.slide {
   max-height: 100% !important;
 }
-  

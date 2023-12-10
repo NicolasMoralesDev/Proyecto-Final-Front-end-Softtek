@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home/Home';
 import Navbar from './components/Navbar/Navbar';
-import Foter from './components/Foter';
+import Footer from './components/Footer';
 import Error from './Pages/Error';
 import Cart from './Pages/Cart/Cart';
 import Login from './Pages/Login/Login';
@@ -12,9 +12,18 @@ import UserPanel from './Pages/UserPanel/UserPanel';
 import RequireAdminRole from './router/RequireAdminRole';
 import BuildYourPc from './Pages/BuildYourPc/BuildYourPc';
 import AdminPanel from './Pages/AdminPanel/AdminPanel';
+import CookieConsent from './components/CookieConsent/CookieConsent';
+import Cookies from "universal-cookie";
 
 function App() {
+
+  const cookies = new Cookies();
+  
+  // Check if the user has already given cookie consent
+  const cookieConsent = cookies.get("cookieConsent");
+  
   return (
+    <div className="App">
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -27,8 +36,10 @@ function App() {
         <Route path='/admin_panel' element={<RequireAdminRole><AdminPanel/></RequireAdminRole>}errorElement={<Error />}/>
 
       </Routes>
-      <Foter />
+      <Footer />
     </BrowserRouter>
+    {!cookieConsent && <CookieConsent />}
+    </div>
   );
 }
 

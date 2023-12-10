@@ -27,7 +27,7 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
       <div className="row">
         <h1>{selectedCategoryName ? selectedCategoryName : "Productos"}</h1>
         {
-          componentspc.length > 0 ?
+          componentspc ?
             componentspc.map((product) => (
               <Col xs={12} xl={6} key={uuidv4()}>
                 <ProductCard product={product} handleClick={handleProductClick} key={uuidv4()}/>

@@ -91,6 +91,7 @@ export default function BuildYourPc() {
         <meta charSet='utf-8' />
         <title>Build your pc</title>
         <link rel='canonical' href='http://mysite.com/example' />
+        <meta name="description" content="Arma tu PC." />
       </Helmet>
 
       <div className={`container mb-3 mt-2 ${styles.main}`}>
