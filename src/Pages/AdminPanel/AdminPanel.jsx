@@ -24,12 +24,12 @@ const AdminPanel = () => {
       setSelectedView('listaProductos');
     };
 
-    const handleGetSales = () => {
+    const handleGetUserSales = () => {
       // Configura el estado para que renderice el componente de ventas por usuario
       setSelectedView('ventasPorUsuario');
   };
 
-  const handleGetUserSales = () => {
+  const handleGetSales = () => {
       // Configura el estado para que renderice el componente de lista de ventas
       setSelectedView('listaVentas');
   };
@@ -100,14 +100,14 @@ const AdminPanel = () => {
                               <button
                                   type="button"
                                   className="btn btn-light"
-                                  onClick={handleGetSales}
+                                  onClick={handleGetUserSales}
                               >
                                   Ventas por Usuario
                               </button>
                               <button
                                   type="button"
                                   className="btn btn-light"
-                                  onClick={handleGetUserSales}
+                                  onClick={handleGetSales}
                               >
                                   Lista de Ventas
                               </button>

@@ -10,7 +10,7 @@ const AdminSalesByUser = () => {
     
 
     useEffect(() => {
-        // Lógica para obtener la lista de usuarios cuando el componente se monta
+        // Logica para obtener la lista de usuarios cuando el componente se monta
         const fetchData = async () => {
             try {
                 const usersData = await getUsers();
@@ -24,7 +24,7 @@ const AdminSalesByUser = () => {
     }, []);
 
     useEffect(() => {
-        // Esta función se ejecuta cada vez que selectedUser cambie
+        // Esta funcion se ejecuta cada vez que selectedUser cambie
         
     }, [selectedUser]);
 
@@ -38,23 +38,6 @@ const AdminSalesByUser = () => {
     setSelectedUser(selectedUserObject);
        
     };
-    /*
-    const handleGetSalesByUser = async () => {
-        console.log("Valor de selectedUser antes de la llamada:", selectedUser);
-        if (selectedUser) {
-            try {
-                console.log("Intentando obtener las ventas del usuario... "+selectedUser);
-            
-
-                const salesData = await getUserSales(selectedUser, 1); // 1 es la página, ajustar
-                
-                setUserSales(salesData.sales);
-               console.log("Ventas del usuario seleccionado:", salesData);
-            } catch (error) {
-                console.error("Error al obtener las ventas del usuario", error);
-            }
-        }
-    };*/
 
     const handleGetSalesByUser = async () => {
         console.log("Valor de selectedUser antes de la llamada:", selectedUser);
@@ -68,7 +51,7 @@ const AdminSalesByUser = () => {
                 };
                 console.log("RequestDTO:", requestDTO);
     
-                const salesData = await getUserSales(requestDTO, 0); // 1 es la página, ajustar
+                const salesData = await getUserSales(requestDTO, 0); // 1 es la pagina, ajustar
                 setUserSales(salesData.sales);
                 console.log("Ventas del usuario seleccionado:", salesData);
             } catch (error) {

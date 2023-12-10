@@ -38,9 +38,10 @@ export const getUserSales = async (idUser, page=0) => {
     }
 };
 
-export const getAllSales = async (page) => {
+export const getAllSales = async (page=0) => {
     try {
         const response = await axiosConf.get(`admin/sale/all?page=${page}`);
+        console.log(response.data)
         return response.data;
     } catch (error) {
         console.error("Error al obtener todas las ventas", error);
