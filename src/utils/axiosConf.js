@@ -9,6 +9,7 @@ const url = ["http://localhost:8080/api/", "http://localhost:8081/api/", "http:/
 const baseUrl = import.meta.env.VITE_BACKEND_HOST || url[0];
 const cookies = new Cookies();
 
+
 const axiosConf = axios.create({
   baseURL: baseUrl,
   headers: {

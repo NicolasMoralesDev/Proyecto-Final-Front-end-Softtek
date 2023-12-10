@@ -11,7 +11,7 @@ const ProductsCarousel = () => {
     
     <div className="container-fluid container-carousel h-100 p-0">
     
-      <div id="carouselAutoplaying" className="carousel" data-bs-ride="carousel">
+      <div id="carouselAutoplaying" className="carousel carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
           {images.map((image, index) => (
             <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
