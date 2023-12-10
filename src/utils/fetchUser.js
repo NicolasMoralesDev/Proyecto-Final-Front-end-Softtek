@@ -25,7 +25,7 @@ export const registerRequest = async (data) => {
  *  idUser: the id of the user
  *  currentPassword: the current password of the user
  *  newPassword: the new password of the user
- *  confirmPassword: the new password of the user
+ *  confirmationPassword: the new password of the user
  * }
  * @param {*} data 
  * @returns 
