@@ -108,7 +108,7 @@ const TableCheckout = () => {
             className='btn btn-primary fw-bold p-3'
             onClick={handleOpenModal}
           >
-          crear orden
+          Crear orden
           </div>
         </div>
         <div className='d-flex w-50 fw-bold fs-4'>
@@ -152,9 +152,7 @@ const CheckoutModal = () => {
     }
     const enviarPago = async ()=>{
       const data = [totalItems, total]
-
         await payMd(data); 
-  
     }
 
     const prepareShippingData = (values) => {
@@ -169,6 +167,7 @@ const CheckoutModal = () => {
             idUser: user.id,
         
         };
+        console.log(shippingData)
         return shippingData;
     }
      
