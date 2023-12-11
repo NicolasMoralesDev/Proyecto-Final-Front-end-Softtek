@@ -32,7 +32,6 @@ const AdminAddProduct = () => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         try {
@@ -102,8 +101,25 @@ const AdminAddProduct = () => {
                     <label htmlFor="floatingDescription">Descripcion</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Categoria" id='floatingCategory' value={productData.category} name='category' onChange={handleInputChange} />
-                    <label htmlFor="floatingCategory">Categoria</label>
+                    <select
+                        className="form-select"
+                        id="floatingCategory"
+                        value={productData.category}
+                        name="category"
+                        onChange={handleInputChange}
+                    >
+                        <option value="" disabled>Selecciona una categoría</option>
+                        <option value="Cooler">Cooler</option>
+                        <option value="Cpu">Cpu</option>
+                        <option value="Discos">Discos</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Gabinete">Gabinete</option>
+                        <option value="Gpu">Gpu</option>
+                        <option value="Memoria">Memoria</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Periferico">Periférico</option>
+                        <option value="Psu">Psu</option>
+                    </select>
                 </div>
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" placeholder="Precio" id='floatingPrice' value={productData.price} name='price' onChange={handleInputChange} />
