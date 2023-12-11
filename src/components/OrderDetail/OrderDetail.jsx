@@ -27,6 +27,10 @@ export const OrderDetail = ({sale}) => {
       <p>
         <strong>Total:</strong> ${total}
       </p>
+      <p>
+        <strong>Estado:</strong> {sale.status}
+      </p>
     </div>
+    
   )
 }

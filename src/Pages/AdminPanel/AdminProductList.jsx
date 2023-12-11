@@ -1,16 +1,17 @@
 import { useContext, useEffect, useState } from "react"
 import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchProductsList"
-import { PaginationContext, PaginationProvider } from "../../context/PaginationContext";
+import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
 
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
+import { Table } from "react-bootstrap";
 
 const AdminProductList = () => {
 
-  const { page } = useContext(PaginationContext);
+  const { page, setTotal } = useContext(PaginationContext);
   const [products, setProducts] = useState([]);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -20,6 +21,7 @@ const AdminProductList = () => {
 
     const data = await getAllProducts(page);
     setProducts(data.productos);
+    setTotal(data.total)
   }
 
 
@@ -31,6 +33,7 @@ const AdminProductList = () => {
 
   const handleModifyProduct = (product) => {
     console.log("Modificando producto:", product);
+    console.log("stock!!!!:", product.stock);
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
@@ -40,22 +43,20 @@ const AdminProductList = () => {
     setIsModalOpen(false);
   };
 
-  const handleSaveProduct = async (productId, editedProduct) => {
+  const handleSaveProduct = async (editedProduct) => {
     // Lógica para guardar el producto editado
-    console.log("Guardando cambios para el producto con ID:", productId);
+    console.log("Guardando cambios para el producto con ID:", editedProduct.id);
     console.log("Datos editados:", editedProduct);
 
     try {
       // Llama a la función updateProduct con el ID del producto y los datos editados
-      await updateProduct(productId, editedProduct);
-  
-      // Puedes realizar otras acciones después de guardar, si es necesario
-  
+      await updateProduct(editedProduct.id, editedProduct);
+      getData();
       console.log("Cambios guardados con éxito");
     } catch (error) {
       console.error("Error al guardar los cambios", error);
     }
-  
+
   };
   const handleDeleteProduct = async (product) => {
     try {
@@ -68,9 +69,9 @@ const AdminProductList = () => {
   };
 
   return (
-    <div>
+    <div className="table-dashboard">
       <h1>Productos</h1>
-      <table className="table table-striped table-bordered ">
+      <Table responsive className="table table-striped table-bordered ">
         <thead className="thead-dark mx-2">
           <tr>
             <th>Id</th>
@@ -80,12 +81,13 @@ const AdminProductList = () => {
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
-            
+
             <tr key={uuidv4()}>
               <td>{product.id}</td>
               <td>{product.name}</td>
@@ -94,10 +96,11 @@ const AdminProductList = () => {
               <td>{product.category}</td>
               <td>${product.price}</td>
               <td>{product.stock}</td>
-              <td>
+              <td>{product.status}</td>
+              <td  className="p-3 d-flex gap-2 flex-wrap">
 
                 <button
-                  className="btn btn-warning btn-sm mx-2"
+                  className="btn btn-warning btn-sm mx-2 fw-bold text-light w-100"
 
                   onClick={() => handleModifyProduct(product)}
 
@@ -105,7 +108,7 @@ const AdminProductList = () => {
                   Modificar
                 </button>
                 <button
-                  className="btn btn-danger btn-sm mx-2"
+                  className="btn btn-danger btn-sm mx-2  fw-bold w-100"
 
                   onClick={() => handleDeleteProduct(product)}
                 >
@@ -115,13 +118,13 @@ const AdminProductList = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      {selectedProduct && 
-      <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
-        <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={(editedProduct) => handleSaveProduct(editedProduct,selectedProduct.id)}/>
-      </Modal>}
-        <div><PaginationProducts/></div>
-        
+      </Table>
+      {selectedProduct &&
+        <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
+          <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={handleSaveProduct} />
+        </Modal>}
+      <div className="m-5 d-flex justify-content-center"><PaginationProducts /></div>
+
     </div>
   );
 }

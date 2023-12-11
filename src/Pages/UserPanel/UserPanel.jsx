@@ -2,7 +2,7 @@
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import styles from './UserPanel.module.css';
 import { useUser } from '../../context/Hooks';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 import { getUserSales } from '../../utils/fetchSales';
@@ -14,20 +14,24 @@ import { changePasswordRequest } from '../../utils/fetchUser';
 import Swal from 'sweetalert2';
 import { PacmanLoader } from "react-spinners"
 import { Helmet } from 'react-helmet';
+import { PaginationContext } from '../../context/PaginationContext';
 
 const UserPanel = () => {
 
   const [saleList, setSaleList] = useState(null);
   const [loading, setLoading] = useState(true);
   const { user } = useUser();
+  const { page, setTotal } = useContext(PaginationContext);
+
 
   const getUserOrders = async () => {
     try {
-      const response = await getUserSales(user.id);
+      const response = await getUserSales(user.id, page);
 
       if (response.data) {
         setSaleList(response.data.saleList);
         setLoading(false);
+        setTotal(response.data.total);
       }
     } catch (error) {
       console.error("Error fetching user orders:", error);
