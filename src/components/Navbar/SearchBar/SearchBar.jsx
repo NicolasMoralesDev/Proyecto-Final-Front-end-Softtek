@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import styles from "./SearchBar.module.css";
+import { useNavigate } from "react-router";
 
 const SearchBar = () => {
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   
   const handleChange =  (e) => {
@@ -12,7 +14,7 @@ const SearchBar = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    location.replace(`/productos?q=${search}`);
+    navigate(`/productos?q=${search}`);
 
   }
 

@@ -28,7 +28,7 @@ const LoginForm = ({ handleSubmit, secondaryButton = null }) => {
           <ErrorMessage name="email" component={Alert} variant="danger" />
         </div>
         <div className="mb-3">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Contraseña:</label>
           <Field
             type="password"
             name="password"
@@ -37,12 +37,17 @@ const LoginForm = ({ handleSubmit, secondaryButton = null }) => {
           />
           <ErrorMessage name="password" component={Alert} variant="danger" />
         </div>
-        <Button type="submit" className="me-2">
-          Iniciar sesión
-        </Button>
-       { secondaryButton && <Button variant="success" onClick={secondaryButton.onClick}>
+        <div className='d-flex gap-2'>
+          
+          <Button type="submit" className="me-2">
+            Iniciar sesión
+          </Button>
+          {secondaryButton && <Button variant="success" onClick={secondaryButton.onClick}>
           {secondaryButton.text}
         </Button>}
+        </div>
+        <a href="/recuperarPassword" style={{marginTop: "10px"}}>¿Olvidaste tu contraseña?</a>
+        
       </Form>
     </Formik>
   );

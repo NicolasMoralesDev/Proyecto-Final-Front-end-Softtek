@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Button, Col, Row, Table } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import styles from './UserPanel.module.css';
 import { useUser } from '../../context/Hooks';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Modal from '../../components/Modal/Modal';
-import { OrderDetail } from '../../components/OrderDetail/OrderDetail';
 import { getUserSales } from '../../utils/fetchSales';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,30 +13,34 @@ import { changePasswordRequest } from '../../utils/fetchUser';
 import Swal from 'sweetalert2';
 import { PacmanLoader } from "react-spinners"
 import { Helmet } from 'react-helmet';
+import { PaginationContext } from '../../context/PaginationContext';
+import { SalesTable } from '../../components/SalesTable/SalesTable';
 
 const UserPanel = () => {
 
   const [saleList, setSaleList] = useState(null);
   const [loading, setLoading] = useState(true);
   const { user } = useUser();
+  const { page, setTotal } = useContext(PaginationContext);
+
 
   const getUserOrders = async () => {
     try {
-      const response = await getUserSales(user.id);
-
+      const response = await getUserSales(user.id, page);
       if (response.data) {
-        setSaleList(response.data.saleList);
-        setLoading(false);
+        setSaleList(response.data.sales);
+        setTotal(response.data.total);
       }
     } catch (error) {
-      console.error("Error fetching user orders:", error);
       // Puedes agregar lógica adicional para manejar el error, como mostrar un mensaje al usuario.
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getUserOrders();
-  }, [user]);
+  }, [user, page]);
 
   return (
     <>
@@ -53,7 +56,6 @@ const UserPanel = () => {
             <>
               <SalesSection saleList={saleList} />
               <UserSection user={user} />
-
             </>
           }
         </div>
@@ -71,7 +73,7 @@ const SalesSection = ({ saleList }) => {
           <h1 className={styles.title}>Historial de compras</h1>
         </div>
         {saleList && saleList.length > 0 ? (
-          <OrderTable saleList={saleList} />
+          <SalesTable userSales={saleList} />
         ) : (
           <>
             <p>Todavía no ha realizado compras</p>
@@ -185,70 +187,5 @@ const UserButtons = () => {
     </>
   );
 }
-// eslint-disable-next-line react/prop-types
-const OrderTable = ({ saleList }) => {
-
-  const [showModal, setShowModal] = useState(false);
-  const [selectedSale, setSelectedSale] = useState(null);
-
-  const handleCloseModal = () => setShowModal(false);
-  const handleOpenModal = () => setShowModal(true);
-
-  const handleSelectSale = (sale) => {
-    setSelectedSale(sale);
-    handleOpenModal();
-  }
-
-  const calcTotal = (sale) => {
-    return sale.itemList.reduce((acc, item) => acc + item.amount * item.product.price, 0);
-  }
-
-  return (
-    <div>
-      <div className='table-responsive'>
-        <Table className='table-hover'>
-          <thead>
-            <tr>
-              <th scope='col'>Id de la compra</th>
-              <th scope='col'>Fecha</th>
-              <th scope='col'>Productos</th>
-              <th scope='col'>Estado de la compra</th>
-              <th scope='col'>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            {
-              // eslint-disable-next-line react/prop-types
-              saleList.map((sale) => (
-                <tr key={sale.id} onClick={() => handleSelectSale(sale)}>
-                  <td>
-                    <span>{sale.id}</span>
-                  </td>
-                  <td className='text-center'>
-                    <span>{sale.date}</span>
-                  </td>
-                  <td className='text-center'>
-                    <span>{sale.itemList.length}</span>
-                  </td>
-                  <td>
-                    <span>
-                      {sale.status}
-                    </span>
-                  </td>
-                  <td>
-                    <span>$ {calcTotal(sale)}</span>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </Table>
-      </div>
-      <Modal show={showModal} handleClose={handleCloseModal} title="Detalle de la compra">
-        <OrderDetail sale={selectedSale} />
-      </Modal>
-    </div>
-  );
-};
 
 export default UserPanel;

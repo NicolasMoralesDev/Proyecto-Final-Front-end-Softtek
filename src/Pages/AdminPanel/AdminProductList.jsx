@@ -7,6 +7,7 @@ import PaginationProducts from "../../components/ProductList/PaginationProduts/P
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
+import { Table } from "react-bootstrap";
 
 const AdminProductList = () => {
 
@@ -68,9 +69,9 @@ const AdminProductList = () => {
   };
 
   return (
-    <div>
+    <div className="table-dashboard">
       <h1>Productos</h1>
-      <table className="table table-striped table-bordered ">
+      <Table responsive className="table table-striped table-bordered ">
         <thead className="thead-dark mx-2">
           <tr>
             <th>Id</th>
@@ -96,10 +97,10 @@ const AdminProductList = () => {
               <td>${product.price}</td>
               <td>{product.stock}</td>
               <td>{product.status}</td>
-              <td>
+              <td  className="p-3 d-flex gap-2 flex-wrap">
 
                 <button
-                  className="btn btn-warning btn-sm mx-2"
+                  className="btn btn-warning btn-sm mx-2 fw-bold text-light w-100"
 
                   onClick={() => handleModifyProduct(product)}
 
@@ -107,7 +108,7 @@ const AdminProductList = () => {
                   Modificar
                 </button>
                 <button
-                  className="btn btn-danger btn-sm mx-2"
+                  className="btn btn-danger btn-sm mx-2  fw-bold w-100"
 
                   onClick={() => handleDeleteProduct(product)}
                 >
@@ -117,12 +118,12 @@ const AdminProductList = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
       {selectedProduct &&
         <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
           <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={handleSaveProduct} />
         </Modal>}
-      <div><PaginationProducts /></div>
+      <div className="m-5 d-flex justify-content-center"><PaginationProducts /></div>
 
     </div>
   );

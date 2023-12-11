@@ -2,7 +2,7 @@ import axiosConf from "./axiosConf";
 
 export const loginRequest = async (data) => {
   try {
-    const response = await axiosConf.post(`public/auth/login`, data);  
+    const response = await axiosConf.post(`public/auth/login`, data);
     return response.data
   } catch (error) {
     return error
@@ -32,8 +32,17 @@ export const registerRequest = async (data) => {
  */
 export const changePasswordRequest = async (data) => {
   try {
-    const response = await axiosConf.put(`user/password`, data);
-    return response
+    const response = await axiosConf.put(`public/auth/recover/password`, data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+}
+
+export const sendEmailLink = async (data) => {
+  try {
+    const response = await axiosConf.post(`public/auth/recover`, data);
+    return response;
   } catch (error) {
     return error
   }
@@ -41,8 +50,9 @@ export const changePasswordRequest = async (data) => {
 
 export const getUsers = async () => {
   try {
+
     const response = await axiosConf.get(`admin/users`);
-    console.log(response)
+
     return response.data;
   } catch (error) {
     console.error("Error al obtener la lista de usuarios", error);

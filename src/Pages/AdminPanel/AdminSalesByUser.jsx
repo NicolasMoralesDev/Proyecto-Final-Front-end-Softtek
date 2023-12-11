@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getUsers } from '../../utils/fetchUser';
 import { getUserSales } from '../../utils/fetchSales';
 import { SalesTable } from '../../components/SalesTable/SalesTable';
+import { PaginationContext } from '../../context/PaginationContext';
 
 const AdminSalesByUser = () => {
     const [users, setUsers] = useState([]);
     const [userSales, setUserSales] = useState([]);
     const [userId, setUserId] = useState(null);
 
+    const {page, setTotal} = useContext(PaginationContext);
 
     useEffect(() => {
         // Logica para obtener la lista de usuarios cuando el componente se monta
@@ -22,64 +24,32 @@ const AdminSalesByUser = () => {
 
         fetchData();
     }, []);
-/*
-    useEffect(() => {
-        // Esta funcion se ejecuta cada vez que selectedUser cambie
 
-    }, [selectedUser]);
-
-    const handleUserSelectChange = (event) => {
-        // Manejar el cambio de selección de usuario
-        const selectedUserId = event.target.value;
-
-        // Obtener el objeto de usuario correspondiente al ID seleccionado
-        const selectedUserObject = users.find(user => user.id == selectedUserId);
-
-        setSelectedUser(selectedUserObject);
-
-    };
-    */
     const handleUserSelectChange = (event) => {
         setUserId(event.target.value)
     };
 
-/*
-    const handleGetSalesByUser = async () => {
-        console.log("Valor de selectedUser antes de la llamada:", selectedUser);
-        if (selectedUser) {
-            try {
-                console.log("Intentando obtener las ventas del usuario...", selectedUser);
-
-                // Imprimir el objeto requestDTO antes de la llamada
-                const requestDTO = {
-                    idUser: selectedUser.id,
-                };
-                console.log("RequestDTO:", requestDTO);
-
-                const salesData = await getUserSales(requestDTO, 0); // 1 es la pagina, ajustar
-                setUserSales(salesData.sales);
-                console.log("Ventas del usuario seleccionado:", salesData);
-            } catch (error) {
-                console.error("Error al obtener las ventas del usuario", error);
-            }
-        }
-    };*/
-
-    
-    const handleGetSalesByUser = async () => {
-        console.log("Valor de selectedUser antes de la llamada:", userId);
+    useEffect(() => {
         if (userId) {
-            try {
-                console.log("Intentando obtener las ventas del usuario...", userId);
-
-                const salesData = await getUserSales(userId, 0); // 1 es la pagina, ajustar
-                setUserSales(salesData.sales);
-                console.log("Ventas del usuario seleccionado:", salesData);
-            } catch (error) {
-                console.error("Error al obtener las ventas del usuario", error);
-            }
+            handleGetSalesByUser();
         }
     }
+    , [userId, page]);
+
+/*
+    const handleGetSalesByUser = async () => {
+        if (userId) {
+            try {
+                const salesData = await getUserSales(userId, page); // 1 es la pagina, ajustar
+                console.log(salesData)
+                setUserSales(salesData.data.sales);
+                setTotal(salesData.data.total);
+            } catch (error) {
+                console.error("Error al obtener las ventas del usuario", error);
+            }
+        }
+    };
+
     return (
         <div className="container mt-4">
             <h2 className="mb-4">Ventas por Usuario</h2>
@@ -94,9 +64,6 @@ const AdminSalesByUser = () => {
                             </option>
                         ))}
                     </select>
-                </div>
-                <div className="col-md-6">
-                    <button className="btn btn-primary" onClick={handleGetSalesByUser}>Obtener Ventas</button>
                 </div>
             </div>
             {/* aca mostrar las ventas del usuario seleccionado */}

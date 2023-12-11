@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Login = () => {
+
     const { login, register } = useUser();
     const navigate = useNavigate();
 
@@ -58,6 +59,7 @@ const Login = () => {
                     <Col xs={7} lg={5} xl={3}>
                         <h1 style={{padding: "30px"}}>Registrarse</h1>
                         <RegisterForm handleSubmit={handleRegisterSubmit}/>
+                        
                     </Col>
                 </Row>
                 

@@ -81,7 +81,7 @@ export const UserProvider = ({ children }) => {
   const login = async (email, password) => {
     setLoading(true)
     const res  = await loginRequest({email, password})
-    console.log(res)
+
     if (res.token) {
       const token = res.token;
       saveTokenToCookie(token);
