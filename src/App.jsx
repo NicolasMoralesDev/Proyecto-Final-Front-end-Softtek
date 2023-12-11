@@ -13,8 +13,16 @@ import RequireAdminRole from './router/RequireAdminRole';
 import BuildYourPc from './Pages/BuildYourPc/BuildYourPc';
 import AdminPanel from './Pages/AdminPanel/AdminPanel';
 import RecoverPassword from "./Pages/RecoverPassword";
+import CookieConsent from './components/CookieConsent/CookieConsent';
+import Cookies from "universal-cookie";
 
 function App() {
+
+  const cookies = new Cookies();
+  
+  // Check if the user has already given cookie consent
+  const cookieConsent = cookies.get("cookieConsent");
+  
   return (
     <div className="App">
     <BrowserRouter>
@@ -32,6 +40,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    {!cookieConsent && <CookieConsent />}
     </div>
   );
 }

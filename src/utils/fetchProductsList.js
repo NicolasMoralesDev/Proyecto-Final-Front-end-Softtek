@@ -66,6 +66,7 @@ export const deleteProduct = async (id) => {
 }
 
 export const addProduct = async (product) => {
+    console.log(product)
 
     try {
 

@@ -1,12 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { Col } from 'react-bootstrap'
 import styles from './ProductCard.module.css'
 import { Toaster } from 'react-hot-toast'
-import { v4 as uuidv4 } from 'uuid'
 
 const ProductCard = ({product, handleClick}) => {
-
   return (
       <div className={`card d-flex justify-content-center mb-3 mt-3  ${styles.card}`} onClick={() => {handleClick(product)}}>
           <div className="w-100 d-flex justify-content-center">
