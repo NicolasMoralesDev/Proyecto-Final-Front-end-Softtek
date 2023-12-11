@@ -31,6 +31,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
     };
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         try {
@@ -75,8 +76,9 @@ const AdminAddProduct = ({ onAddProduct }) => {
     }
 
     return (
-        <div className='container'>
-            <h2>Agregar Producto</h2>
+        <div className='container mt-3 mb-5'>
+            <h2 className='mt-3 mb-3'>Agregar Producto</h2>
+            <p className='text-center'>{error}</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" placeholder="Nombre" id="floatingName" value={productData.name} name="name" onChange={handleInputChange} />
