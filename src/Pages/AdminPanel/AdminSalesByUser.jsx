@@ -42,7 +42,6 @@ const AdminSalesByUser = () => {
         if (userId) {
             try {
                 const salesData = await getUserSales(userId, page);
-                console.log(salesData)
                 setUserSales(salesData.data.sales);
                 setTotal(salesData.data.total);
             } catch (error) {

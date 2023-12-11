@@ -18,7 +18,8 @@ const RecuperarPassword = () => {
 
     const changePassword = async (e) => {
 
-        e.preventDefault()
+        e.preventDefault();
+        
         const response = await sendEmailLink(email);
 
         if (response.status === 200) {
