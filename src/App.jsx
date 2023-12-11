@@ -12,6 +12,7 @@ import UserPanel from './Pages/UserPanel/UserPanel';
 import RequireAdminRole from './router/RequireAdminRole';
 import BuildYourPc from './Pages/BuildYourPc/BuildYourPc';
 import AdminPanel from './Pages/AdminPanel/AdminPanel';
+import RecoverPassword from "./Pages/RecoverPassword";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/armatupc' element={<BuildYourPc />} errorElement={<Error />} />
         <Route path='/user_panel' element={<RequireAuth> <UserPanel /></RequireAuth> }errorElement={<Error />}/>
         <Route path='/admin_panel' element={<RequireAdminRole><AdminPanel/></RequireAdminRole>}errorElement={<Error />}/>
+        <Route path='/recoverPasword' element={<RecoverPassword/>}errorElement={<Error />}/>
 
       </Routes>
       <Footer />
