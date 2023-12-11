@@ -76,6 +76,7 @@ const AdminProductList = () => {
           <tr>
             <th>Id</th>
             <th>Nombre</th>
+            <th>Imagen</th>
             <th>Marca</th>
             <th>Descripción</th>
             <th>Categoría</th>
@@ -91,6 +92,9 @@ const AdminProductList = () => {
             <tr key={uuidv4()}>
               <td>{product.id}</td>
               <td>{product.name}</td>
+              <td>
+              <img src={product.imageUrl} alt={product.name} className="w-25"/>
+              </td>
               <td>{product.brand}</td>
               <td>{product.description}</td>
               <td>{product.category}</td>

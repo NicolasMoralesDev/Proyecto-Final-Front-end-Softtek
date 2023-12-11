@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import UploadWidget from '../../components/cloundinary/UploadWidget';
 
 const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
+
+  const [url, updateUrl] = useState();
+  const [error, updateError] = useState();
   const [editedProduct, setEditedProduct] = useState({ ...product });
 
   useEffect(() => {
@@ -8,6 +12,7 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
   }, [product]);
 
   const handleInputChange = (e) => {
+
     const { name, value } = e.target;
     setEditedProduct((prevData) => ({
       ...prevData,
@@ -34,6 +39,22 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
     onClose();
   };
 
+  /**
+ * handleOnUpload
+ */
+  function handleOnUpload(error, result, widget) {
+    if (error) {
+      updateError(error);
+      widget.close({
+        quiet: true
+      });
+      return;
+    }
+    updateUrl(result?.info?.secure_url);
+
+
+  }
+
   return (
     <div className="row">
       <form>
@@ -57,9 +78,23 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
           <label htmlFor="recipient-price" className="col-form-label">Precio:</label>
           <input type="text" className="form-control" id="recipient-price" name="price" value={editedProduct.price} onChange={handleInputChange} />
         </div>
-        <div className="mb-3">
-          <label htmlFor="recipient-img_url" className="col-form-label">Url Imagen:</label>
-          <input type="text" className="form-control" id="recipient-img_url" name="img_url" value={editedProduct.imageUrl} onChange={handleInputChange} />
+        <div className="mb-3 d-flex flex-column">
+          <label htmlFor="recipient-img_url" className="col-form-label">Subir otra Imagen:</label>
+          <UploadWidget onUpload={handleOnUpload}>
+            {({ open }) => {
+              function handleOnClick(e) {
+                e.preventDefault();
+                editedProduct.imageUrl = url;
+
+                open();
+              }
+              return (
+                <button onClick={handleOnClick}>
+                  Subir imagen
+                </button>
+              )
+            }}
+          </UploadWidget>
         </div>
         <div className="mb-3">
           <label htmlFor="recipient-stock" className="col-form-label">Stock:</label>

@@ -37,8 +37,8 @@ const LoginForm = ({ handleSubmit, secondaryButton = null }) => {
           />
           <ErrorMessage name="password" component={Alert} variant="danger" />
         </div>
-        <div className='d-flex gap-2'>
-          
+        <div className='d-flex gap-3 '>
+            <a href="/recuperarPassword" style={{marginTop: "10px"}}>¿Olvidaste tu contraseña?</a>
           <Button type="submit" className="me-2">
             Iniciar sesión
           </Button>
@@ -46,7 +46,7 @@ const LoginForm = ({ handleSubmit, secondaryButton = null }) => {
           {secondaryButton.text}
         </Button>}
         </div>
-        <a href="/recuperarPassword" style={{marginTop: "10px"}}>¿Olvidaste tu contraseña?</a>
+      
         
       </Form>
     </Formik>
