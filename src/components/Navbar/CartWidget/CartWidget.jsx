@@ -28,7 +28,7 @@ const CartWidget = () => {
         <div className="d-flex flex-column">
           <CardCart />
 
-          <a className='btn btn-success m-2 fw-bold' href='/carrito'>terminar compra</a>
+          <a className='btn btn-success m-2 fw-bold' href='/carrito'>Terminar compra</a>
         </div>
 
 

@@ -1,13 +1,11 @@
-import React, { useState, useContext } from 'react'
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
 import Modal from '../Modal/Modal';
 import { OrderDetail } from '../OrderDetail/OrderDetail';
 import PaginationProduts from '../ProductList/PaginationProduts/PaginationProduts';
-import { PaginationContext } from "../../context/PaginationContext";
+import styles from './SalesTable.module.css';
 
 export const SalesTable = ({ userSales }) => {
-
-    const { page, setTotal } = useContext(PaginationContext);
-
 
     const [showModal, setShowModal] = useState(false);
     const [selectedSale, setSelectedSale] = useState(null);
@@ -40,7 +38,7 @@ export const SalesTable = ({ userSales }) => {
                         </thead>
                         <tbody>
                             {userSales.map((sale) => (
-                                <tr key={sale.id} onClick={() => handleSelectSale(sale)}>
+                                <tr key={sale.id} onClick={() => handleSelectSale(sale)} className={styles.fila}>
                                     <td>{sale.id}</td>
                                     <td>{sale.date}</td>
                                     <td>{sale.address}</td>
