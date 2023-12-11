@@ -5,16 +5,16 @@ import { object, string } from 'yup';
 
 const validationSchema = object().shape({
   currentPassword: string()
-    .required('Current password is required')
-    .min(8, 'Password must be at least 8 characters')
-    .max(50, 'Password must be less than 50 characters'),
+    .required('La actual contraseña es requerida')
+    .min(8, 'La contraseña debe contener mas de 8 caracteres')
+    .max(50, 'La contraseña no puede tener mas de 50 caracteres'),
   newPassword: string()
-    .required('New password is required')
-    .min(8, 'Password must be at least 8 characters')
-    .max(50, 'Password must be less than 50 characters'),
+    .required('La nueva contraseña es requerida')
+    .min(8, 'La contraseña debe contener mas de 8 caracteres')
+    .max(50, 'La contraseña no puede tener mas de 50 caracteres'),
   confirmationPassword: string()
-    .required('Confirm password is required')
-    .test('password', 'Passwords do not match', function (value) {
+    .required('Confirmar contraseña es requerido')
+    .test('password', 'Las contraseñas no coinciden', function (value) {
       return this.parent.newPassword === value;
     }),
 });
@@ -74,8 +74,8 @@ const ChangePasswordForm = ({ handleSubmit }) => {
               variant='danger'
             />
           </div>
-          <Button type='submit' className='me-2'>
-            Change Password
+          <Button type='submit' className='me-2 fw-bold'>
+            Cambiar contraseña
           </Button>
         </div>
       </Form>

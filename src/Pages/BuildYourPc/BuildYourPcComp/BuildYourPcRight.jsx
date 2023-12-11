@@ -27,7 +27,7 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
       <div className="row">
         <h1>{selectedCategoryName ? selectedCategoryName : "Productos"}</h1>
         {
-          componentspc.length > 0 ?
+          componentspc ?
             componentspc.map((product) => (
               <Col xs={12} xl={6} key={uuidv4()}>
                 <ProductCard product={product} handleClick={handleProductClick} key={uuidv4()}/>
@@ -39,7 +39,7 @@ const BuildYourPcRight = ({ componentspc , selectedCategoryName }) => {
         {selectedProduct && <Modal show={showModal} handleClose={handleCloseModal} title={selectedProduct.name}>
           <ProductDetail product={selectedProduct} handleCloseModal={handleCloseModal}/>
         </Modal>}
-        <div className="w-100 mt-5 mb-5">
+        <div className="w-100 mt-5 mb-5 d-flex justify-content-center align-items-center">
           {  selectedCategoryName == undefined?
           <PaginationProduts/>
            :  <PaginationCategory/>

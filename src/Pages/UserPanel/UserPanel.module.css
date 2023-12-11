@@ -13,13 +13,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.main{
-  min-height: calc(100vh - 250px);
-}
-
-@media (max-width: 768px) {
-  .main{
-    min-height: calc(100vh - 460px);
-  }
-}
