@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { addProduct } from '../../utils/fetchProductsList';
+import Swal from 'sweetalert2';
 import UploadWidget from '../../components/cloundinary/UploadWidget';
 
-const AdminAddProduct = ({ onAddProduct }) => {
+const AdminAddProduct = () => {
 
     const [productData, setProductData] = useState({
         price: '',
@@ -31,26 +32,33 @@ const AdminAddProduct = ({ onAddProduct }) => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
 
         try {
             // Realiza la llamada a addProduct para enviar los datos del producto al servidor
             const addedProduct = await addProduct(productData);
-
-
-            onAddProduct(addedProduct);
+            Swal.fire({
+                title: 'Producto agregado',
+                text: `El producto ${addedProduct.name} ha sido agregado exitosamente`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+            });
 
 
         } catch (e) {
-            console.error("Error al agregar el producto:", e);
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo agregar el producto',
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+            });
         } finally {
             setProductData({
                 price: '',
                 brand: '',
                 category: '',
                 description: '',
-                img_url: '',
+                imageUrl: '',
                 name: '',
                 stock: '',
             });
@@ -93,8 +101,25 @@ const AdminAddProduct = ({ onAddProduct }) => {
                     <label htmlFor="floatingDescription">Descripcion</label>
                 </div>
                 <div className="form-floating mb-3">
-                    <input type="text" className="form-control" placeholder="Categoria" id='floatingCategory' value={productData.category} name='category' onChange={handleInputChange} />
-                    <label htmlFor="floatingCategory">Categoria</label>
+                    <select
+                        className="form-select"
+                        id="floatingCategory"
+                        value={productData.category}
+                        name="category"
+                        onChange={handleInputChange}
+                    >
+                        <option value="" disabled>Selecciona una categoría</option>
+                        <option value="Cooler">Cooler</option>
+                        <option value="Cpu">Cpu</option>
+                        <option value="Discos">Discos</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Gabinete">Gabinete</option>
+                        <option value="Gpu">Gpu</option>
+                        <option value="Memoria">Memoria</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Periferico">Periférico</option>
+                        <option value="Psu">Psu</option>
+                    </select>
                 </div>
                 <div className="form-floating mb-3">
                     <input type="text" className="form-control" placeholder="Precio" id='floatingPrice' value={productData.price} name='price' onChange={handleInputChange} />

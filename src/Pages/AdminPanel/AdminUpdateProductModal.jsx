@@ -71,8 +71,26 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
           <input type="text" className="form-control" id="recipient-description" name="description" value={editedProduct.description} onChange={handleInputChange} />
         </div>
         <div className="mb-3">
-          <label htmlFor="recipient-category" className="col-form-label">Categoria:</label>
-          <input type="text" className="form-control" id="recipient-category" name="category" value={editedProduct.category} onChange={handleInputChange} />
+          <label htmlFor="recipient-category" className="col-form-label">Categoría:</label>
+          <select
+            className="form-select"
+            id="recipient-category"
+            name="category"
+            value={editedProduct.category}
+            onChange={handleInputChange}
+          >
+            <option value="" disabled>Selecciona una categoría</option>
+            <option value="Cooler">Cooler</option>
+            <option value="Cpu">Cpu</option>
+            <option value="Discos">Discos</option>
+            <option value="Monitor">Monitor</option>
+            <option value="Gabinete">Gabinete</option>
+            <option value="Gpu">Gpu</option>
+            <option value="Memoria">Memoria</option>
+            <option value="Mother">Mother</option>
+            <option value="Periferico">Periférico</option>
+            <option value="Psu">Psu</option>
+          </select>
         </div>
         <div className="mb-3">
           <label htmlFor="recipient-price" className="col-form-label">Precio:</label>
