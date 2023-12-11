@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchProductsList"
-import { PaginationContext, PaginationProvider } from "../../context/PaginationContext";
+import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
 
@@ -10,7 +10,7 @@ import Modal from "../../components/Modal/Modal"
 
 const AdminProductList = () => {
 
-  const { page } = useContext(PaginationContext);
+  const { page, setTotal } = useContext(PaginationContext);
   const [products, setProducts] = useState([]);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -20,6 +20,7 @@ const AdminProductList = () => {
 
     const data = await getAllProducts(page);
     setProducts(data.productos);
+    setTotal(data.total)
   }
 
 
@@ -31,6 +32,7 @@ const AdminProductList = () => {
 
   const handleModifyProduct = (product) => {
     console.log("Modificando producto:", product);
+    console.log("stock!!!!:", product.stock);
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
@@ -40,22 +42,20 @@ const AdminProductList = () => {
     setIsModalOpen(false);
   };
 
-  const handleSaveProduct = async (productId, editedProduct) => {
+  const handleSaveProduct = async (editedProduct) => {
     // Lógica para guardar el producto editado
-    console.log("Guardando cambios para el producto con ID:", productId);
+    console.log("Guardando cambios para el producto con ID:", editedProduct.id);
     console.log("Datos editados:", editedProduct);
 
     try {
       // Llama a la función updateProduct con el ID del producto y los datos editados
-      await updateProduct(productId, editedProduct);
-  
-      // Puedes realizar otras acciones después de guardar, si es necesario
-  
+      await updateProduct(editedProduct.id, editedProduct);
+      getData();
       console.log("Cambios guardados con éxito");
     } catch (error) {
       console.error("Error al guardar los cambios", error);
     }
-  
+
   };
   const handleDeleteProduct = async (product) => {
     try {
@@ -80,12 +80,13 @@ const AdminProductList = () => {
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
-            
+
             <tr key={uuidv4()}>
               <td>{product.id}</td>
               <td>{product.name}</td>
@@ -94,6 +95,7 @@ const AdminProductList = () => {
               <td>{product.category}</td>
               <td>${product.price}</td>
               <td>{product.stock}</td>
+              <td>{product.status}</td>
               <td>
 
                 <button
@@ -116,12 +118,12 @@ const AdminProductList = () => {
           ))}
         </tbody>
       </table>
-      {selectedProduct && 
-      <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
-        <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={(editedProduct) => handleSaveProduct(editedProduct,selectedProduct.id)}/>
-      </Modal>}
-        <div><PaginationProducts/></div>
-        
+      {selectedProduct &&
+        <Modal show={isModalOpen} handleClose={handleCloseModal} title={selectedProduct.name}>
+          <AdminUpdateProductModal product={selectedProduct} onClose={handleCloseModal} onSave={handleSaveProduct} />
+        </Modal>}
+      <div><PaginationProducts /></div>
+
     </div>
   );
 }

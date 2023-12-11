@@ -38,3 +38,14 @@ export const changePasswordRequest = async (data) => {
     return error
   }
 }
+
+export const getUsers = async () => {
+  try {
+    const response = await axiosConf.get(`admin/users`);
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener la lista de usuarios", error);
+    throw error;
+  }
+};
