@@ -30,7 +30,11 @@ export const getUserSales = async (idUser, page=0) => {
     
     try {
         console.log("getUserSales -------- id user:"+idUser+"   page: " + page )
-        const response = await axiosConf.post(`user/sale/all?page=${page}`,idUser)
+        const requestDTO = {
+            idUser: idUser,
+        };
+
+        const response = await axiosConf.post(`user/sale/all?page=${page}`, requestDTO);
         return response.data;
     } catch (error) {
         console.error("Error al obtener las ventas del usuario", error);
