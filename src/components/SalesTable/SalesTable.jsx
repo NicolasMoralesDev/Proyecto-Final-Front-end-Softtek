@@ -61,7 +61,7 @@ export const SalesTable = ({ userSales }) => {
             <Modal show={showModal} handleClose={handleCloseModal} title="Detalle de la compra">
                 <OrderDetail sale={selectedSale} />
             </Modal>
-            <div><PaginationProduts /></div>
+            <div className='m-5 d-flex justify-content-center'><PaginationProduts /></div>
         </div>
     )
 }
