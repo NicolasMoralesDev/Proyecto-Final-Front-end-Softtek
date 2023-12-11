@@ -24,6 +24,7 @@ function App() {
         <Route path='/armatupc' element={<BuildYourPc />} errorElement={<Error />} />
         <Route path='/user_panel' element={<RequireAuth> <UserPanel /></RequireAuth> }errorElement={<Error />}/>
         <Route path='/dashboard' element={<RequireAdminRole><UserPanel /></RequireAdminRole>}errorElement={<Error />}/>
+        
       </Routes>
       <Foter />
     </BrowserRouter>

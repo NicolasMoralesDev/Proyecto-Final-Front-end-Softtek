@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>Productos</title>
+        <title>Tienda Online</title>
         <link rel='canonical' href='http://mysite.com/example' />
       </Helmet>
 
