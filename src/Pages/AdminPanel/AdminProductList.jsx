@@ -82,7 +82,6 @@ const AdminProductList = () => {
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
-            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -100,7 +99,6 @@ const AdminProductList = () => {
               <td>{product.category}</td>
               <td>${product.price}</td>
               <td>{product.stock}</td>
-              <td>{product.status}</td>
               <td  className="p-3 d-flex gap-2 flex-wrap">
 
                 <button
