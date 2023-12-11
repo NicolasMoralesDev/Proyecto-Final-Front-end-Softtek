@@ -89,7 +89,7 @@ export default function BuildYourPc() {
     <>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>Build your pc</title>
+        <title>TECNO TIENDA | ARMA TU PC</title>
         <link rel='canonical' href='http://mysite.com/example' />
         <meta name="description" content="Arma tu PC." />
       </Helmet>
