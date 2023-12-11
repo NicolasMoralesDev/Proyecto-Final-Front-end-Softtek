@@ -32,12 +32,21 @@ export const registerRequest = async (data) => {
  */
 export const changePasswordRequest = async (data) => {
   try {
+    const response = await axiosConf.put(`user/password`, data);
+    return response;
+  } catch (error) {
+    return error;
+  }
+} 
+
+export const changePasswordEmail = async (data) => {
+  try {
     const response = await axiosConf.put(`public/auth/recover/password`, data);
     return response;
   } catch (error) {
     return error;
   }
-}
+} 
 
 export const sendEmailLink = async (data) => {
   try {
