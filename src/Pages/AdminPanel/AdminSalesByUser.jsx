@@ -6,7 +6,7 @@ import { SalesTable } from '../../components/SalesTable/SalesTable';
 const AdminSalesByUser = () => {
     const [users, setUsers] = useState([]);
     const [userSales, setUserSales] = useState([]);
-    const [selectedUser, setSelectedUser] = useState(null);
+    const [userId, setUserId] = useState(null);
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const AdminSalesByUser = () => {
 
         fetchData();
     }, []);
-
+/*
     useEffect(() => {
         // Esta funcion se ejecuta cada vez que selectedUser cambie
 
@@ -38,7 +38,12 @@ const AdminSalesByUser = () => {
         setSelectedUser(selectedUserObject);
 
     };
+    */
+    const handleUserSelectChange = (event) => {
+        setUserId(event.target.value)
+    };
 
+/*
     const handleGetSalesByUser = async () => {
         console.log("Valor de selectedUser antes de la llamada:", selectedUser);
         if (selectedUser) {
@@ -58,7 +63,23 @@ const AdminSalesByUser = () => {
                 console.error("Error al obtener las ventas del usuario", error);
             }
         }
-    };
+    };*/
+
+    
+    const handleGetSalesByUser = async () => {
+        console.log("Valor de selectedUser antes de la llamada:", userId);
+        if (userId) {
+            try {
+                console.log("Intentando obtener las ventas del usuario...", userId);
+
+                const salesData = await getUserSales(userId, 0); // 1 es la pagina, ajustar
+                setUserSales(salesData.sales);
+                console.log("Ventas del usuario seleccionado:", salesData);
+            } catch (error) {
+                console.error("Error al obtener las ventas del usuario", error);
+            }
+        }
+    }
     return (
         <div className="container mt-4">
             <h2 className="mb-4">Ventas por Usuario</h2>

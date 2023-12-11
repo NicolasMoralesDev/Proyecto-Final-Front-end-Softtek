@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addProduct } from '../../utils/fetchProductsList';
+import Swal from 'sweetalert2';
 
 const AdminAddProduct = ({ onAddProduct }) => {
     const [productData, setProductData] = useState({
@@ -19,7 +20,7 @@ const AdminAddProduct = ({ onAddProduct }) => {
             [name]: value,
         }));
     };
-
+    /*
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -40,6 +41,39 @@ const AdminAddProduct = ({ onAddProduct }) => {
                 category: '',
                 description: '',
                 img_url: '',
+                name: '',
+                stock: '',
+            });
+        }
+    };*/
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            // Realiza la llamada a addProduct para enviar los datos del producto al servidor
+            const addedProduct = await addProduct(productData);
+            Swal.fire({
+                title: 'Producto agregado',
+                text: `El producto ${addedProduct.name} ha sido agregado exitosamente`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+            });
+
+
+        } catch (e) {
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo agregar el producto',
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+            });
+        } finally {
+            setProductData({
+                price: '',
+                brand: '',
+                category: '',
+                description: '',
+                imageUrl: '',
                 name: '',
                 stock: '',
             });
