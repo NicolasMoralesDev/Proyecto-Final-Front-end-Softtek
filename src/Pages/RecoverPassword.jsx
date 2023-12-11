@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { Helmet } from 'react-helmet'
-import { changePasswordRequest } from '../utils/fetchUser'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import Cookies from 'universal-cookie'
+import { changePasswordEmail } from '../utils/fetchUser'
 
 const RecoverPassword = () => {
 
@@ -23,7 +23,7 @@ const RecoverPassword = () => {
 
     const changePassword = async (e) => {
         e.preventDefault()
-        const response = await changePasswordRequest(Password);
+        const response = await changePasswordEmail(Password);
 
         if (response.status === 200) {
             Swal.fire({
