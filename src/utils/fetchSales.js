@@ -16,7 +16,7 @@ export const payMd = async (sale) => {
             id: "23",
             price: sale[1],
             amount: sale[0]
-        }
+        };
 
         const response = await axiosConf.post("user/sales/pay", request);
         location.replace(response.data);
