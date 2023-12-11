@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { addProduct } from '../../utils/fetchProductsList';
+import Swal from 'sweetalert2';
 import UploadWidget from '../../components/cloundinary/UploadWidget';
 
-const AdminAddProduct = ({ onAddProduct }) => {
+const AdminAddProduct = () => {
 
     const [productData, setProductData] = useState({
         price: '',
@@ -36,20 +37,28 @@ const AdminAddProduct = ({ onAddProduct }) => {
         try {
             // Realiza la llamada a addProduct para enviar los datos del producto al servidor
             const addedProduct = await addProduct(productData);
-
-
-            onAddProduct(addedProduct);
+            Swal.fire({
+                title: 'Producto agregado',
+                text: `El producto ${addedProduct.name} ha sido agregado exitosamente`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+            });
 
 
         } catch (e) {
-            console.error("Error al agregar el producto:", e);
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo agregar el producto',
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+            });
         } finally {
             setProductData({
                 price: '',
                 brand: '',
                 category: '',
                 description: '',
-                img_url: '',
+                imageUrl: '',
                 name: '',
                 stock: '',
             });

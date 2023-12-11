@@ -40,7 +40,6 @@ const AdminSalesByUser = () => {
         if (userId) {
             try {
                 const salesData = await getUserSales(userId, page); // 1 es la pagina, ajustar
-                console.log(salesData)
                 setUserSales(salesData.data.sales);
                 setTotal(salesData.data.total);
             } catch (error) {
