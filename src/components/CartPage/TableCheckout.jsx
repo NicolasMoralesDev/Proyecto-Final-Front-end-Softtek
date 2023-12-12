@@ -167,7 +167,6 @@ const CheckoutModal = () => {
             idUser: user.id,
         
         };
-        console.log(shippingData)
         return shippingData;
     }
      

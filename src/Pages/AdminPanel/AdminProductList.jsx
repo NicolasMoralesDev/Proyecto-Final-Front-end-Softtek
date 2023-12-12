@@ -3,7 +3,7 @@ import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchP
 import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
-
+import styles from './admin.module.css';
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
@@ -78,7 +78,7 @@ const AdminProductList = () => {
   return (
     <div className="table-dashboard">
       <h1>Productos</h1>
-      <Table responsive className="table table-striped table-bordered ">
+      <Table responsive className="table table-striped table-bordered text-center">
         <thead className="thead-dark mx-2">
           <tr>
             <th>Id</th>
@@ -95,16 +95,16 @@ const AdminProductList = () => {
         <tbody>
           {products.map((product) => (
 
-            <tr key={uuidv4()}>
+            <tr key={uuidv4()} >
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>
               <img src={product.imageUrl} alt={product.name} className="w-25"/>
               </td>
               <td>{product.brand}</td>
-              <td>{product.description}</td>
+              <td className={styles.rowList}>{product.description}</td>
               <td>{product.category}</td>
-              <td>${product.price}</td>
+              <td className="fw-bold text-center">${product.price}</td>
               <td>{product.stock}</td>
               <td  className="p-3 d-flex gap-2 flex-wrap">
 
