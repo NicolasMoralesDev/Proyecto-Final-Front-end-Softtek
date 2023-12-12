@@ -25,16 +25,7 @@ export const payMd = async (sale) => {
         return error;
     }
 }
-/*
-export const getUserSales = async (idUser, page=0) => {
-    try {
-        const response = await axiosConf.post(`user/sale/all?page=${page}`, idUser);
-        return response;
-    } catch (error) {
-        console.error("Error al obtener las ventas del usuario", error);
-        throw error;
-    }
-};*/
+
 
 export const getUserSales = async (idUser, page=0) => {
     

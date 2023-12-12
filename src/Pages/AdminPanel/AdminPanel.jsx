@@ -17,7 +17,6 @@ const AdminPanel = () => {
     const handleAddProduct = () => {
         // Configura el estado para que renderice el componente de formulario de productos
         setSelectedView('agregarProducto');
-
     };
 
     const handleGetProducts = () => {

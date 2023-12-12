@@ -8,6 +8,7 @@ import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
 import { Table } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const AdminProductList = () => {
 
@@ -18,7 +19,6 @@ const AdminProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getData = async () => {
-
     const data = await getAllProducts(page);
     setProducts(data.productos);
     setTotal(data.total)
@@ -26,33 +26,40 @@ const AdminProductList = () => {
 
 
   useEffect(() => {
-
     getData();
-
   }, [page])
 
   const handleModifyProduct = (product) => {
-    console.log("Modificando producto:", product);
-    console.log("stock!!!!:", product.stock);
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    console.log("Cerrando el modal");
     setIsModalOpen(false);
   };
 
   const handleSaveProduct = async (editedProduct) => {
-    // Lógica para guardar el producto editado
-    console.log("Guardando cambios para el producto con ID:", editedProduct.id);
-    console.log("Datos editados:", editedProduct);
 
     try {
       // Llama a la función updateProduct con el ID del producto y los datos editados
-      await updateProduct(editedProduct.id, editedProduct);
+      const res = await updateProduct(editedProduct);
+      console.log("res", res);
+      if (res.status == 200) {
+        Swal.fire({
+          title: 'Producto modificado',
+          text: `El producto ${res.data.name} ha sido modificado exitosamente`,
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo modificar el producto',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
       getData();
-      console.log("Cambios guardados con éxito");
     } catch (error) {
       console.error("Error al guardar los cambios", error);
     }
