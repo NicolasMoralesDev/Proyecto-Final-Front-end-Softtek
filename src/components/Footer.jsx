@@ -10,7 +10,7 @@ const Footer = () => {
             <ul>
               <li><a className="link-light" href="/">Home</a></li>
               <li><a className="link-light" href="/armatupc">Arma tu Pc</a></li>
-              <li><a className="link-light" href="#">Ayuda</a></li>
+              <li><a className="link-light" href="/ayuda">Ayuda</a></li>
             </ul>
             </div>
           </div>

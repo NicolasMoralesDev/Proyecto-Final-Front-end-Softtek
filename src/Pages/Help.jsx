@@ -7,7 +7,7 @@ const Help = () => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Panel de Usuario</title>
+                <title>TECNO TIENDA | AYUDA</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
 
@@ -16,36 +16,36 @@ const Help = () => {
                     <div className="accordion accordion-flush" id="accordionFlushExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Realizar un pedido
-                            </button>
+                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Realizar un pedido
+                                </button>
                             </h2>
                             <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body">Te registras o inicias sesion y solo tenés que seleccionar todos los productos que deseas adquirir. Seguidamente, en el carrito de compras, seleccionas <strong>Terminar Compra</strong> para redirigirte al Checkout. Luego hacés clic en el botón <strong>Crear Orden</strong> y completas con tu direccion para el envio y tu numero de telefono.  
-                            Por último, clickeas en generar ticket para luego pagar con Mercadopago o seguir comprando.</div>
+                                <div className="accordion-body">Te registras o inicias sesion y solo tenés que seleccionar todos los productos que deseas adquirir. Seguidamente, en el carrito de compras, seleccionas <strong>Terminar Compra</strong> para redirigirte al Checkout. Luego hacés clic en el botón <strong>Crear Orden</strong> y completas con tu direccion para el envio y tu numero de telefono.
+                                    Por último, clickeas en generar ticket para luego pagar con Mercadopago o seguir comprando.</div>
                             </div>
                         </div>
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                Precio
-                            </button>
+                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    Precio
+                                </button>
                             </h2>
                             <div id="flush-collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body">Todos los precios en la web incluyen el IVA, y se encuentran expresados en pesos argentinos.</div>
+                                <div className="accordion-body">Todos los precios en la web incluyen el IVA, y se encuentran expresados en pesos argentinos.</div>
                             </div>
                         </div>
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Mercadopago
-                            </button>
+                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    Mercadopago
+                                </button>
                             </h2>
                             <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body"> Pagas realizando una transferencia desde tu cuenta de MercadoPago.</div>
+                                <div className="accordion-body"> Pagas realizando una transferencia desde tu cuenta de MercadoPago.</div>
                             </div>
                         </div>
-                    </div>   
+                    </div>
                 </div>
 
                 <div className="container mt-4 bg-white">

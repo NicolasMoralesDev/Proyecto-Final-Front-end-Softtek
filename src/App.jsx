@@ -16,6 +16,7 @@ import RecoverPassword from "./Pages/RecoverPassword";
 import CookieConsent from './components/CookieConsent/CookieConsent';
 import Cookies from "universal-cookie";
 import RecuperarPassword from './Pages/RecuperarPassword';
+import Help from './Pages/Help/Help';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path='/admin_panel' element={<RequireAdminRole><AdminPanel/></RequireAdminRole>}errorElement={<Error />}/>
         <Route path='/recoverPasword' element={<RecoverPassword/>}errorElement={<Error />}/>
         <Route path='/recuperarPassword' element={<RecuperarPassword/>}errorElement={<Error />}/>
+        <Route path='/ayuda' element={<Help/>} errorElement={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>
