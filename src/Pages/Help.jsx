@@ -7,7 +7,7 @@ const Help = () => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Panel de Usuario</title>
+                <title>TECNO TIENDA | AYUDA</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
 
