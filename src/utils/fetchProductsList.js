@@ -67,7 +67,6 @@ export const deleteProduct = async (id) => {
 }
 
 export const addProduct = async (product) => {
-    console.log(product)
 
     try {
 
@@ -82,7 +81,6 @@ export const addProduct = async (product) => {
 export const updateProduct = async (productId, updatedProductData) => {
     try {
         const url = `admin/products`;
-        console.log("URL:", url);
         const response = await axiosConf.put(url, updatedProductData);
         return response.data;
     } catch (error) {
