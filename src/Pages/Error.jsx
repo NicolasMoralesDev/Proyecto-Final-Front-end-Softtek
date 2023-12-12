@@ -22,6 +22,7 @@ const Error = () => {
                     <meta charSet="utf-8" />
                     <title>Error</title>
                     <link rel="canonical" href="http://mysite.com/example" />
+                    <meta name="description" content="Ha ocurrido un error." />
                 </Helmet>
                 <div className='d-flex justify-content-center align-items-center container flex-column ' >
                     <div className='mt-5 gap-3 d-flex justify-content-center flex-column align-items-center gap-5'>

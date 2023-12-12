@@ -1,16 +1,15 @@
-.img{
+.img {
     width: 150px;
     height: 150px;
     object-fit: contain;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
-    
     padding: 4px;
     padding-left: 10px;
 }
 
 .card {
-  cursor: pointer;
+    cursor: pointer;
     max-width: 600px;
     height: 160px;
 }

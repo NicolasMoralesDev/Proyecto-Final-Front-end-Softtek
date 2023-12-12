@@ -8,13 +8,15 @@ import Modal from '../Modal/Modal';
 import { object, string } from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Button, Form as BootstrapForm, Alert } from 'react-bootstrap';
-import { sendSale } from '../../utils/fetchSales';
+import { payMd, sendSale } from '../../utils/fetchSales';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import styles from './TableCheckout.module.css';
 import { PacmanLoader } from "react-spinners"
 
 const TableCheckout = () => {
+
+
   const [showModal, setShowModal] = useState(false);
   const { cart, removeFromCart } = useCart();
   const { isAuthenticated } = useUser();
@@ -45,7 +47,7 @@ const TableCheckout = () => {
 
   return (
     <div className={`container mb-5 mt-5 ${styles.main}`}>
-      <h2 className='text-center'>Checkout </h2>
+      <h2 className='text-center pt-5 mb-5'>CHECKOUT </h2>
       <Table striped responsive className='fw-bold'>
         <thead>
           <tr>
@@ -54,6 +56,7 @@ const TableCheckout = () => {
             <th>Marca</th>
             <th>Cantidad</th>
             <th>Precio</th>
+            <th>Quitar</th>
           </tr>
         </thead>
         <tbody>
@@ -76,6 +79,7 @@ const TableCheckout = () => {
                     <button
                       onClick={() => handleDeleteItem(i.product.id)}
                       className='btn btn-danger'
+                      title='Quitar de la Orden'
                     >
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
@@ -101,11 +105,10 @@ const TableCheckout = () => {
       <div className='d-flex w-100 gap-3  justify-content-end align-items-center'>
         <div className='d-flex w-50'>
           <div
-            href=''
-            className='btn btn-primary fw-bold '
+            className='btn btn-primary fw-bold p-3'
             onClick={handleOpenModal}
           >
-            Pagar Mercado Pago <img src={Mp} alt='mercado pago icon' />
+          Crear orden
           </div>
         </div>
         <div className='d-flex w-50 fw-bold fs-4'>
@@ -133,15 +136,23 @@ const CheckoutModal = () => {
       0
     );
 
+    const totalItems = cart.reduce(
+      (acc, item) => acc + item.amount + item.amount, 0
+    );
+
     const validationSchema = object().shape({
-        address: string().required('Required'),
-        phone: string().required('Required'),
+        address: string().required('Requerido'),
+        phone: string().required('Requerido'),
     });
 
     const  sendSaleRequest = async (shippingData) => {
         setLoading(true);
         const res = await sendSale(shippingData);
         return res;
+    }
+    const enviarPago = async ()=>{
+      const data = [totalItems, total]
+        await payMd(data); 
     }
 
     const prepareShippingData = (values) => {
@@ -151,9 +162,12 @@ const CheckoutModal = () => {
                 amount: item.amount,
             })),
             address: values.address,
-            phone: values.phone,
+            phone: values.phone,    
+            status: "PENDIENTE",
             idUser: user.id,
+        
         };
+        console.log(shippingData)
         return shippingData;
     }
      
@@ -181,6 +195,7 @@ const CheckoutModal = () => {
 
     const handleSubmit = (values) => {
         setLoading(true);
+       enviarPago();
         const shippingData = prepareShippingData(values);
         sendSaleRequest(shippingData)
           .then((res) => handleResponse(res))
@@ -220,9 +235,9 @@ const CheckoutModal = () => {
               className="text-end fw-bold"
               style={{ paddingTop: 20 }}
             >
-              Total:
+              Total: $
             </td>
-            <td style={{ paddingTop: 20 }}>$ {total}</td>
+            <td style={{ paddingTop: 20 }}>{total}</td>
           </tr>
         </tfoot>
       </Table>
@@ -255,9 +270,11 @@ const CheckoutModal = () => {
             <ErrorMessage name="phone" component={Alert} variant="danger" />
             </div>
         </div>
-        <Button type="submit" className="me-2 success">
-          Enviar
+        <div className="d-flex justify-content-center">
+          <Button type="submit" className="me-2 success fw-bold">
+        Pagar Mercado Pago <img src={Mp} alt='mercado pago icon' />
         </Button>
+        </div>
       </Form>
     </Formik>
      </>
