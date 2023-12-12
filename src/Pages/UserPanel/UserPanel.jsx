@@ -27,6 +27,7 @@ const UserPanel = () => {
   const getUserOrders = async () => {
     try {
       const response = await getUserSales(user.id, page);
+      console.log("response", response)
       if (response.data) {
         setSaleList(response.data.sales);
         setTotal(response.data.total);
