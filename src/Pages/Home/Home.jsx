@@ -8,9 +8,8 @@ export default function Home() {
     <>
       <Helmet>
         <meta charSet='utf-8' />
-        <title>TECNO TIENDA | HOME</title>
-        <link rel='canonical' href='' />
-        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+        <title>Productos</title>
+        <link rel='canonical' href='http://mysite.com/example' />
         <meta name="description" content="Bienvenido a TecnoTienda! Una web con los mejores precios en Hardware del mercado." />
       </Helmet>
 
