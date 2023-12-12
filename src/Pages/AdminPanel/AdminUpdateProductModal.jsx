@@ -123,7 +123,6 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
                 e.preventDefault();
                 setEdit(true);
                 open();
-
               }
               return (
                 <button onClick={handleOnClick}>
