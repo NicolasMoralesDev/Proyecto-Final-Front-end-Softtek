@@ -4,6 +4,7 @@ import UploadWidget from '../../components/cloundinary/UploadWidget';
 const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
 
   const [url, updateUrl] = useState();
+  const [edit, setEdit] = useState(false);
   const [error, updateError] = useState();
   const [editedProduct, setEditedProduct] = useState({ ...product });
 
@@ -21,28 +22,51 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
   };
 
   const handleSave = () => {
-    const updatedProduct = {
-      id: editedProduct.id,
-      name: editedProduct.name,
-      description: editedProduct.description,
-      price: editedProduct.price,
-      category: editedProduct.category,
-      brand: editedProduct.brand,
-      imageUrl: editedProduct.imageUrl,
-      stock: editedProduct.stock,
-    };
+
+    if (edit) {
+      editedProduct.img = url;
+
+      const updatedProduct = {
+        id: editedProduct.id,
+        name: editedProduct.name,
+        description: editedProduct.description,
+        price: editedProduct.price,
+        category: editedProduct.category,
+        brand: editedProduct.brand,
+        imageUrl: url,
+        stock: editedProduct.stock,
+      };
+
+      onSave(updatedProduct, editedProduct.id);
+      onClose();
+    } else {
+
+      const updatedProduct = {
+        id: editedProduct.id,
+        name: editedProduct.name,
+        description: editedProduct.description,
+        price: editedProduct.price,
+        category: editedProduct.category,
+        brand: editedProduct.brand,
+        imageUrl: editedProduct.imageUrl,
+        stock: editedProduct.stock,
+      };
+
+      onSave(updatedProduct, editedProduct.id);
+      onClose();
+    }
+
 
     console.log("Guardando cambios para el producto con ID:", editedProduct.id);
     console.log("Datos editados:", editedProduct);
 
-    onSave(updatedProduct, editedProduct.id);
-    onClose();
-  };
 
+  };
   /**
  * handleOnUpload
  */
   function handleOnUpload(error, result, widget) {
+
     if (error) {
       updateError(error);
       widget.close({
@@ -102,9 +126,9 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
             {({ open }) => {
               function handleOnClick(e) {
                 e.preventDefault();
-                editedProduct.imageUrl = url;
-
+                setEdit(true);
                 open();
+
               }
               return (
                 <button onClick={handleOnClick}>
