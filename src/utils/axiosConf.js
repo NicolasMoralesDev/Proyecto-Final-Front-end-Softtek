@@ -5,8 +5,9 @@ import Cookies from 'universal-cookie';
 
 const url = ["http://localhost:8080/api/", "http://localhost:8081/api/", "http://35.199.85.239:80/api/"]
 
-// VITE_BACKEND_HOST || "localhost"
+
 const baseUrl = import.meta.env.VITE_BACKEND_HOST || url[1];
+
 const cookies = new Cookies();
 
 

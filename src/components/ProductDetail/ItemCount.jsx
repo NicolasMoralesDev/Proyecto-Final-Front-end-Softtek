@@ -4,13 +4,13 @@ import styles from './ItemCount.module.css'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { Button } from 'react-bootstrap';
 
-const ItemCount = ({ initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
   const [amount, setAmount] = useState(initial)
 
 
   const handlePlus = () => {
-    if (amount < 100){
+    if (amount < stock){
       setAmount(amount + 1);
     }
   }

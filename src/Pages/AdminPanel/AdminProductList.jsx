@@ -3,11 +3,12 @@ import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchP
 import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
-
+import styles from './Admin.module.css';
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
 import { Table } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const AdminProductList = () => {
 
@@ -18,7 +19,6 @@ const AdminProductList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getData = async () => {
-
     const data = await getAllProducts(page);
     setProducts(data.productos);
     setTotal(data.total)
@@ -26,33 +26,40 @@ const AdminProductList = () => {
 
 
   useEffect(() => {
-
     getData();
-
   }, [page])
 
   const handleModifyProduct = (product) => {
-    console.log("Modificando producto:", product);
-    console.log("stock!!!!:", product.stock);
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    console.log("Cerrando el modal");
     setIsModalOpen(false);
   };
 
   const handleSaveProduct = async (editedProduct) => {
-    // Lógica para guardar el producto editado
-    console.log("Guardando cambios para el producto con ID:", editedProduct.id);
-    console.log("Datos editados:", editedProduct);
 
     try {
       // Llama a la función updateProduct con el ID del producto y los datos editados
-      await updateProduct(editedProduct.id, editedProduct);
+      const res = await updateProduct(editedProduct);
+      console.log("res", res);
+      if (res.status == 200) {
+        Swal.fire({
+          title: 'Producto modificado',
+          text: `El producto ${res.data.name} ha sido modificado exitosamente`,
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo modificar el producto',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
       getData();
-      console.log("Cambios guardados con éxito");
     } catch (error) {
       console.error("Error al guardar los cambios", error);
     }
@@ -71,7 +78,7 @@ const AdminProductList = () => {
   return (
     <div className="table-dashboard">
       <h1>Productos</h1>
-      <Table responsive className="table table-striped table-bordered ">
+      <Table responsive className="table table-striped table-bordered text-center">
         <thead className="thead-dark mx-2">
           <tr>
             <th>Id</th>
@@ -82,25 +89,23 @@ const AdminProductList = () => {
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
-            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
 
-            <tr key={uuidv4()}>
+            <tr key={uuidv4()} >
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>
               <img src={product.imageUrl} alt={product.name} className="w-25"/>
               </td>
               <td>{product.brand}</td>
-              <td>{product.description}</td>
+              <td className={styles.rowList}>{product.description}</td>
               <td>{product.category}</td>
-              <td>${product.price}</td>
+              <td className="fw-bold text-center">${product.price}</td>
               <td>{product.stock}</td>
-              <td>{product.status}</td>
               <td  className="p-3 d-flex gap-2 flex-wrap">
 
                 <button
