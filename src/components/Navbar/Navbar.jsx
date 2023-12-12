@@ -2,6 +2,7 @@ import { Col, Row } from "react-bootstrap"
 import CartWidget from "./CartWidget/CartWidget"
 import SearchBar from "./SearchBar/SearchBar"
 import UserWidget from "./UserWidget/UserWidget"
+import RegisterWidget from "./UserWidget/RegisterWidget"
 import NavbarLinks from "./NavbarLinks/NavbarLinks"
 import logo from "./../../assets/logotienda.png";
 import { Link } from "react-router-dom";
@@ -24,6 +25,7 @@ const Navbar = () => {
           <SearchBar />
         </Col>
         <Col xs={10} md={5} className="d-flex gap-3 justify-content-center">
+          <RegisterWidget/>
           <UserWidget />
           <CartWidget />
         </Col>

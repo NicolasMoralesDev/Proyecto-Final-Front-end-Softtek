@@ -25,7 +25,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center m-2">
-          <p className="fs-6">(c) Copyright 2023 TecnoTienda. All rights reserved</p>
+          <p className="fs-6">© Copyright 2023 TecnoTienda. All rights reserved</p>
         </div>
 
       </div>
