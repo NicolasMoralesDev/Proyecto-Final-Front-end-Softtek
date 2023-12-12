@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/prop-types */
+import { useState, useEffect } from 'react';
 import UploadWidget from '../../components/cloundinary/UploadWidget';
 
 const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
@@ -55,12 +56,6 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
       onSave(updatedProduct, editedProduct.id);
       onClose();
     }
-
-
-    console.log("Guardando cambios para el producto con ID:", editedProduct.id);
-    console.log("Datos editados:", editedProduct);
-
-
   };
   /**
  * handleOnUpload
@@ -128,7 +123,6 @@ const AdminUpdateProductModal = ({ product, onClose, onSave }) => {
                 e.preventDefault();
                 setEdit(true);
                 open();
-
               }
               return (
                 <button onClick={handleOnClick}>
