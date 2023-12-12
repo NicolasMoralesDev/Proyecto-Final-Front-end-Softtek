@@ -1,5 +1,4 @@
 import Table from 'react-bootstrap/Table';
-import Mp from '../../assets/mercado-pago.svg';
 import { useCart, useUser } from '../../context/Hooks';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
@@ -13,6 +12,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import styles from './TableCheckout.module.css';
 import { PacmanLoader } from "react-spinners"
+import Mp from "../../assets/mercado-pago.svg";
 
 const TableCheckout = () => {
 
@@ -177,11 +177,21 @@ const CheckoutModal = () => {
                 title: 'Compra realizada con éxito',
                 text: `El id de tu compra es ${response.data.id}`,
                 icon: 'success',
-                confirmButtonText: 'Ok',
+                confirmButtonText: 'Pagar con Mercado Pago',
+                // Color del confirm button: mercado pago (azul)
+                confirmButtonColor: '#009EE3',
+                showCancelButton: true,
+                cancelButtonText: 'Seguir comprando',
+                iconHtml: `<img src=${Mp} style="width: 20px; height: 20px;"/>`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  enviarPago();
+                  clearCart();
+                } else {
+                    clearCart();
+                    navigate('/');
+                }
             });
-            
-            clearCart();
-            navigate('/');
         } else {
             Swal.fire({
                 title: 'Error',
@@ -193,9 +203,8 @@ const CheckoutModal = () => {
     }
 
     const handleSubmit = (values) => {
-        setLoading(true);
-       enviarPago();
-        const shippingData = prepareShippingData(values);
+      setLoading(true);
+      const shippingData = prepareShippingData(values); 
         sendSaleRequest(shippingData)
           .then((res) => handleResponse(res))
     }
@@ -271,7 +280,7 @@ const CheckoutModal = () => {
         </div>
         <div className="d-flex justify-content-center">
           <Button type="submit" className="me-2 success fw-bold">
-        Pagar Mercado Pago <img src={Mp} alt='mercado pago icon' />
+        Generar ticket 
         </Button>
         </div>
       </Form>

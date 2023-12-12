@@ -3,7 +3,7 @@ import { getAllProducts, deleteProduct, updateProduct } from "../../utils/fetchP
 import { PaginationContext } from "../../context/PaginationContext";
 import { v4 as uuidv4 } from 'uuid';
 import PaginationProducts from "../../components/ProductList/PaginationProduts/PaginationProduts";
-import styles from './admin.module.css';
+import styles from './Admin.module.css';
 import AdminUpdateProductModal from "./AdminUpdateProductModal";
 
 import Modal from "../../components/Modal/Modal"
