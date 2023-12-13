@@ -1,0 +1,10 @@
+.fixedImages {
+  width: 150px; 
+  height: 150px;
+  object-fit: cover;
+}
+
+.selected{
+  transform: scale(1.05); 
+  transition: transform 0.2s ease-in-out;
+}

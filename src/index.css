@@ -1,7 +1,16 @@
-:root{
+* {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+:root {
   margin: 0;
   padding: 0;
-  min-height: 100vh!important;
+  min-height: 100vh !important;
 }
 
 p {
@@ -9,12 +18,12 @@ p {
   margin: 0;
 }
 
-.btn-orange-custom{
+.btn-orange-custom {
   background-color: rgb(239, 156, 2);
 }
 
 /* Body minheith 100vh */
 body {
-  
+
   background-color: #f5f5f5;
 }

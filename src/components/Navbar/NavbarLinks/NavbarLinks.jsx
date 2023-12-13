@@ -1,9 +1,8 @@
-import { NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavbarLinks = () => {
   return (
-    <nav className='navbar navbar-expand-lg text-light' style={{backgroundColor: "gray"}}>
+    <nav className='navbar navbar-expand-lg text-light mt-2' style={{backgroundColor: "gray"}}>
         <button
           className='navbar-toggler'
           type='button'
@@ -19,13 +18,8 @@ const NavbarLinks = () => {
         <div className='collapse navbar-collapse' id='navbarNav'>
           <ul className='navbar-nav mx-auto'>
           <li className='nav-item  text-center mx-2'>
-              <NavLink className='nav-link mx-5 link-light fw-bold' to='/'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='/'>
                 Home
-              </NavLink>
-            </li>
-            <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5 link-light fw-bold' to='/productos'>
-                Productos
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
@@ -34,7 +28,7 @@ const NavbarLinks = () => {
               </Link>
             </li>
             <li className='nav-item text-center mx-2'>
-              <Link className='nav-link mx-5 link-light fw-bold' to='#'>
+              <Link className='nav-link mx-5 link-light fw-bold' to='/ayuda'>
                 Ayuda
               </Link>
             </li>

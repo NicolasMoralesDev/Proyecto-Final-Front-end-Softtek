@@ -13,6 +13,8 @@ const CartWidget = () => {
   useEffect(() => {
     if (cart.length > 0) {
       setTotalProducts(cart.length);
+    } else {
+      setTotalProducts(0);
     }
   }, [cart])
 
@@ -26,7 +28,7 @@ const CartWidget = () => {
         <div className="d-flex flex-column">
           <CardCart />
 
-          <a className='btn btn-success m-2 fw-bold' href='/carrito'>terminar compra</a>
+          <a className='btn btn-success m-2 fw-bold' href='/carrito'>Terminar compra</a>
         </div>
 
 

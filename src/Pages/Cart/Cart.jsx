@@ -1,7 +1,5 @@
-
-import React from 'react'
 import { Helmet } from 'react-helmet'
-import TableCheckout from '../components/CartPage/TableCheckout'
+import TableCheckout from '../../components/CartPage/TableCheckout'
 
 const Cart = () => {
     return (
@@ -10,6 +8,7 @@ const Cart = () => {
                 <meta charSet="utf-8" />
                 <title>carrito</title>
                 <link rel="canonical" href="http://mysite.com/example" />
+                <meta name="description" content="Crear orden." />
             </Helmet>
             <TableCheckout />
         </>

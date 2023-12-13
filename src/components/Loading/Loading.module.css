@@ -1,0 +1,9 @@
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 250px);
+    width: 100%;
+    opacity: 0.8;
+}
+
